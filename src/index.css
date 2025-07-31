@@ -47,7 +47,7 @@
     --stragy-gray-text: 0 0% 39%;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(272 48% 75%), hsl(337 64% 83%));
+    --gradient-hero: linear-gradient(135deg, #b78dfc, #fcb3d2);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;

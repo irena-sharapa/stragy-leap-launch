@@ -38,12 +38,12 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen font-inter">
+    <div className="min-h-screen font-inter bg-gradient-hero">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <div className="text-2xl font-bold text-stragy-dark-text">
+            <div className="text-2xl font-bold text-white">
               STRAGY
             </div>
             <Button 
@@ -57,14 +57,26 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-hero py-20 px-4">
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <h1 className="text-4xl lg:text-5xl font-bold text-stragy-dark-text leading-tight">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            {/* Logo Image */}
+            <div className="lg:col-span-3 flex justify-center lg:justify-start">
+              <div className="w-48 h-48 lg:w-64 lg:h-64">
+                <img 
+                  src="/stragy.png" 
+                  alt="STRAGY Logo"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+            
+            {/* Text Content */}
+            <div className="lg:col-span-5 space-y-8">
+              <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
                 STRAGY — ваш личный помощник по маркетингу
               </h1>
-              <p className="text-lg text-stragy-gray-text leading-relaxed">
+              <p className="text-lg text-white/90 leading-relaxed">
                 STRAGY — это умная SaaS-платформа, которая разработает маркетинговую стратегию с пошаговым планом 
                 (как, где и что именно делать), чтобы добиться именно твоих маркетинг и бизнес целей, составит 
                 бюджет, проанализирует конкурентов.
@@ -77,7 +89,9 @@ const Index = () => {
                 Попробовать бесплатно
               </Button>
             </div>
-            <div className="relative">
+            
+            {/* Dashboard Image */}
+            <div className="lg:col-span-4 relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-2xl">
                 <img 
                   src="/lovable-uploads/bf46a8fd-1dce-4003-ba57-af527f082346.png" 
@@ -91,21 +105,21 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="border-0 shadow-lg rounded-2xl">
+              <Card key={index} className="border-0 shadow-xl rounded-3xl bg-white/20 backdrop-blur-md hover:bg-white/25 transition-all duration-300">
                 <CardContent className="p-8">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-stragy-purple/10 p-3 rounded-xl">
-                      <feature.icon className="w-6 h-6 text-stragy-purple" />
+                  <div className="flex items-start space-x-6">
+                    <div className="bg-white/30 p-4 rounded-2xl backdrop-blur-sm">
+                      <feature.icon className="w-8 h-8 text-white" />
                     </div>
-                    <div className="space-y-3">
-                      <h3 className="font-semibold text-stragy-dark-text text-lg">
+                    <div className="space-y-4 flex-1">
+                      <h3 className="font-bold text-white text-xl leading-tight">
                         {feature.title}
                       </h3>
-                      <p className="text-stragy-gray-text leading-relaxed">
+                      <p className="text-white/90 leading-relaxed text-base">
                         {feature.description}
                       </p>
                     </div>
@@ -118,29 +132,29 @@ const Index = () => {
       </section>
 
       {/* Target Audience Section */}
-      <section className="py-20 px-4 bg-stragy-light-pink">
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-stragy-dark-text text-center mb-12">
+          <h2 className="text-3xl font-bold text-white text-center mb-12">
             Для кого STRAGY
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="border-0 shadow-lg rounded-2xl bg-white">
+            <Card className="border-0 shadow-xl rounded-3xl bg-white/20 backdrop-blur-md hover:bg-white/25 transition-all duration-300">
               <CardContent className="p-8">
-                <h3 className="text-xl font-semibold text-stragy-dark-text mb-4">
+                <h3 className="text-xl font-bold text-white mb-4">
                   Для маркетологов
                 </h3>
-                <p className="text-stragy-gray-text leading-relaxed">
+                <p className="text-white/90 leading-relaxed">
                   От новичков до профессионалов. Экономьте до 70% времени, будьте в курсе новинок, 
                   оптимизируйте кампании.
                 </p>
               </CardContent>
             </Card>
-            <Card className="border-0 shadow-lg rounded-2xl bg-white">
+            <Card className="border-0 shadow-xl rounded-3xl bg-white/20 backdrop-blur-md hover:bg-white/25 transition-all duration-300">
               <CardContent className="p-8">
-                <h3 className="text-xl font-semibold text-stragy-dark-text mb-4">
+                <h3 className="text-xl font-bold text-white mb-4">
                   Для владельцев бизнеса
                 </h3>
-                <p className="text-stragy-gray-text leading-relaxed">
+                <p className="text-white/90 leading-relaxed">
                   Получите стратегию без затрат на найм специалистов, сосредоточьтесь на росте бизнеса.
                 </p>
               </CardContent>
@@ -150,18 +164,18 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white py-12 px-4 border-t">
+      <footer className="py-12 px-4 border-t border-white/20">
         <div className="max-w-7xl mx-auto text-center space-y-4">
-          <div className="flex justify-center space-x-8 text-sm text-stragy-gray-text">
+          <div className="flex justify-center space-x-8 text-sm text-white/80">
             <button 
               onClick={() => setPrivacyDialogOpen(true)}
-              className="hover:text-primary transition-colors"
+              className="hover:text-white transition-colors"
             >
               Политика конфиденциальности
             </button>
             <a 
               href="mailto:hello@stragy.com" 
-              className="hover:text-primary transition-colors"
+              className="hover:text-white transition-colors"
             >
               hello@stragy.com
             </a>

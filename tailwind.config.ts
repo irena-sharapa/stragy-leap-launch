@@ -18,6 +18,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'inter': ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,7 +64,17 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				'stragy': {
+					'purple': 'hsl(var(--stragy-purple))',
+					'pink': 'hsl(var(--stragy-pink))',
+					'light-pink': 'hsl(var(--stragy-light-pink))',
+					'dark-text': 'hsl(var(--stragy-dark-text))',
+					'gray-text': 'hsl(var(--stragy-gray-text))',
 				}
+			},
+			backgroundImage: {
+				'gradient-hero': 'var(--gradient-hero)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -38,12 +38,12 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen font-inter">
+    <div className="min-h-screen font-inter bg-gradient-main">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-white/10 backdrop-blur-sm shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <div className="text-2xl font-bold text-stragy-dark-text">
+            <div className="text-2xl font-bold text-white">
               STRAGY
             </div>
             <Button 
@@ -57,14 +57,14 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-hero py-20 px-4">
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <h1 className="text-4xl lg:text-5xl font-bold text-stragy-dark-text leading-tight">
+              <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
                 STRAGY — ваш личный помощник по маркетингу
               </h1>
-              <p className="text-lg text-stragy-gray-text leading-relaxed">
+              <p className="text-lg text-white/90 leading-relaxed">
                 STRAGY — это умная SaaS-платформа, которая разработает маркетинговую стратегию с пошаговым планом 
                 (как, где и что именно делать), чтобы добиться именно твоих маркетинг и бизнес целей, составит 
                 бюджет, проанализирует конкурентов.
@@ -91,11 +91,11 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="border-0 shadow-lg rounded-2xl">
+              <Card key={index} className="border-0 shadow-lg rounded-2xl bg-white/20 backdrop-blur-sm">
                 <CardContent className="p-8">
                   <div className="flex items-start space-x-4">
                     <div className="bg-stragy-purple/10 p-3 rounded-xl">
@@ -118,13 +118,13 @@ const Index = () => {
       </section>
 
       {/* Target Audience Section */}
-      <section className="py-20 px-4 bg-stragy-light-pink">
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-stragy-dark-text text-center mb-12">
+          <h2 className="text-3xl font-bold text-white text-center mb-12">
             Для кого STRAGY
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="border-0 shadow-lg rounded-2xl bg-white">
+            <Card className="border-0 shadow-lg rounded-2xl bg-white/20 backdrop-blur-sm">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold text-stragy-dark-text mb-4">
                   Для маркетологов
@@ -135,7 +135,7 @@ const Index = () => {
                 </p>
               </CardContent>
             </Card>
-            <Card className="border-0 shadow-lg rounded-2xl bg-white">
+            <Card className="border-0 shadow-lg rounded-2xl bg-white/20 backdrop-blur-sm">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold text-stragy-dark-text mb-4">
                   Для владельцев бизнеса
@@ -150,7 +150,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white py-12 px-4 border-t">
+      <footer className="bg-white/10 backdrop-blur-sm py-12 px-4 border-t border-white/20">
         <div className="max-w-7xl mx-auto text-center space-y-4">
           <div className="flex justify-center space-x-8 text-sm text-stragy-gray-text">
             <button 

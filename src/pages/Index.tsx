@@ -38,9 +38,9 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen font-inter">
+    <div className="min-h-screen font-inter bg-gradient-hero">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="text-2xl font-bold text-stragy-dark-text">
@@ -57,7 +57,7 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-hero py-20 px-4">
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
@@ -91,11 +91,11 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="border-0 shadow-lg rounded-2xl">
+              <Card key={index} className="border-0 shadow-lg rounded-2xl bg-white/90 backdrop-blur-sm">
                 <CardContent className="p-8">
                   <div className="flex items-start space-x-4">
                     <div className="bg-stragy-purple/10 p-3 rounded-xl">
@@ -118,13 +118,13 @@ const Index = () => {
       </section>
 
       {/* Target Audience Section */}
-      <section className="py-20 px-4 bg-stragy-light-pink">
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-stragy-dark-text text-center mb-12">
             Для кого STRAGY
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="border-0 shadow-lg rounded-2xl bg-white">
+            <Card className="border-0 shadow-lg rounded-2xl bg-white/90 backdrop-blur-sm">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold text-stragy-dark-text mb-4">
                   Для маркетологов
@@ -135,7 +135,7 @@ const Index = () => {
                 </p>
               </CardContent>
             </Card>
-            <Card className="border-0 shadow-lg rounded-2xl bg-white">
+            <Card className="border-0 shadow-lg rounded-2xl bg-white/90 backdrop-blur-sm">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold text-stragy-dark-text mb-4">
                   Для владельцев бизнеса
@@ -150,18 +150,18 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white py-12 px-4 border-t">
+      <footer className="py-12 px-4 border-t border-white/20">
         <div className="max-w-7xl mx-auto text-center space-y-4">
           <div className="flex justify-center space-x-8 text-sm text-stragy-gray-text">
             <button 
               onClick={() => setPrivacyDialogOpen(true)}
-              className="hover:text-primary transition-colors"
+              className="hover:text-white transition-colors"
             >
               Политика конфиденциальности
             </button>
             <a 
               href="mailto:hello@stragy.com" 
-              className="hover:text-primary transition-colors"
+              className="hover:text-white transition-colors"
             >
               hello@stragy.com
             </a>

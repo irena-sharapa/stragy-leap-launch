@@ -59,8 +59,20 @@ const Index = () => {
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            {/* Logo Image */}
+            <div className="lg:col-span-3 flex justify-center lg:justify-start">
+              <div className="w-48 h-48 lg:w-64 lg:h-64">
+                <img 
+                  src="/stragy.png" 
+                  alt="STRAGY Logo"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+            
+            {/* Text Content */}
+            <div className="lg:col-span-5 space-y-8">
               <h1 className="text-4xl lg:text-5xl font-bold text-stragy-dark-text leading-tight">
                 STRAGY — ваш личный помощник по маркетингу
               </h1>
@@ -77,7 +89,9 @@ const Index = () => {
                 Попробовать бесплатно
               </Button>
             </div>
-            <div className="relative">
+            
+            {/* Dashboard Image */}
+            <div className="lg:col-span-4 relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-2xl">
                 <img 
                   src="/lovable-uploads/bf46a8fd-1dce-4003-ba57-af527f082346.png" 

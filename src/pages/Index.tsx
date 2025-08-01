@@ -38,9 +38,9 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen font-inter">
+    <div className="min-h-screen font-inter bg-gradient-hero">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="text-2xl font-bold text-stragy-dark-text">
@@ -57,7 +57,7 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-hero py-20 px-4">
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
@@ -91,21 +91,21 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="border-0 shadow-lg rounded-2xl">
+              <Card key={index} className="border-0 shadow-lg rounded-2xl bg-white/20 backdrop-blur-sm">
                 <CardContent className="p-8">
                   <div className="flex items-start space-x-4">
-                    <div className="bg-stragy-purple/10 p-3 rounded-xl">
-                      <feature.icon className="w-6 h-6 text-stragy-purple" />
+                    <div className="bg-white/20 p-3 rounded-xl">
+                      <feature.icon className="w-6 h-6 text-stragy-dark-text" />
                     </div>
                     <div className="space-y-3">
                       <h3 className="font-semibold text-stragy-dark-text text-lg">
                         {feature.title}
                       </h3>
-                      <p className="text-stragy-gray-text leading-relaxed">
+                      <p className="text-stragy-dark-text/80 leading-relaxed">
                         {feature.description}
                       </p>
                     </div>
@@ -118,29 +118,29 @@ const Index = () => {
       </section>
 
       {/* Target Audience Section */}
-      <section className="py-20 px-4 bg-stragy-light-pink">
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-stragy-dark-text text-center mb-12">
             Для кого STRAGY
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="border-0 shadow-lg rounded-2xl bg-white">
+            <Card className="border-0 shadow-lg rounded-2xl bg-white/20 backdrop-blur-sm">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold text-stragy-dark-text mb-4">
                   Для маркетологов
                 </h3>
-                <p className="text-stragy-gray-text leading-relaxed">
+                <p className="text-stragy-dark-text/80 leading-relaxed">
                   От новичков до профессионалов. Экономьте до 70% времени, будьте в курсе новинок, 
                   оптимизируйте кампании.
                 </p>
               </CardContent>
             </Card>
-            <Card className="border-0 shadow-lg rounded-2xl bg-white">
+            <Card className="border-0 shadow-lg rounded-2xl bg-white/20 backdrop-blur-sm">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold text-stragy-dark-text mb-4">
                   Для владельцев бизнеса
                 </h3>
-                <p className="text-stragy-gray-text leading-relaxed">
+                <p className="text-stragy-dark-text/80 leading-relaxed">
                   Получите стратегию без затрат на найм специалистов, сосредоточьтесь на росте бизнеса.
                 </p>
               </CardContent>
@@ -150,18 +150,18 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white py-12 px-4 border-t">
+      <footer className="bg-transparent py-12 px-4">
         <div className="max-w-7xl mx-auto text-center space-y-4">
-          <div className="flex justify-center space-x-8 text-sm text-stragy-gray-text">
+          <div className="flex justify-center space-x-8 text-sm text-stragy-dark-text">
             <button 
               onClick={() => setPrivacyDialogOpen(true)}
-              className="hover:text-primary transition-colors"
+              className="hover:text-white transition-colors"
             >
               Политика конфиденциальности
             </button>
             <a 
               href="mailto:hello@stragy.com" 
-              className="hover:text-primary transition-colors"
+              className="hover:text-white transition-colors"
             >
               hello@stragy.com
             </a>

@@ -68,7 +68,7 @@ export const EmailDialog = ({ open, onOpenChange }: EmailDialogProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md font-inter">
+      <DialogContent className="sm:max-w-2xl max-w-4xl font-inter p-8">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-stragy-dark-text">
             Получить доступ к STRAGY

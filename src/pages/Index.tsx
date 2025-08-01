@@ -43,7 +43,7 @@ const Index = () => {
       <header className="bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <div className="text-2xl font-bold text-stragy-dark-text">
+            <div className="text-3xl font-bold text-stragy-dark-text">
               STRAGY
             </div>
             <Button 
@@ -82,7 +82,7 @@ const Index = () => {
                 <img 
                   src="/lovable-uploads/bf46a8fd-1dce-4003-ba57-af527f082346.png" 
                   alt="STRAGY Dashboard"
-                  className="w-full rounded-2xl"
+                  className="w-[70%] rounded-2xl mx-auto"
                 />
               </div>
             </div>

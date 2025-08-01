@@ -46,6 +46,7 @@ export const EmailDialog = ({ open, onOpenChange }: EmailDialogProps) => {
       toast({
         title: "Успешно!",
         description: "Проверьте почту - мы отправили инструкции для доступа к STRAGY",
+        className: "fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-32 text-lg z-50",
       });
       
       setEmail("");
@@ -56,6 +57,7 @@ export const EmailDialog = ({ open, onOpenChange }: EmailDialogProps) => {
       toast({
         title: "Заявка принята!",
         description: "Мы свяжемся с вами в ближайшее время",
+        className: "fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-32 text-lg z-50",
       });
       
       setEmail("");

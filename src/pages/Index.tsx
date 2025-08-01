@@ -61,14 +61,23 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <h1 className="text-4xl lg:text-5xl font-bold text-stragy-dark-text leading-tight">
-                STRAGY — ваш личный помощник по маркетингу
+              <h1 className="text-3xl lg:text-4xl font-bold text-stragy-dark-text leading-tight">
+                STRAGY. Один сервис — весь маркетинг
               </h1>
-              <p className="text-lg text-stragy-gray-text leading-relaxed">
-                STRAGY — это умная SaaS-платформа, которая разработает маркетинговую стратегию с пошаговым планом 
-                (как, где и что именно делать), чтобы добиться именно твоих маркетинг и бизнес целей, составит 
-                бюджет, проанализирует конкурентов.
-              </p>
+              <div className="space-y-4">
+                <p className="text-base text-stragy-gray-text leading-relaxed">
+                  STRAGY — умная SaaS-платформа для создания маркетинговой стратегии в несколько кликов.
+                </p>
+                <div className="text-sm text-stragy-dark-text space-y-2">
+                  <p className="font-medium">Вы получите:</p>
+                  <div className="space-y-1 pl-4">
+                    <p><span className="font-medium">Глубокий анализ данных:</span> Точные сведения о рынке, конкурентах и бенчмарках, чтобы принимать взвешенные решения.</p>
+                    <p><span className="font-medium">Точный расчёт бюджета:</span> Узнайте, как оптимально распределить средства для максимальной отдачи от каждой рекламной кампании.</p>
+                    <p><span className="font-medium">Детальный план действий:</span> Пошаговая дорожная карта для запуска и настройки каждого рекламного канала.</p>
+                    <p><span className="font-medium">Своевременные уведомления:</span> Наша система отслеживает изменения на рынке и у конкурентов, чтобы вы могли оперативно корректировать стратегию.</p>
+                  </div>
+                </div>
+              </div>
               <Button 
                 onClick={() => setEmailDialogOpen(true)}
                 size="lg" 

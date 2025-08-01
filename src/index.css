@@ -46,8 +46,8 @@
     --stragy-dark-text: 216 100% 12%;
     --stragy-gray-text: 0 0% 39%;
 
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, #c8a8ff 0%, #f0e6ff 35%, #fdf2f8 70%, #fff7ed 100%);
+    /* Background */
+    --hero-background: url('./assets/hero-background.png');
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;

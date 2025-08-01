@@ -38,7 +38,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen font-inter bg-gradient-hero">
+    <div className="min-h-screen font-inter bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(/lovable-uploads/35722fd0-37d9-4aae-b7f1-bf47541e3125.png)'}}>
       {/* Header */}
       <header className="bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,15 +76,6 @@ const Index = () => {
               >
                 Попробовать бесплатно
               </Button>
-            </div>
-            <div className="relative">
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-2xl">
-                <img 
-                  src="/lovable-uploads/bf46a8fd-1dce-4003-ba57-af527f082346.png" 
-                  alt="STRAGY Dashboard"
-                  className="w-[70%] rounded-2xl mx-auto"
-                />
-              </div>
             </div>
           </div>
         </div>

@@ -59,17 +59,17 @@ const Index = () => {
       {/* Hero Section */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col items-center space-y-8">
-            <h1 className="text-3xl lg:text-4xl font-bold text-stragy-dark-text leading-tight text-center">
-              STRAGY. Один сервис — весь маркетинг
+          <div className="flex flex-col items-start space-y-8 max-w-2xl">
+            <h1 className="text-3xl lg:text-4xl font-bold text-stragy-dark-text leading-tight">
+              STRAGY. ОДИН СЕРВИС - ВЕСЬ МАРКЕТИНГ
             </h1>
-            <div className="space-y-4 max-w-4xl text-left">
-              <p className="text-base text-stragy-gray-text leading-relaxed">
+            <div className="space-y-4">
+              <p className="text-stragy-dark-text/80 leading-relaxed">
                 STRAGY — умная SaaS-платформа для создания маркетинговой стратегии в несколько кликов.
               </p>
-              <div className="text-base text-stragy-gray-text space-y-3">
+              <div className="text-stragy-dark-text/80 space-y-3">
                 <p className="font-medium">Вы получите:</p>
-                <ul className="space-y-2 list-disc list-inside max-w-3xl">
+                <ul className="space-y-2 list-disc list-inside">
                   <li><span className="font-medium text-stragy-dark-text">Глубокий анализ данных:</span> Точные сведения о рынке, конкурентах и бенчмарках, чтобы принимать взвешенные решения.</li>
                   <li><span className="font-medium text-stragy-dark-text">Точный расчёт бюджета:</span> Узнайте, как оптимально распределить средства для максимальной отдачи от каждой рекламной кампании.</li>
                   <li><span className="font-medium text-stragy-dark-text">Детальный план действий:</span> Пошаговая дорожная карта для запуска и настройки каждого рекламного канала.</li>

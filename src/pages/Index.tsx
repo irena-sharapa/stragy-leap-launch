@@ -69,26 +69,24 @@ const Index = () => {
               </p>
               <div className="text-stragy-dark-text/80 space-y-3">
                 <p className="font-medium">Вы получите:</p>
-                <div className="bg-white/20 backdrop-blur-sm rounded-2xl shadow-lg p-6">
-                  <ul className="space-y-3 list-none">
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-stragy-dark-text rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Готовую маркетинговую стратегию с почасовым планом</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-stragy-dark-text rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Точный расчёт рекламного бюджета</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-stragy-dark-text rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Анализ рынка и конкурентов</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-stragy-dark-text rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Email-уведомления об изменениях на рынке и у конкурентов</span>
-                    </li>
-                  </ul>
-                </div>
+                <ul className="space-y-3 list-none">
+                  <li className="bg-white/20 backdrop-blur-sm rounded-2xl shadow-lg p-4 flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-stragy-dark-text rounded-full mt-2 flex-shrink-0"></div>
+                    <span>Готовую маркетинговую стратегию с пошаговым планом</span>
+                  </li>
+                  <li className="bg-white/20 backdrop-blur-sm rounded-2xl shadow-lg p-4 flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-stragy-dark-text rounded-full mt-2 flex-shrink-0"></div>
+                    <span>Точный расчёт рекламного бюджета</span>
+                  </li>
+                  <li className="bg-white/20 backdrop-blur-sm rounded-2xl shadow-lg p-4 flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-stragy-dark-text rounded-full mt-2 flex-shrink-0"></div>
+                    <span>Анализ рынка и конкурентов</span>
+                  </li>
+                  <li className="bg-white/20 backdrop-blur-sm rounded-2xl shadow-lg p-4 flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-stragy-dark-text rounded-full mt-2 flex-shrink-0"></div>
+                    <span>Email-уведомления об изменениях на рынке и у конкурентов</span>
+                  </li>
+                </ul>
               </div>
             </div>
             <Button 

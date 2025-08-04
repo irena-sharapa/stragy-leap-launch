@@ -70,10 +70,10 @@ const Index = () => {
               <div className="text-stragy-dark-text/80 space-y-3">
                 <p className="font-medium">Вы получите:</p>
                 <ul className="space-y-2 list-disc list-inside">
-                  <li><span className="font-medium text-stragy-dark-text">Глубокий анализ данных:</span> Точные сведения о рынке, конкурентах и бенчмарках, чтобы принимать взвешенные решения.</li>
-                  <li><span className="font-medium text-stragy-dark-text">Точный расчёт бюджета:</span> Узнайте, как оптимально распределить средства для максимальной отдачи от каждой рекламной кампании.</li>
-                  <li><span className="font-medium text-stragy-dark-text">Детальный план действий:</span> Пошаговая дорожная карта для запуска и настройки каждого рекламного канала.</li>
-                  <li><span className="font-medium text-stragy-dark-text">Своевременные уведомления:</span> Наша система отслеживает изменения на рынке и у конкурентов, чтобы вы могли оперативно корректировать стратегию.</li>
+                  <li>Готовую маркетинговую стратегию с почасовым планом</li>
+                  <li>Точный расчёт рекламного бюджета</li>
+                  <li>Анализ рынка и конкурентов</li>
+                  <li>Email-уведомления об изменениях на рынке и у конкурентов</li>
                 </ul>
               </div>
             </div>

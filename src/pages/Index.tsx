@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { EmailDialog } from "@/components/EmailDialog";
 import { PrivacyPolicy } from "@/components/PrivacyPolicy";
 import { BarChart3, Target, Settings, Calculator, TrendingUp } from "lucide-react";
+import newBackground from "@/assets/new-background.jpg";
 
 const Index = () => {
   const [emailDialogOpen, setEmailDialogOpen] = useState(false);
@@ -38,7 +39,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen font-inter bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(/lovable-uploads/35722fd0-37d9-4aae-b7f1-bf47541e3125.png)'}}>
+    <div className="min-h-screen font-inter bg-cover bg-center bg-no-repeat" style={{backgroundImage: `url(${newBackground})`}}>
       {/* Header */}
       <header className="bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -31,15 +31,14 @@ export const EmailDialog = ({ open, onOpenChange }: EmailDialogProps) => {
     setIsLoading(true);
 
     try {
-      // Отправка в Google Sheets
-      const response = await fetch("https://docs.google.com/forms/d/e/1FAIpQLSfExampleFormId/formResponse", {
+      // Отправка на API endpoint
+      const response = await fetch("http://47.84.50.135:8080/api/ai/media-plan", {
         method: "POST",
-        mode: "no-cors",
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
-        body: new URLSearchParams({
-          "entry.emailfield": email,
+        body: JSON.stringify({
+          email: email,
         }),
       });
 

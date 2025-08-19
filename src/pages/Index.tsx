@@ -4,7 +4,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { EmailDialog } from "@/components/EmailDialog";
 import { PrivacyPolicy } from "@/components/PrivacyPolicy";
 import { BarChart3, Target, Settings, Calculator, TrendingUp } from "lucide-react";
-import newBackground from "@/assets/new-background.jpg";
 
 const Index = () => {
   const [emailDialogOpen, setEmailDialogOpen] = useState(false);
@@ -39,7 +38,18 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen font-inter bg-cover bg-center bg-no-repeat" style={{backgroundImage: `url(${newBackground})`}}>
+    <div className="min-h-screen font-inter relative overflow-hidden">
+      {/* Animated video-like background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-pink-800">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent animate-pulse"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30"></div>
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute animate-bounce delay-100 top-10 left-10 w-32 h-32 bg-blue-400/10 rounded-full blur-xl"></div>
+          <div className="absolute animate-bounce delay-300 top-20 right-20 w-24 h-24 bg-purple-400/10 rounded-full blur-xl"></div>
+          <div className="absolute animate-bounce delay-500 bottom-20 left-1/3 w-40 h-40 bg-pink-400/10 rounded-full blur-xl"></div>
+        </div>
+      </div>
+      <div className="relative z-10">
       {/* Header */}
       <header className="bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -189,6 +199,7 @@ const Index = () => {
         open={privacyDialogOpen} 
         onOpenChange={setPrivacyDialogOpen} 
       />
+      </div>
     </div>
   );
 };

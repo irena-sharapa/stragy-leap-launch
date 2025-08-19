@@ -51,7 +51,6 @@ const Index = () => {
         >
           <source src={finalVideo} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black/30"></div>
       </div>
       <div className="relative z-10">
       {/* Header */}

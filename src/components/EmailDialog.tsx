@@ -32,7 +32,7 @@ export const EmailDialog = ({ open, onOpenChange }: EmailDialogProps) => {
 
     try {
       // Отправка на API endpoint
-      const response = await fetch("http://47.84.50.135:8080/api/user/request-access", {
+      const response = await fetch("https://47.84.50.135/api/user/request-access", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

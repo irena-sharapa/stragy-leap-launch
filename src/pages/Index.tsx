@@ -3,40 +3,20 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { EmailDialog } from "@/components/EmailDialog";
 import { PrivacyPolicy } from "@/components/PrivacyPolicy";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { BarChart3, Target, Settings, Calculator, TrendingUp } from "lucide-react";
 import finalVideo from "@/assets/final.mp4";
+import { useLanguage } from "@/hooks/useLanguage";
+import { getTranslations } from "@/lib/translations";
 
 const Index = () => {
   const [emailDialogOpen, setEmailDialogOpen] = useState(false);
   const [privacyDialogOpen, setPrivacyDialogOpen] = useState(false);
+  
+  const { currentLang } = useLanguage();
+  const t = getTranslations(currentLang);
 
-  const features = [
-    {
-      icon: BarChart3,
-      title: "Глубокий анализ рынка и конкурентов",
-      description: "Получите мгновенный доступ к актуальной информации о продуктах, ценах и ассортименте ваших конкурентов..."
-    },
-    {
-      icon: Target,
-      title: "Четкий путь клиента, пошаговые инструкции",
-      description: "STRAGY определит, где находится ваш клиент, и предоставит четкий план действий от первого контакта до повторной покупки."
-    },
-    {
-      icon: Settings,
-      title: "Точные настройки рекламных инструментов",
-      description: "Подбор параметров и рекомендаций для лучших рекламных каналов под цели вашего бизнеса."
-    },
-    {
-      icon: Calculator,
-      title: "Прозрачное бюджетирование",
-      description: "STRAGY подскажет, сколько потратить на каждую кампанию и запуск."
-    },
-    {
-      icon: TrendingUp,
-      title: "Актуальность и эффективность",
-      description: "Мы анализируем только самые эффективные и свежие инструменты."
-    }
-  ];
+  const featureIcons = [BarChart3, Target, Settings, Calculator, TrendingUp];
 
   return (
     <div className="min-h-screen font-inter relative overflow-hidden">
@@ -60,12 +40,15 @@ const Index = () => {
             <div className="text-3xl font-bold text-stragy-dark-text">
               STRAGY
             </div>
-            <Button 
-              onClick={() => setEmailDialogOpen(true)}
-              className="rounded-2xl h-10 px-6 font-medium"
-            >
-              Попробовать бесплатно
-            </Button>
+            <div className="flex items-center gap-4">
+              <LanguageSwitcher />
+              <Button 
+                onClick={() => setEmailDialogOpen(true)}
+                className="rounded-2xl h-10 px-6 font-medium"
+              >
+                {t.header.tryFree}
+              </Button>
+            </div>
           </div>
         </div>
       </header>
@@ -75,31 +58,21 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col items-start space-y-8 max-w-2xl">
             <h1 className="text-3xl lg:text-4xl font-bold text-stragy-dark-text leading-tight">
-              STRAGY. ОДИН СЕРВИС - ВЕСЬ МАРКЕТИНГ
+              {t.hero.title}
             </h1>
             <div className="space-y-4">
               <p className="text-stragy-dark-text/80 leading-relaxed">
-                STRAGY — умная SaaS-платформа для создания маркетинговой стратегии в несколько кликов.
+                {t.hero.subtitle}
               </p>
               <div className="text-stragy-dark-text/80 space-y-3">
-                <p className="font-medium">Вы получите:</p>
+                <p className="font-medium">{t.hero.benefits.title}</p>
                 <ul className="space-y-3 list-none">
-                  <li className="bg-white/20 backdrop-blur-sm rounded-2xl shadow-lg p-4 flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-stragy-dark-text rounded-full mt-2 flex-shrink-0"></div>
-                    <span>Готовую маркетинговую стратегию с пошаговым планом</span>
-                  </li>
-                  <li className="bg-white/20 backdrop-blur-sm rounded-2xl shadow-lg p-4 flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-stragy-dark-text rounded-full mt-2 flex-shrink-0"></div>
-                    <span>Точный расчёт рекламного бюджета</span>
-                  </li>
-                  <li className="bg-white/20 backdrop-blur-sm rounded-2xl shadow-lg p-4 flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-stragy-dark-text rounded-full mt-2 flex-shrink-0"></div>
-                    <span>Анализ рынка и конкурентов</span>
-                  </li>
-                  <li className="bg-white/20 backdrop-blur-sm rounded-2xl shadow-lg p-4 flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-stragy-dark-text rounded-full mt-2 flex-shrink-0"></div>
-                    <span>Email-уведомления об изменениях на рынке и у конкурентов</span>
-                  </li>
+                  {t.hero.benefits.items.map((item, index) => (
+                    <li key={index} className="bg-white/20 backdrop-blur-sm rounded-2xl shadow-lg p-4 flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-stragy-dark-text rounded-full mt-2 flex-shrink-0"></div>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -108,7 +81,7 @@ const Index = () => {
               size="lg" 
               className="rounded-2xl h-12 px-8 text-base font-medium"
             >
-              Попробовать бесплатно
+              {t.header.tryFree}
             </Button>
           </div>
         </div>
@@ -118,25 +91,28 @@ const Index = () => {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="border-0 shadow-lg rounded-2xl bg-white/20 backdrop-blur-sm">
-                <CardContent className="p-8">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-white/20 p-3 rounded-xl">
-                      <feature.icon className="w-6 h-6 text-stragy-dark-text" />
+            {t.features.items.map((feature, index) => {
+              const Icon = featureIcons[index] || BarChart3;
+              return (
+                <Card key={index} className="border-0 shadow-lg rounded-2xl bg-white/20 backdrop-blur-sm">
+                  <CardContent className="p-8">
+                    <div className="flex items-start space-x-4">
+                      <div className="bg-white/20 p-3 rounded-xl">
+                        <Icon className="w-6 h-6 text-stragy-dark-text" />
+                      </div>
+                      <div className="space-y-3">
+                        <h3 className="font-semibold text-stragy-dark-text text-lg">
+                          {feature.title}
+                        </h3>
+                        <p className="text-stragy-dark-text/80 leading-relaxed">
+                          {feature.description}
+                        </p>
+                      </div>
                     </div>
-                    <div className="space-y-3">
-                      <h3 className="font-semibold text-stragy-dark-text text-lg">
-                        {feature.title}
-                      </h3>
-                      <p className="text-stragy-dark-text/80 leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -145,27 +121,26 @@ const Index = () => {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-stragy-dark-text text-center mb-12">
-            Для кого STRAGY
+            {t.audience.title}
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="border-0 shadow-lg rounded-2xl bg-white/20 backdrop-blur-sm">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold text-stragy-dark-text mb-4">
-                  Для маркетологов
+                  {t.audience.marketers.title}
                 </h3>
                 <p className="text-stragy-dark-text/80 leading-relaxed">
-                  От новичков до профессионалов. Экономьте до 70% времени, будьте в курсе новинок, 
-                  оптимизируйте кампании.
+                  {t.audience.marketers.description}
                 </p>
               </CardContent>
             </Card>
             <Card className="border-0 shadow-lg rounded-2xl bg-white/20 backdrop-blur-sm">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold text-stragy-dark-text mb-4">
-                  Для владельцев бизнеса
+                  {t.audience.owners.title}
                 </h3>
                 <p className="text-stragy-dark-text/80 leading-relaxed">
-                  Получите стратегию без затрат на найм специалистов, сосредоточьтесь на росте бизнеса.
+                  {t.audience.owners.description}
                 </p>
               </CardContent>
             </Card>
@@ -181,7 +156,7 @@ const Index = () => {
               onClick={() => setPrivacyDialogOpen(true)}
               className="hover:text-white transition-colors"
             >
-              Политика конфиденциальности
+              {t.footer.privacy}
             </button>
             <a 
               href="mailto:hello@stragy.com" 
@@ -196,7 +171,8 @@ const Index = () => {
       {/* Dialogs */}
       <EmailDialog 
         open={emailDialogOpen} 
-        onOpenChange={setEmailDialogOpen} 
+        onOpenChange={setEmailDialogOpen}
+        translations={t}
       />
       <PrivacyPolicy 
         open={privacyDialogOpen} 

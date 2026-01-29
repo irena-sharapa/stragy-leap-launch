@@ -4,25 +4,29 @@ import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
+import { Translations } from "@/lib/translations";
 
 interface EmailDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  translations: Translations;
 }
 
-export const EmailDialog = ({ open, onOpenChange }: EmailDialogProps) => {
+export const EmailDialog = ({ open, onOpenChange, translations }: EmailDialogProps) => {
   const [email, setEmail] = useState("");
   const [isConsented, setIsConsented] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+
+  const t = translations.emailDialog;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!email || !isConsented) {
       toast({
-        title: "Ошибка",
-        description: "Пожалуйста, заполните все поля и дайте согласие на обработку данных",
+        title: t.errorTitle,
+        description: t.errorDescription,
         variant: "destructive",
       });
       return;
@@ -43,8 +47,8 @@ export const EmailDialog = ({ open, onOpenChange }: EmailDialogProps) => {
       });
 
       toast({
-        title: "Успешно!",
-        description: "Проверьте почту - мы отправили инструкции для доступа к STRAGY",
+        title: t.successTitle,
+        description: t.successDescription,
         className: "fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-32 text-lg z-50",
       });
       
@@ -54,8 +58,8 @@ export const EmailDialog = ({ open, onOpenChange }: EmailDialogProps) => {
     } catch (error) {
       console.log("Email collected:", email);
       toast({
-        title: "Заявка принята!",
-        description: "Мы свяжемся с вами в ближайшее время",
+        title: t.fallbackTitle,
+        description: t.fallbackDescription,
         className: "fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-32 text-lg z-50",
       });
       
@@ -72,20 +76,19 @@ export const EmailDialog = ({ open, onOpenChange }: EmailDialogProps) => {
       <DialogContent className="sm:max-w-2xl max-w-4xl font-inter p-8">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-stragy-dark-text">
-            Получить доступ к STRAGY
+            {t.title}
           </DialogTitle>
         </DialogHeader>
         
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-4">
             <p className="text-stragy-gray-text text-sm leading-relaxed">
-              Введите адрес электронной почты, на которую мы предоставим доступ к сервису STRAGY. 
-              Следуйте инструкциям в письме.
+              {t.description}
             </p>
             
             <Input
               type="email"
-              placeholder="your@email.com"
+              placeholder={t.placeholder}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="h-12 text-base"
@@ -100,13 +103,13 @@ export const EmailDialog = ({ open, onOpenChange }: EmailDialogProps) => {
                 className="mt-1"
               />
               <label htmlFor="consent" className="text-sm text-stragy-gray-text leading-relaxed">
-                Я согласен на обработку персональных данных в соответствии с{" "}
+                {t.consent}{" "}
                 <a 
                   href="#privacy" 
                   className="text-primary hover:underline"
                   onClick={(e) => e.preventDefault()}
                 >
-                  Политикой конфиденциальности
+                  {t.privacyLink}
                 </a>
               </label>
             </div>
@@ -117,7 +120,7 @@ export const EmailDialog = ({ open, onOpenChange }: EmailDialogProps) => {
             className="w-full h-12 text-base font-medium rounded-2xl"
             disabled={!email || !isConsented || isLoading}
           >
-            {isLoading ? "Отправляем..." : "Получить доступ"}
+            {isLoading ? t.submitting : t.submit}
           </Button>
         </form>
       </DialogContent>

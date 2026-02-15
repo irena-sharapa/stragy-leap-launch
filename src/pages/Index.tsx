@@ -7,6 +7,7 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { BarChart3, Target, Settings, Calculator, TrendingUp } from "lucide-react";
 import laptopImage from "@/assets/laptop.png";
 import laptopVideo from "@/assets/laptop-video.mp4";
+import newBackground from "@/assets/new-background.jpg";
 import { useLanguage } from "@/hooks/useLanguage";
 import { getTranslations } from "@/lib/translations";
 

@@ -78,7 +78,7 @@ const Index = () => {
 
             {/* Laptop with video */}
             <div className="lg:w-1/2 w-full flex justify-center">
-              <div className="relative w-full max-w-[448px]">
+              <div className="relative w-full max-w-[700px]">
                 <img
                   src={laptopImage}
                   alt="Laptop"
@@ -92,10 +92,10 @@ const Index = () => {
                   playsInline
                   className="absolute object-cover"
                   style={{
-                    top: '5.5%',
-                    left: '11.8%',
-                    width: '76.5%',
-                    height: '79%',
+                    top: '12%',
+                    left: '18%',
+                    width: '64%',
+                    height: '63%',
                     borderRadius: '4px',
                   }}
                 >

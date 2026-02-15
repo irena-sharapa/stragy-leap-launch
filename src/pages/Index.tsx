@@ -78,7 +78,7 @@ const Index = () => {
 
             {/* Laptop with video */}
             <div className="lg:w-1/2 w-full flex justify-center">
-              <div className="relative w-full max-w-[560px]">
+              <div className="relative w-full max-w-[448px]">
                 <img
                   src={laptopImage}
                   alt="Laptop"

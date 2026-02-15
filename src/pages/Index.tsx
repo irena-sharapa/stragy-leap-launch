@@ -7,6 +7,7 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { BarChart3, Target, Settings, Calculator, TrendingUp } from "lucide-react";
 import laptopImage from "@/assets/laptop.png";
 import laptopVideo from "@/assets/laptop-video.mp4";
+import newBackground from "@/assets/new-background.jpg";
 import { useLanguage } from "@/hooks/useLanguage";
 import { getTranslations } from "@/lib/translations";
 
@@ -20,7 +21,7 @@ const Index = () => {
   const featureIcons = [BarChart3, Target, Settings, Calculator, TrendingUp];
 
   return (
-    <div className="min-h-screen font-inter relative overflow-hidden bg-background">
+    <div className="min-h-screen font-inter relative overflow-hidden bg-background" style={{ backgroundImage: `url(${newBackground})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
       <div className="relative z-10">
       {/* Header */}
       <header className="bg-transparent">

@@ -21,7 +21,7 @@ const Index = () => {
   const featureIcons = [BarChart3, Target, Settings, Calculator, TrendingUp];
 
   return (
-    <div className="min-h-screen font-inter relative overflow-hidden bg-background">
+    <div className="min-h-screen font-inter relative overflow-hidden bg-background" style={{ backgroundImage: `url(${newBackground})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
       <div className="relative z-10">
       {/* Header */}
       <header className="bg-transparent">

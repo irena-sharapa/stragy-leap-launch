@@ -6,9 +6,11 @@ export interface Translations {
   };
   hero: {
     title: string;
+    tagline: string;
     subtitle: string;
-    benefits: {
+    howItWorks: {
       title: string;
+      description: string;
       items: string[];
     };
   };
@@ -60,15 +62,17 @@ const translations: Record<Language, Translations> = {
       tryFree: "Попробовать бесплатно",
     },
     hero: {
-      title: "STRAGY. ОДИН СЕРВИС - ВЕСЬ МАРКЕТИНГ",
-      subtitle: "STRAGY — умная SaaS-платформа для создания маркетинговой стратегии в несколько кликов.",
-      benefits: {
-        title: "Вы получите:",
+      title: "STRAGY",
+      tagline: "СЕРВИС МАРКЕТИНГОВЫХ СТРАТЕГИЙ",
+      subtitle: "Пошаговая маркетинговая стратегия на основе реальных данных вашего рынка",
+      howItWorks: {
+        title: "Как это работает:",
+        description: "Вы вводите информацию о бизнесе — получаете чёткое представление",
         items: [
-          "Готовую маркетинговую стратегию с пошаговым планом",
-          "Точный расчёт рекламного бюджета",
-          "Анализ рынка и конкурентов",
-          "Email-уведомления об изменениях на рынке и у конкурентов",
+          "о вашем рынке",
+          "вашей аудитории",
+          "конкурентах",
+          "пошаговый план маркетинговых действий",
         ],
       },
     },
@@ -136,15 +140,17 @@ const translations: Record<Language, Translations> = {
       tryFree: "Try for free",
     },
     hero: {
-      title: "STRAGY. ONE SERVICE - ALL MARKETING",
-      subtitle: "STRAGY — a smart SaaS platform for creating a marketing strategy in a few clicks.",
-      benefits: {
-        title: "You will get:",
+      title: "STRAGY",
+      tagline: "MARKETING STRATEGY SERVICE",
+      subtitle: "Step-by-step marketing strategy based on real data from your market",
+      howItWorks: {
+        title: "How it works:",
+        description: "You enter your business information — and get a clear picture",
         items: [
-          "A ready-made marketing strategy with a step-by-step plan",
-          "Accurate advertising budget calculation",
-          "Market and competitor analysis",
-          "Email notifications about market and competitor changes",
+          "of your market",
+          "your audience",
+          "competitors",
+          "a step-by-step marketing action plan",
         ],
       },
     },
@@ -212,15 +218,17 @@ const translations: Record<Language, Translations> = {
       tryFree: "Probar gratis",
     },
     hero: {
-      title: "STRAGY. UN SERVICIO - TODO EL MARKETING",
-      subtitle: "STRAGY — una plataforma SaaS inteligente para crear una estrategia de marketing en unos pocos clics.",
-      benefits: {
-        title: "Obtendrás:",
+      title: "STRAGY",
+      tagline: "SERVICIO DE ESTRATEGIAS DE MARKETING",
+      subtitle: "Estrategia de marketing paso a paso basada en datos reales de tu mercado",
+      howItWorks: {
+        title: "Cómo funciona:",
+        description: "Introduces la información de tu negocio — y obtienes una imagen clara",
         items: [
-          "Una estrategia de marketing lista con un plan paso a paso",
-          "Cálculo preciso del presupuesto publicitario",
-          "Análisis de mercado y competidores",
-          "Notificaciones por email sobre cambios en el mercado y competidores",
+          "de tu mercado",
+          "tu audiencia",
+          "competidores",
+          "un plan de acción de marketing paso a paso",
         ],
       },
     },

@@ -5,8 +5,6 @@ import { EmailDialog } from "@/components/EmailDialog";
 import { PrivacyPolicy } from "@/components/PrivacyPolicy";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { BarChart3, Target, Settings, Calculator, TrendingUp } from "lucide-react";
-import laptopImage from "@/assets/laptop.png";
-import laptopVideo from "@/assets/laptop-video.mp4";
 import newBackground from "@/assets/new-background.jpg";
 import { useLanguage } from "@/hooks/useLanguage";
 import { getTranslations } from "@/lib/translations";
@@ -46,63 +44,46 @@ const Index = () => {
       {/* Hero Section */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="flex flex-col items-start space-y-8 max-w-xl lg:w-1/2">
-              <h1 className="text-3xl lg:text-4xl font-bold text-stragy-dark-text leading-tight">
-                {t.hero.title}
-              </h1>
-              <div className="space-y-4">
-                <p className="text-stragy-dark-text/80 leading-relaxed">
-                  {t.hero.subtitle}
-                </p>
-                <div className="text-stragy-dark-text/80 space-y-3">
-                  <p className="font-medium">{t.hero.benefits.title}</p>
-                  <ul className="space-y-3 list-none">
-                    {t.hero.benefits.items.map((item, index) => (
-                      <li key={index} className="bg-muted/50 backdrop-blur-sm rounded-2xl shadow-lg p-4 flex items-start space-x-3">
-                        <div className="w-2 h-2 bg-stragy-dark-text rounded-full mt-2 flex-shrink-0"></div>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <Button 
-                onClick={() => setEmailDialogOpen(true)}
-                size="lg" 
-                className="rounded-2xl h-12 px-8 text-base font-medium"
-              >
-                {t.header.tryFree}
-              </Button>
+          <div className="flex flex-col items-center text-center space-y-8">
+            {/* Logo */}
+            <img 
+              src="/lovable-uploads/35722fd0-37d9-4aae-b7f1-bf47541e3125.png" 
+              alt="STRAGY Logo" 
+              className="h-16 lg:h-20"
+              draggable={false}
+            />
+            
+            {/* Tagline */}
+            <h1 className="text-2xl lg:text-3xl font-bold text-stragy-dark-text tracking-wide">
+              {t.hero.tagline}
+            </h1>
+            
+            {/* Subtitle */}
+            <p className="text-lg text-stragy-dark-text/80 leading-relaxed max-w-2xl">
+              {t.hero.subtitle}
+            </p>
+
+            {/* How it works */}
+            <div className="space-y-4 w-full max-w-xl">
+              <p className="font-medium text-stragy-dark-text">{t.hero.howItWorks.title}</p>
+              <p className="text-stragy-dark-text/80">{t.hero.howItWorks.description}</p>
+              <ul className="space-y-3 list-none text-left">
+                {t.hero.howItWorks.items.map((item, index) => (
+                  <li key={index} className="bg-muted/50 backdrop-blur-sm rounded-2xl shadow-lg p-4 flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-stragy-dark-text rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-stragy-dark-text/80">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* Laptop with video */}
-            <div className="lg:w-1/2 w-full flex justify-center">
-              <div className="relative w-full max-w-[700px]">
-                <img
-                  src={laptopImage}
-                  alt="Laptop"
-                  className="w-full h-auto block"
-                  draggable={false}
-                />
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="absolute object-cover"
-                  style={{
-                    top: '12%',
-                    left: '18%',
-                    width: '64%',
-                    height: '63%',
-                    borderRadius: '4px',
-                  }}
-                >
-                  <source src={laptopVideo} type="video/mp4" />
-                </video>
-              </div>
-            </div>
+            <Button 
+              onClick={() => setEmailDialogOpen(true)}
+              size="lg" 
+              className="rounded-2xl h-12 px-8 text-base font-medium"
+            >
+              {t.header.tryFree}
+            </Button>
           </div>
         </div>
       </section>

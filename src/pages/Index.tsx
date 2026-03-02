@@ -6,6 +6,7 @@ import { PrivacyPolicy } from "@/components/PrivacyPolicy";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { BarChart3, Target, Settings, Calculator, TrendingUp } from "lucide-react";
 import newBackground from "@/assets/new-background.jpg";
+import laptopScreenshot from "@/assets/laptop-screenshot.png";
 import { useLanguage } from "@/hooks/useLanguage";
 import { getTranslations } from "@/lib/translations";
 
@@ -84,6 +85,16 @@ const Index = () => {
             >
               {t.header.tryFree}
             </Button>
+
+            {/* Laptop Screenshot */}
+            <div className="w-full max-w-[700px] mx-auto mt-8">
+              <img 
+                src={laptopScreenshot} 
+                alt="STRAGY Platform" 
+                className="w-full h-auto"
+                draggable={false}
+              />
+            </div>
           </div>
         </div>
       </section>

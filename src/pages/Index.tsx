@@ -46,23 +46,25 @@ const Index = () => {
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col items-center text-center space-y-8">
-            {/* Logo */}
-            <img 
-              src="/lovable-uploads/35722fd0-37d9-4aae-b7f1-bf47541e3125.png" 
-              alt="STRAGY Logo" 
-              className="h-16 lg:h-20"
-              draggable={false}
-            />
-            
             {/* Tagline */}
             <h1 className="text-2xl lg:text-3xl font-bold text-stragy-dark-text tracking-wide">
               {t.hero.tagline}
             </h1>
-            
+
             {/* Subtitle */}
             <p className="text-lg text-stragy-dark-text/80 leading-relaxed max-w-2xl">
               {t.hero.subtitle}
             </p>
+
+            {/* Laptop Screenshot */}
+            <div className="w-full max-w-[700px] mx-auto">
+              <img 
+                src={laptopScreenshot} 
+                alt="STRAGY Platform" 
+                className="w-full h-auto"
+                draggable={false}
+              />
+            </div>
 
             {/* How it works */}
             <div className="space-y-4 w-full max-w-xl">
@@ -85,16 +87,6 @@ const Index = () => {
             >
               {t.header.tryFree}
             </Button>
-
-            {/* Laptop Screenshot */}
-            <div className="w-full max-w-[700px] mx-auto mt-8">
-              <img 
-                src={laptopScreenshot} 
-                alt="STRAGY Platform" 
-                className="w-full h-auto"
-                draggable={false}
-              />
-            </div>
           </div>
         </div>
       </section>

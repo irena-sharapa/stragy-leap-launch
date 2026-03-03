@@ -64,7 +64,7 @@ const translations: Record<Language, Translations> = {
     hero: {
       title: "STRAGY",
       tagline: "СЕРВИС МАРКЕТИНГОВЫХ СТРАТЕГИЙ",
-      subtitle: "Пошаговая маркетинговая стратегия на основе реальных данных вашего рынка",
+      subtitle: "ПОШАГОВАЯ МАРКЕТИНГОВАЯ СТРАТЕГИЯ НА ОСНОВЕ РЕАЛЬНЫХ ДАННЫХ ВАШЕГО РЫНКА",
       howItWorks: {
         title: "Как это работает:",
         description: "Вы вводите информацию о бизнесе — получаете чёткое представление",
@@ -142,7 +142,7 @@ const translations: Record<Language, Translations> = {
     hero: {
       title: "STRAGY",
       tagline: "MARKETING STRATEGY SERVICE",
-      subtitle: "Step-by-step marketing strategy based on real data from your market",
+      subtitle: "STEP-BY-STEP MARKETING STRATEGY BASED ON REAL DATA FROM YOUR MARKET",
       howItWorks: {
         title: "How it works:",
         description: "You enter your business information — and get a clear picture",
@@ -220,7 +220,7 @@ const translations: Record<Language, Translations> = {
     hero: {
       title: "STRAGY",
       tagline: "SERVICIO DE ESTRATEGIAS DE MARKETING",
-      subtitle: "Estrategia de marketing paso a paso basada en datos reales de tu mercado",
+      subtitle: "ESTRATEGIA DE MARKETING PASO A PASO BASADA EN DATOS REALES DE TU MERCADO",
       howItWorks: {
         title: "Cómo funciona:",
         description: "Introduces la información de tu negocio — y obtienes una imagen clara",

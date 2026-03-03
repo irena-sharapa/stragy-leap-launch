@@ -44,20 +44,44 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col items-center text-center space-y-8">
-            {/* Tagline */}
-            <h1 className="text-2xl lg:text-3xl font-bold text-stragy-dark-text tracking-wide">
-              {t.hero.tagline}
-            </h1>
+        <div className="max-w-7xl mx-auto space-y-12">
+          {/* Tagline - centered */}
+          <h1 className="text-2xl lg:text-3xl font-bold text-stragy-dark-text tracking-wide text-center">
+            {t.hero.tagline}
+          </h1>
 
-            {/* Subtitle */}
-            <p className="text-lg text-stragy-dark-text/80 leading-relaxed max-w-2xl">
-              {t.hero.subtitle}
-            </p>
+          {/* Two-column layout */}
+          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10">
+            {/* Left column: text + how it works + CTA */}
+            <div className="flex-1 space-y-6 text-left">
+              <p className="text-lg text-stragy-dark-text/80 leading-relaxed">
+                {t.hero.subtitle}
+              </p>
 
-            {/* Laptop Screenshot */}
-            <div className="w-full max-w-[700px] mx-auto">
+              <div className="space-y-4">
+                <p className="font-medium text-stragy-dark-text">{t.hero.howItWorks.title}</p>
+                <p className="text-stragy-dark-text/80">{t.hero.howItWorks.description}</p>
+                <ul className="space-y-3 list-none">
+                  {t.hero.howItWorks.items.map((item, index) => (
+                    <li key={index} className="bg-muted/50 backdrop-blur-sm rounded-2xl shadow-lg p-4 flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-stragy-dark-text rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-stragy-dark-text/80">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <Button 
+                onClick={() => setEmailDialogOpen(true)}
+                size="lg" 
+                className="rounded-2xl h-12 px-8 text-base font-medium"
+              >
+                {t.header.tryFree}
+              </Button>
+            </div>
+
+            {/* Right column: laptop */}
+            <div className="flex-1 w-full max-w-[600px]">
               <img 
                 src={laptopScreenshot} 
                 alt="STRAGY Platform" 
@@ -65,28 +89,6 @@ const Index = () => {
                 draggable={false}
               />
             </div>
-
-            {/* How it works */}
-            <div className="space-y-4 w-full max-w-xl">
-              <p className="font-medium text-stragy-dark-text">{t.hero.howItWorks.title}</p>
-              <p className="text-stragy-dark-text/80">{t.hero.howItWorks.description}</p>
-              <ul className="space-y-3 list-none text-left">
-                {t.hero.howItWorks.items.map((item, index) => (
-                  <li key={index} className="bg-muted/50 backdrop-blur-sm rounded-2xl shadow-lg p-4 flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-stragy-dark-text rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-stragy-dark-text/80">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <Button 
-              onClick={() => setEmailDialogOpen(true)}
-              size="lg" 
-              className="rounded-2xl h-12 px-8 text-base font-medium"
-            >
-              {t.header.tryFree}
-            </Button>
           </div>
         </div>
       </section>

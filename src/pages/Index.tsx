@@ -21,6 +21,44 @@ const Index = () => {
 
   return (
     <div className="min-h-screen font-inter relative overflow-hidden bg-background" style={{ backgroundImage: `url(${newBackground})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Top-right circle */}
+        <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full border border-stragy-dark-text/[0.06]" />
+        <div className="absolute -top-10 -right-10 w-72 h-72 rounded-full border border-stragy-dark-text/[0.04]" />
+        
+        {/* Left mid dots pattern */}
+        <svg className="absolute top-1/4 -left-4 opacity-[0.07]" width="120" height="200" viewBox="0 0 120 200">
+          {Array.from({ length: 40 }).map((_, i) => (
+            <circle key={i} cx={(i % 5) * 28 + 14} cy={Math.floor(i / 5) * 28 + 14} r="3" fill="hsl(var(--stragy-dark-text))" />
+          ))}
+        </svg>
+
+        {/* Right mid abstract ring */}
+        <div className="absolute top-[60%] -right-16 w-64 h-64 rounded-full border-2 border-dashed border-primary/[0.08]" />
+
+        {/* Bottom-left large circle */}
+        <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full border border-stragy-dark-text/[0.05]" />
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full border border-primary/[0.06]" />
+
+        {/* Floating small shapes */}
+        <div className="absolute top-[15%] left-[20%] w-3 h-3 rounded-full bg-primary/[0.1]" />
+        <div className="absolute top-[40%] right-[15%] w-4 h-4 rounded-sm bg-stragy-dark-text/[0.06] rotate-45" />
+        <div className="absolute top-[70%] left-[10%] w-5 h-5 rounded-full bg-primary/[0.07]" />
+        <div className="absolute top-[85%] right-[25%] w-3 h-3 rounded-full bg-stragy-dark-text/[0.05]" />
+        <div className="absolute top-[50%] left-[50%] w-2 h-2 rounded-full bg-primary/[0.08]" />
+
+        {/* Cross marks */}
+        <svg className="absolute top-[30%] right-[30%] opacity-[0.06]" width="24" height="24" viewBox="0 0 24 24">
+          <line x1="0" y1="12" x2="24" y2="12" stroke="hsl(var(--stragy-dark-text))" strokeWidth="2" />
+          <line x1="12" y1="0" x2="12" y2="24" stroke="hsl(var(--stragy-dark-text))" strokeWidth="2" />
+        </svg>
+        <svg className="absolute top-[75%] left-[35%] opacity-[0.05]" width="20" height="20" viewBox="0 0 20 20">
+          <line x1="0" y1="10" x2="20" y2="10" stroke="hsl(var(--primary))" strokeWidth="2" />
+          <line x1="10" y1="0" x2="10" y2="20" stroke="hsl(var(--primary))" strokeWidth="2" />
+        </svg>
+      </div>
+
       <div className="relative z-10">
       {/* Header */}
       <header className="bg-transparent">

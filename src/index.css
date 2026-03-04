@@ -43,8 +43,11 @@
     --stragy-purple: 272 48% 75%;
     --stragy-pink: 337 64% 83%;
     --stragy-light-pink: 328 100% 96%;
-    --stragy-dark-text: 216 100% 12%;
+    --stragy-dark-text: 232 36% 18%;
     --stragy-gray-text: 0 0% 39%;
+    --stragy-secondary-label: 252 12% 47%;
+    --stragy-node-blue: 222 100% 75%;
+    --stragy-node-pink: 316 52% 81%;
 
     /* Background */
     --hero-background: url('./assets/hero-background.png');

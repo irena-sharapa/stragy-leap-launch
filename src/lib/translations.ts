@@ -66,7 +66,7 @@ const translations: Record<Language, Translations> = {
       tagline: "СЕРВИС МАРКЕТИНГОВЫХ СТРАТЕГИЙ",
       subtitle: "ПОШАГОВАЯ МАРКЕТИНГОВАЯ СТРАТЕГИЯ НА ОСНОВЕ РЕАЛЬНЫХ ДАННЫХ ВАШЕГО РЫНКА",
       howItWorks: {
-        title: "Как это работает:",
+        title: "КАК ЭТО РАБОТАЕТ",
         description: "Вы вводите информацию о бизнесе — получаете чёткое представление",
         items: [
           "о вашем рынке",
@@ -144,7 +144,7 @@ const translations: Record<Language, Translations> = {
       tagline: "MARKETING STRATEGY SERVICE",
       subtitle: "STEP-BY-STEP MARKETING STRATEGY BASED ON REAL DATA FROM YOUR MARKET",
       howItWorks: {
-        title: "How it works:",
+        title: "HOW IT WORKS",
         description: "You enter your business information — and get a clear picture",
         items: [
           "of your market",
@@ -222,7 +222,7 @@ const translations: Record<Language, Translations> = {
       tagline: "SERVICIO DE ESTRATEGIAS DE MARKETING",
       subtitle: "ESTRATEGIA DE MARKETING PASO A PASO BASADA EN DATOS REALES DE TU MERCADO",
       howItWorks: {
-        title: "Cómo funciona:",
+        title: "CÓMO FUNCIONA",
         description: "Introduces la información de tu negocio — y obtienes una imagen clara",
         items: [
           "de tu mercado",

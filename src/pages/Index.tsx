@@ -120,7 +120,7 @@ const Index = () => {
           <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10">
             {/* Left column: text + how it works + CTA */}
             <div className="flex-1 space-y-6 text-left">
-              <h2 className="text-xl lg:text-2xl font-bold text-stragy-dark-text tracking-wider uppercase leading-snug">
+              <h2 className="text-xl lg:text-2xl font-bold text-white tracking-wider uppercase leading-snug">
                 {t.hero.subtitle}
               </h2>
 

@@ -4,9 +4,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { EmailDialog } from "@/components/EmailDialog";
 import { PrivacyPolicy } from "@/components/PrivacyPolicy";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { LaptopShowcase } from "@/components/LaptopShowcase";
 import { BarChart3, Target, Settings, Calculator, TrendingUp } from "lucide-react";
 import newBackground from "@/assets/new-background.jpg";
-import laptopScreenshot from "@/assets/laptop-screenshot.png";
 import { useLanguage } from "@/hooks/useLanguage";
 import { getTranslations } from "@/lib/translations";
 
@@ -172,16 +172,18 @@ const Index = () => {
             {t.hero.tagline}
           </h1>
 
-          {/* Two-column layout */}
+          {/* Two-column layout: 52/48 */}
           <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10">
-            {/* Left column: text + how it works + CTA */}
-            <div className="flex-1 space-y-6 text-left">
-              <h2 className="text-xl lg:text-2xl font-normal text-stragy-dark-text/80 tracking-wider uppercase leading-snug">
+            {/* Left column: 52% */}
+            <div className="w-full lg:w-[52%] space-y-6 text-left">
+              <h2 className="text-xl lg:text-2xl font-normal text-stragy-dark-text tracking-wider uppercase leading-snug" style={{ fontWeight: 400 }}>
                 {t.hero.subtitle}
               </h2>
 
               <div className="space-y-4">
-                <p className="font-medium text-stragy-dark-text">{t.hero.howItWorks.title}</p>
+                <p className="text-stragy-secondary-label font-medium text-sm tracking-[0.08em] uppercase">
+                  {t.hero.howItWorks.title}
+                </p>
                 <p className="text-stragy-dark-text/80">{t.hero.howItWorks.description}</p>
                 <ul className="space-y-3 list-none">
                   {t.hero.howItWorks.items.map((item, index) => (
@@ -202,14 +204,9 @@ const Index = () => {
               </Button>
             </div>
 
-            {/* Right column: laptop */}
-            <div className="flex-1 w-full max-w-[600px]">
-              <img 
-                src={laptopScreenshot} 
-                alt="STRAGY Platform" 
-                className="w-full h-auto"
-                draggable={false}
-              />
+            {/* Right column: 48% with laptop */}
+            <div className="w-full lg:w-[48%] min-h-[350px] lg:min-h-[450px]">
+              <LaptopShowcase />
             </div>
           </div>
         </div>

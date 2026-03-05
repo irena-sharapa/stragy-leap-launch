@@ -74,7 +74,7 @@ export const LaptopShowcase = () => {
       </svg>
 
       {/* Laptop — 78-82% of right column width, with float animation */}
-      <div className="relative z-10 w-[80%] animate-float">
+      <div className="relative z-10 w-[96%] animate-float">
         <img
           src={laptopScreenshot}
           alt="STRAGY Platform"

@@ -204,8 +204,8 @@ const Index = () => {
               </Button>
             </div>
 
-            {/* Right column: 48% with laptop */}
-            <div className="w-full lg:w-[48%] min-h-[350px] lg:min-h-[450px]">
+            {/* Right column: 48% with laptop — 65-70vh height */}
+            <div className="w-full lg:w-[48%] h-[50vh] lg:h-[65vh] flex items-center justify-center">
               <LaptopShowcase />
             </div>
           </div>

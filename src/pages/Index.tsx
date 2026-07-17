@@ -148,7 +148,6 @@ const Index = () => {
             <div className="flex justify-between items-center h-[76px]">
               <div className="text-xl font-bold text-stragy-dark-text tracking-wide">STRAGY</div>
               <div className="hidden md:flex items-center gap-8 text-sm font-medium text-stragy-dark-text/75">
-                <a href="#product" className="hover:text-stragy-dark-text transition">Продукт</a>
                 <a href="#how" className="hover:text-stragy-dark-text transition">Как это работает</a>
                 <a href="#who" className="hover:text-stragy-dark-text transition">Кому подходит</a>
                 <a href="#pricing" className="hover:text-stragy-dark-text transition">Тарифы</a>

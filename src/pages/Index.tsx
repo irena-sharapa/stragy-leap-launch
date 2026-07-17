@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { EmailDialog } from "@/components/EmailDialog";
 import { PrivacyPolicy } from "@/components/PrivacyPolicy";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { LaptopShowcase } from "@/components/LaptopShowcase";
-import { BarChart3, Target, Settings, Calculator, TrendingUp } from "lucide-react";
+import { SignalCard } from "@/components/SignalCard";
+import { Check, ArrowRight } from "lucide-react";
 import newBackground from "@/assets/new-background.jpg";
 import { useLanguage } from "@/hooks/useLanguage";
 import { getTranslations } from "@/lib/translations";
@@ -13,296 +12,540 @@ import { getTranslations } from "@/lib/translations";
 const Index = () => {
   const [emailDialogOpen, setEmailDialogOpen] = useState(false);
   const [privacyDialogOpen, setPrivacyDialogOpen] = useState(false);
-  
+
   const { currentLang } = useLanguage();
   const t = getTranslations(currentLang);
 
-  const featureIcons = [BarChart3, Target, Settings, Calculator, TrendingUp];
+  const platformShows = [
+    "где теряется клиент",
+    "какие каналы работают, а какие нет",
+    "что изменить в коммуникации",
+    "как перераспределить бюджет, чтобы маркетинг приносил максимальную прибыль",
+  ];
+
+  const solutionList = [
+    "Где теряются клиенты",
+    "Какие каналы теряют эффективность",
+    "Какие действия необходимо выполнить",
+    "Как перераспределить бюджет",
+  ];
+
+  const flow = [
+    {
+      title: "Входные данные",
+      desc: "Бизнес вводит данные о продукте, аудитории, каналах и текущих маркетинговых показателях.",
+    },
+    {
+      title: "Ядро STRAGY — 4 слоя платформы",
+      layers: ["Market layer", "Business layer", "Decision layer", "Planning layer"],
+    },
+    {
+      title: "Рекомендации",
+      desc: "Приоритетные действия с объяснением причин.",
+    },
+    {
+      title: "План действий",
+      desc: "Медиаплан и коммуникационная карта по каждому каналу.",
+    },
+  ];
+
+  const differences = {
+    left: [
+      "Показывают, что произошло",
+      "Требуют аналитика для интерпретации",
+      "Дают dashboard",
+    ],
+    right: [
+      "Объясняет, почему это произошло",
+      "Сразу показывает влияние на бизнес",
+      "Даёт план действий",
+    ],
+  };
+
+  const whoCards = [
+    {
+      num: "01",
+      title: "SMB с digital-бюджетом от $500 в месяц",
+      desc: "Компании, которым нужна экспертная стратегия без найма дорогостоящих специалистов.",
+    },
+    {
+      num: "02",
+      title: "Performance-агентства и маркетинговые консалтинги",
+      desc: "Ведут несколько клиентских проектов и которым нужна единая система для всех.",
+    },
+    {
+      num: "03",
+      title: "Multi-brand и multi-market компании",
+      desc: "Нужно синхронизировать маркетинговые решения между несколькими рынками.",
+    },
+  ];
+
+  const pricing = [
+    {
+      tier: "Starter",
+      price: "$49",
+      unit: "/мес",
+      sub: "Для малого бизнеса",
+      items: [
+        "До 3 Strategy Workspaces",
+        "Доступ к премиальным данным о рынке",
+        "AI Decision Engine",
+        "Базовые рекомендации",
+      ],
+      cta: "Начать",
+      popular: false,
+    },
+    {
+      tier: "Pro",
+      price: "$169",
+      unit: "/мес",
+      sub: "Для растущего бизнеса",
+      items: [
+        "До 12 Strategy Workspaces",
+        "Расширенная аналитика рынка и конкурентов",
+        "Подключение внутренних данных бизнеса",
+        "Автоматическое обновление стратегии",
+        "Action Plans",
+      ],
+      cta: "Начать",
+      popular: true,
+    },
+    {
+      tier: "Business",
+      price: "$539",
+      unit: "+/мес",
+      sub: "Для multi-brand компаний",
+      items: [
+        "От 45 Strategy Workspaces",
+        "Multi-brand / Multi-market",
+        "API и интеграции",
+        "Персональный менеджер",
+      ],
+      cta: "Связаться с нами",
+      popular: false,
+    },
+  ];
 
   return (
-    <div className="min-h-screen font-inter relative overflow-hidden bg-background" style={{ backgroundImage: `url(${newBackground})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+    <div
+      className="min-h-screen font-inter relative bg-background"
+      style={{
+        backgroundImage: `url(${newBackground})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
       {/* Decorative background elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Top-right circles */}
         <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full border border-stragy-dark-text/[0.08]" />
         <div className="absolute -top-10 -right-10 w-72 h-72 rounded-full border border-stragy-dark-text/[0.05]" />
-        <div className="absolute top-10 right-20 w-48 h-48 rounded-full border border-primary/[0.06]" />
-        
-        {/* Top-left circle cluster */}
         <div className="absolute -top-16 -left-16 w-80 h-80 rounded-full border border-primary/[0.06]" />
-        <div className="absolute top-8 left-8 w-40 h-40 rounded-full border border-stragy-dark-text/[0.05]" />
-
-        {/* Left mid dots pattern */}
-        <svg className="absolute top-1/4 -left-4 opacity-[0.09]" width="120" height="200" viewBox="0 0 120 200">
-          {Array.from({ length: 40 }).map((_, i) => (
-            <circle key={i} cx={(i % 5) * 28 + 14} cy={Math.floor(i / 5) * 28 + 14} r="3" fill="hsl(var(--stragy-dark-text))" />
-          ))}
-        </svg>
-
-        {/* Right dots pattern */}
-        <svg className="absolute top-[55%] right-0 opacity-[0.06]" width="100" height="160" viewBox="0 0 100 160">
-          {Array.from({ length: 32 }).map((_, i) => (
-            <circle key={i} cx={(i % 4) * 28 + 10} cy={Math.floor(i / 4) * 22 + 10} r="2.5" fill="hsl(var(--primary))" />
-          ))}
-        </svg>
-
-        {/* Bottom-right dots pattern */}
-        <svg className="absolute bottom-[10%] right-[15%] opacity-[0.07]" width="80" height="120" viewBox="0 0 80 120">
-          {Array.from({ length: 20 }).map((_, i) => (
-            <circle key={i} cx={(i % 4) * 22 + 8} cy={Math.floor(i / 4) * 22 + 8} r="2" fill="hsl(var(--stragy-dark-text))" />
-          ))}
-        </svg>
-
-        {/* Right mid abstract ring */}
-        <div className="absolute top-[60%] -right-16 w-64 h-64 rounded-full border-2 border-dashed border-primary/[0.10]" />
-        
-        {/* Left abstract ring */}
-        <div className="absolute top-[40%] -left-20 w-48 h-48 rounded-full border-2 border-dashed border-stragy-dark-text/[0.07]" />
-
-        {/* Bottom-left large circles */}
         <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full border border-stragy-dark-text/[0.06]" />
-        <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full border border-primary/[0.07]" />
-        
-        {/* Bottom-right large circle */}
         <div className="absolute -bottom-24 -right-24 w-[400px] h-[400px] rounded-full border border-primary/[0.05]" />
-
-        {/* Mid-page horizontal lines */}
         <div className="absolute top-[45%] left-[5%] w-[30%] h-px bg-gradient-to-r from-transparent via-stragy-dark-text/[0.10] to-transparent" />
         <div className="absolute top-[80%] right-[5%] w-[25%] h-px bg-gradient-to-r from-transparent via-primary/[0.07] to-transparent" />
-        <div className="absolute top-[15%] left-[30%] w-[20%] h-px bg-gradient-to-r from-transparent via-primary/[0.08] to-transparent" />
-        <div className="absolute top-[68%] right-[20%] w-[15%] h-px bg-gradient-to-r from-transparent via-stragy-dark-text/[0.06] to-transparent" />
-
-        {/* Floating small shapes */}
-        <div className="absolute top-[15%] left-[20%] w-3 h-3 rounded-full bg-primary/[0.12]" />
-        <div className="absolute top-[40%] right-[15%] w-4 h-4 rounded-sm bg-stragy-dark-text/[0.07] rotate-45" />
-        <div className="absolute top-[70%] left-[10%] w-5 h-5 rounded-full bg-primary/[0.09]" />
-        <div className="absolute top-[85%] right-[25%] w-3 h-3 rounded-full bg-stragy-dark-text/[0.06]" />
-        <div className="absolute top-[50%] left-[50%] w-2 h-2 rounded-full bg-primary/[0.10]" />
-        <div className="absolute top-[25%] right-[40%] w-2 h-2 rounded-sm bg-primary/[0.07] rotate-12" />
-        <div className="absolute top-[65%] left-[45%] w-3 h-3 rounded-full bg-stragy-dark-text/[0.05]" />
-        <div className="absolute top-[90%] left-[60%] w-4 h-4 rounded-sm bg-primary/[0.06] -rotate-12" />
-        <div className="absolute top-[5%] left-[40%] w-3 h-3 rounded-full bg-stragy-dark-text/[0.06]" />
-        <div className="absolute top-[48%] right-[35%] w-2 h-2 rounded-full bg-primary/[0.09]" />
-        <div className="absolute top-[78%] left-[55%] w-4 h-4 rounded-full bg-primary/[0.06]" />
-        <div className="absolute top-[33%] left-[70%] w-3 h-3 rounded-sm bg-stragy-dark-text/[0.07] rotate-30" />
-        <div className="absolute top-[92%] right-[40%] w-2 h-2 rounded-full bg-primary/[0.08]" />
-
-        {/* Cross marks */}
-        <svg className="absolute top-[30%] right-[30%] opacity-[0.07]" width="24" height="24" viewBox="0 0 24 24">
-          <line x1="0" y1="12" x2="24" y2="12" stroke="hsl(var(--stragy-dark-text))" strokeWidth="2" />
-          <line x1="12" y1="0" x2="12" y2="24" stroke="hsl(var(--stragy-dark-text))" strokeWidth="2" />
-        </svg>
-        <svg className="absolute top-[75%] left-[35%] opacity-[0.06]" width="20" height="20" viewBox="0 0 20 20">
-          <line x1="0" y1="10" x2="20" y2="10" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <line x1="10" y1="0" x2="10" y2="20" stroke="hsl(var(--primary))" strokeWidth="2" />
-        </svg>
-        <svg className="absolute top-[10%] left-[60%] opacity-[0.05]" width="16" height="16" viewBox="0 0 16 16">
-          <line x1="0" y1="8" x2="16" y2="8" stroke="hsl(var(--stragy-dark-text))" strokeWidth="1.5" />
-          <line x1="8" y1="0" x2="8" y2="16" stroke="hsl(var(--stragy-dark-text))" strokeWidth="1.5" />
-        </svg>
-        <svg className="absolute top-[58%] left-[25%] opacity-[0.06]" width="18" height="18" viewBox="0 0 18 18">
-          <line x1="0" y1="9" x2="18" y2="9" stroke="hsl(var(--primary))" strokeWidth="1.5" />
-          <line x1="9" y1="0" x2="9" y2="18" stroke="hsl(var(--primary))" strokeWidth="1.5" />
-        </svg>
-
-        {/* Diamond shapes */}
-        <div className="absolute top-[35%] left-[8%] w-6 h-6 border border-primary/[0.10] rotate-45" />
-        <div className="absolute top-[55%] right-[10%] w-4 h-4 border border-stragy-dark-text/[0.07] rotate-45" />
-        <div className="absolute top-[22%] left-[75%] w-5 h-5 border border-primary/[0.08] rotate-45" />
-        <div className="absolute top-[82%] left-[15%] w-7 h-7 border border-stragy-dark-text/[0.06] rotate-45" />
-        <div className="absolute top-[47%] right-[5%] w-5 h-5 border border-primary/[0.07] rotate-45" />
-
-        {/* Curved line accents */}
-        <svg className="absolute top-[20%] right-[5%] opacity-[0.06]" width="200" height="100" viewBox="0 0 200 100" fill="none">
-          <path d="M0 80 Q100 0 200 50" stroke="hsl(var(--primary))" strokeWidth="1.5" />
-        </svg>
-        <svg className="absolute bottom-[15%] left-[5%] opacity-[0.05]" width="180" height="80" viewBox="0 0 180 80" fill="none">
-          <path d="M0 20 Q90 80 180 30" stroke="hsl(var(--stragy-dark-text))" strokeWidth="1.5" />
-        </svg>
-        <svg className="absolute top-[42%] right-[20%] opacity-[0.05]" width="150" height="60" viewBox="0 0 150 60" fill="none">
-          <path d="M0 50 Q75 0 150 40" stroke="hsl(var(--primary))" strokeWidth="1" />
-        </svg>
-
-        {/* Concentric arcs */}
-        <svg className="absolute top-[8%] left-[5%] opacity-[0.06]" width="120" height="120" viewBox="0 0 120 120" fill="none">
-          <path d="M10 110 A100 100 0 0 1 110 10" stroke="hsl(var(--primary))" strokeWidth="1" />
-          <path d="M25 110 A85 85 0 0 1 110 25" stroke="hsl(var(--primary))" strokeWidth="1" />
-        </svg>
-
-        {/* Zigzag line */}
-        <svg className="absolute top-[72%] right-[8%] opacity-[0.06]" width="100" height="30" viewBox="0 0 100 30" fill="none">
-          <polyline points="0,15 12,5 24,25 36,5 48,25 60,5 72,25 84,5 100,15" stroke="hsl(var(--stragy-dark-text))" strokeWidth="1.2" />
-        </svg>
-
-        {/* Triangle outlines */}
-        <svg className="absolute top-[88%] left-[40%] opacity-[0.05]" width="30" height="26" viewBox="0 0 30 26" fill="none">
-          <polygon points="15,0 30,26 0,26" stroke="hsl(var(--primary))" strokeWidth="1.5" />
-        </svg>
-        <svg className="absolute top-[18%] right-[18%] opacity-[0.06]" width="22" height="20" viewBox="0 0 22 20" fill="none">
-          <polygon points="11,0 22,20 0,20" stroke="hsl(var(--stragy-dark-text))" strokeWidth="1.2" />
-        </svg>
       </div>
 
       <div className="relative z-10">
-      {/* Header */}
-      <header className="bg-transparent">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="text-3xl font-bold text-stragy-dark-text">
-              STRAGY
-            </div>
-            <div className="flex items-center gap-4">
-              <LanguageSwitcher />
-              <Button 
-                onClick={() => setEmailDialogOpen(true)}
-                className="rounded-2xl h-10 px-6 font-medium"
-              >
-                {t.header.tryFree}
-              </Button>
+        {/* Nav */}
+        <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/60 border-b border-stragy-dark-text/[0.06]">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="flex justify-between items-center h-[76px]">
+              <div className="text-xl font-bold text-stragy-dark-text tracking-wide">STRAGY</div>
+              <div className="hidden md:flex items-center gap-8 text-sm font-medium text-stragy-dark-text/75">
+                <a href="#product" className="hover:text-stragy-dark-text transition">Продукт</a>
+                <a href="#how" className="hover:text-stragy-dark-text transition">Как это работает</a>
+                <a href="#who" className="hover:text-stragy-dark-text transition">Кому подходит</a>
+                <a href="#pricing" className="hover:text-stragy-dark-text transition">Тарифы</a>
+              </div>
+              <div className="flex items-center gap-3">
+                <LanguageSwitcher />
+                <Button
+                  onClick={() => setEmailDialogOpen(true)}
+                  className="rounded-full h-10 px-5 text-sm font-semibold"
+                >
+                  {t.header.tryFree}
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
-      </header>
+        </nav>
 
-      {/* Hero Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto space-y-12">
-          {/* Tagline - centered */}
-          <h1 className="text-2xl lg:text-3xl font-bold text-stragy-dark-text tracking-wide text-center">
-            {t.hero.tagline}
-          </h1>
-
-          {/* Two-column layout: 52/48 */}
-          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10">
-            {/* Left column: 52% */}
-            <div className="w-full lg:w-[52%] space-y-6 text-left">
-              <h2 className="text-xl lg:text-2xl font-normal text-stragy-dark-text tracking-wider uppercase leading-snug" style={{ fontWeight: 400 }}>
-                {t.hero.subtitle}
-              </h2>
-
-              <div className="space-y-4">
-                <p className="text-stragy-secondary-label font-medium text-sm tracking-[0.08em] uppercase">
-                  {t.hero.howItWorks.title}
+        {/* Hero */}
+        <header className="pt-20 pb-16 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold tracking-[0.12em] uppercase mb-4 font-mono">
+                  <span className="w-2 h-2 rounded-full bg-primary" />
+                  Marketing decision intelligence
+                </div>
+                <h1 className="text-4xl md:text-5xl font-bold text-stragy-dark-text leading-[1.15] tracking-tight">
+                  Мы не анализируем данные.
+                  <br />
+                  Мы поддерживаем{" "}
+                  <span className="text-primary">актуальность</span> вашего
+                  маркетинга.
+                </h1>
+                <p className="mt-6 text-[17px] leading-[1.6] text-stragy-dark-text/70 max-w-xl">
+                  STRAGY объединяет внешнюю аналитику рынка и внутренние данные
+                  вашего бизнеса, чтобы стратегия, бюджет и действия всегда были
+                  синхронизированы с реальностью — а не с тем, что было верно
+                  месяц назад.
                 </p>
-                <p className="text-stragy-dark-text/80">{t.hero.howItWorks.description}</p>
-                <ul className="space-y-3 list-none">
-                  {t.hero.howItWorks.items.map((item, index) => (
-                    <li key={index} className="bg-muted/50 backdrop-blur-sm rounded-2xl shadow-lg p-4 flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-stragy-dark-text rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-stragy-dark-text/80">{item}</span>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Button
+                    onClick={() => setEmailDialogOpen(true)}
+                    className="rounded-full h-12 px-7 text-[15px] font-semibold shadow-lg shadow-primary/25"
+                  >
+                    {t.header.tryFree}
+                  </Button>
+                  <a
+                    href="#how"
+                    className="inline-flex items-center justify-center h-12 px-7 rounded-full text-[15px] font-semibold text-stragy-dark-text border border-stragy-dark-text/15 hover:border-primary hover:text-primary transition"
+                  >
+                    Как это работает <ArrowRight className="ml-2 w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+
+              <SignalCard />
+            </div>
+
+            {/* Extra info on hero */}
+            <div className="mt-16 grid lg:grid-cols-2 gap-8 items-start">
+              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-md border border-stragy-dark-text/[0.05]">
+                <p className="text-[15.5px] leading-[1.7] text-stragy-dark-text/85">
+                  <span className="font-semibold text-stragy-dark-text">STRAGY</span>{" "}
+                  автоматически обнаруживает изменения на рынке, сопоставляет их
+                  с показателями бизнеса, оценивает влияние на маркетинговую
+                  эффективность и предлагает обновления стратегии с объяснением
+                  причин.
+                </p>
+              </div>
+              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-md border border-stragy-dark-text/[0.05]">
+                <p className="text-sm font-semibold uppercase tracking-[0.08em] text-stragy-secondary-label mb-4">
+                  Платформа показывает
+                </p>
+                <ul className="space-y-3">
+                  {platformShows.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-[15px] text-stragy-dark-text/85 leading-snug">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-none" />
+                      {item}
                     </li>
                   ))}
                 </ul>
               </div>
+            </div>
+          </div>
+        </header>
 
-              <Button 
+        {/* Solution — light */}
+        <section id="product" className="py-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-white/80 backdrop-blur-sm rounded-[32px] p-10 md:p-14 shadow-xl border border-stragy-dark-text/[0.05]">
+              <div className="grid md:grid-cols-2 gap-12 items-start">
+                <div>
+                  <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold tracking-[0.12em] uppercase mb-4 font-mono">
+                    <span className="w-2 h-2 rounded-full bg-primary" />
+                    Решение
+                  </div>
+                  <h2 className="text-3xl md:text-[34px] font-bold text-stragy-dark-text leading-tight">
+                    Живая система, которая не даёт стратегии устареть
+                  </h2>
+                  <p className="mt-5 text-[15.5px] text-stragy-dark-text/70 leading-[1.65]">
+                    STRAGY автоматически обнаруживает изменения на рынке,
+                    сопоставляет их с показателями бизнеса, оценивает влияние на
+                    маркетинговую эффективность и предлагает обновления
+                    стратегии с объяснением причин.
+                  </p>
+                </div>
+                <ul className="space-y-4">
+                  {solutionList.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-[15.5px] text-stragy-dark-text font-medium">
+                      <span className="flex-none w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+                        <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How it works */}
+        <section id="how" className="py-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="max-w-2xl mb-12">
+              <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold tracking-[0.12em] uppercase mb-4 font-mono">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                Как это работает
+              </div>
+              <h2 className="text-3xl md:text-[34px] font-bold text-stragy-dark-text leading-tight">
+                От ваших данных — к готовому плану действий
+              </h2>
+              <p className="mt-4 text-[15.5px] text-stragy-dark-text/70">
+                Одна система вместо десятка разрозненных инструментов и ручных отчётов.
+              </p>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {flow.map((step, i) => (
+                <div
+                  key={i}
+                  className={`rounded-2xl p-6 shadow-md border border-stragy-dark-text/[0.05] ${
+                    step.layers ? "bg-primary/10" : "bg-white/80"
+                  } backdrop-blur-sm`}
+                >
+                  <h4 className="text-[15px] font-bold text-stragy-dark-text mb-2">{step.title}</h4>
+                  {step.desc && (
+                    <p className="text-[13px] text-stragy-dark-text/60 leading-[1.5]">{step.desc}</p>
+                  )}
+                  {step.layers && (
+                    <div className="grid grid-cols-2 gap-2 mt-3">
+                      {step.layers.map((layer, j) => (
+                        <div key={j} className="bg-white rounded-lg px-3 py-2.5">
+                          <div className="text-[10.5px] font-mono font-semibold text-primary">
+                            0{j + 1}
+                          </div>
+                          <div className="text-[11.5px] font-bold text-stragy-dark-text mt-0.5">{layer}</div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 bg-primary text-white rounded-2xl p-7 text-[14.5px] font-medium leading-[1.6]">
+              AI сопоставляет внутренние изменения (падение эффективности рекламы, снижение конверсии, рост стоимости привлечения) с внешними событиями (рост активности конкурентов, изменение спроса, новые игроки на рынке) и формирует список приоритетных действий с объяснением причин.
+            </div>
+          </div>
+        </section>
+
+        {/* Differentiation — centered header */}
+        <section id="diff" className="py-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="max-w-3xl mx-auto text-center mb-12">
+              <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold tracking-[0.12em] uppercase mb-4 font-mono">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                Отличие
+              </div>
+              <h2 className="text-3xl md:text-[32px] font-bold text-stragy-dark-text leading-[1.25]">
+                Большинство платформ помогают анализировать данные.
+                <br />
+                <span className="text-primary">STRAGY помогает принимать решения.</span>
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 text-center font-bold text-[15px] text-stragy-dark-text/60 shadow-md mb-4">
+                  Большинство платформ
+                </div>
+                {differences.left.map((item, i) => (
+                  <div
+                    key={i}
+                    className="bg-white/70 backdrop-blur-sm rounded-xl px-5 py-4 mb-3 flex items-center gap-3 text-[14px] font-medium text-stragy-dark-text/65 shadow-sm"
+                  >
+                    <span className="font-bold text-stragy-dark-text/50">—</span>
+                    {item}
+                  </div>
+                ))}
+              </div>
+              <div>
+                <div className="bg-primary rounded-2xl p-5 text-center font-bold text-[15px] text-white shadow-md mb-4">
+                  STRAGY
+                </div>
+                {differences.right.map((item, i) => (
+                  <div
+                    key={i}
+                    className="bg-primary/10 rounded-xl px-5 py-4 mb-3 flex items-center gap-3 text-[14px] font-bold text-stragy-dark-text"
+                  >
+                    <Check className="w-4 h-4 text-primary flex-none" strokeWidth={3} />
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Who — centered header */}
+        <section id="who" className="py-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="max-w-2xl mx-auto text-center mb-12">
+              <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold tracking-[0.12em] uppercase mb-4 font-mono">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                Кому подходит
+              </div>
+              <h2 className="text-3xl md:text-[34px] font-bold text-stragy-dark-text leading-tight">
+                Для тех, кто уже вкладывает в маркетинг
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-5">
+              {whoCards.map((card, i) => (
+                <div
+                  key={i}
+                  className="bg-white/80 backdrop-blur-sm rounded-2xl p-7 shadow-md border border-stragy-dark-text/[0.05]"
+                >
+                  <div className="text-primary font-mono font-semibold text-[12.5px] mb-3">
+                    {card.num}
+                  </div>
+                  <h3 className="text-[16px] font-bold text-stragy-dark-text mb-2.5 leading-[1.35]">
+                    {card.title}
+                  </h3>
+                  <p className="text-[13.5px] text-stragy-dark-text/70 leading-[1.55] m-0">
+                    {card.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing — centered header, no sub */}
+        <section id="pricing" className="py-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="max-w-2xl mx-auto text-center mb-10">
+              <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold tracking-[0.12em] uppercase mb-4 font-mono">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                Тарифы
+              </div>
+              <h2 className="text-3xl md:text-[34px] font-bold text-stragy-dark-text leading-tight">
+                SaaS-подписка с подписочной моделью роста
+              </h2>
+            </div>
+
+            <div className="flex justify-center mb-10">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-semibold text-[12.5px] px-4 py-2 rounded-full">
+                💳 Годовая оплата — экономия 20%
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-5">
+              {pricing.map((plan, i) => (
+                <div
+                  key={i}
+                  className={`relative rounded-2xl p-8 shadow-lg flex flex-col ${
+                    plan.popular
+                      ? "bg-primary text-white"
+                      : "bg-white/85 backdrop-blur-sm border border-stragy-dark-text/[0.05]"
+                  }`}
+                >
+                  {plan.popular && (
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-stragy-dark-text text-white text-[11px] font-bold px-4 py-1.5 rounded-full tracking-[0.03em]">
+                      Рекомендуемый
+                    </div>
+                  )}
+                  <div
+                    className={`font-mono font-bold text-[13px] tracking-[0.08em] uppercase ${
+                      plan.popular ? "text-white/80" : "text-stragy-dark-text/50"
+                    }`}
+                  >
+                    {plan.tier}
+                  </div>
+                  <div
+                    className={`font-bold text-[32px] mt-3 mb-1 ${
+                      plan.popular ? "text-white" : "text-stragy-dark-text"
+                    }`}
+                  >
+                    {plan.price}
+                    <span className="text-[14px] font-medium">{plan.unit}</span>
+                  </div>
+                  <div className={`text-[12.5px] mb-5 ${plan.popular ? "text-white/70" : "text-stragy-dark-text/55"}`}>
+                    {plan.sub}
+                  </div>
+                  <ul className="flex-1 space-y-2.5 mb-6">
+                    {plan.items.map((item, j) => (
+                      <li key={j} className="text-[13px] flex items-start gap-2.5">
+                        <Check
+                          className={`w-4 h-4 flex-none mt-0.5 ${plan.popular ? "text-white" : "text-primary"}`}
+                          strokeWidth={3}
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button
+                    onClick={() => setEmailDialogOpen(true)}
+                    className={`rounded-full h-11 font-semibold text-[14px] transition ${
+                      plan.popular
+                        ? "bg-white text-primary hover:bg-white/90"
+                        : "border border-stragy-dark-text/15 text-stragy-dark-text hover:border-primary hover:text-primary"
+                    }`}
+                  >
+                    {plan.cta}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA */}
+        <section id="cta" className="py-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div
+              className="rounded-[32px] px-8 py-16 md:py-20 text-center text-white"
+              style={{
+                background:
+                  "linear-gradient(135deg, #7A6CD6 0%, #B08FDB 55%, #E9A9C6 100%)",
+              }}
+            >
+              <h2 className="text-3xl md:text-[34px] font-bold mb-4">
+                Готовы избавиться от устаревших стратегий?
+              </h2>
+              <p className="text-[15.5px] text-white/85 mb-8 max-w-xl mx-auto">
+                Запросите доступ и получите первую диагностику вашей
+                маркетинговой стратегии.
+              </p>
+              <Button
                 onClick={() => setEmailDialogOpen(true)}
-                size="lg" 
-                className="rounded-2xl h-12 px-8 text-base font-medium"
+                className="rounded-full h-12 px-8 text-[15px] font-semibold bg-white text-primary hover:bg-white/90 shadow-lg"
               >
                 {t.header.tryFree}
               </Button>
             </div>
+          </div>
+        </section>
 
-            {/* Right column: 48% with laptop — 65-70vh height */}
-            <div className="w-full lg:w-[48%] h-[50vh] lg:h-[65vh] flex items-center justify-center">
-              <LaptopShowcase />
+        {/* Footer */}
+        <footer className="py-14 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="border-t border-stragy-dark-text/10 pt-8 flex flex-wrap justify-between items-center gap-5">
+              <div className="text-lg font-bold text-stragy-dark-text tracking-wide">STRAGY</div>
+              <div className="flex flex-wrap gap-6 text-[13.5px] text-stragy-dark-text/60">
+                <a href="#product" className="hover:text-stragy-dark-text transition">Продукт</a>
+                <a href="#pricing" className="hover:text-stragy-dark-text transition">Тарифы</a>
+                <button
+                  onClick={() => setPrivacyDialogOpen(true)}
+                  className="hover:text-stragy-dark-text transition"
+                >
+                  {t.footer.privacy}
+                </button>
+                <a href="mailto:hello@stragy.com" className="hover:text-stragy-dark-text transition">
+                  hello@stragy.com
+                </a>
+              </div>
+              <div className="text-[12.5px] text-stragy-dark-text/50">© 2026 STRAGY</div>
             </div>
           </div>
-        </div>
-      </section>
+        </footer>
 
-      {/* Features Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {t.features.items.map((feature, index) => {
-              const Icon = featureIcons[index] || BarChart3;
-              return (
-                <Card key={index} className="border-0 shadow-lg rounded-2xl bg-card/80 backdrop-blur-sm">
-                  <CardContent className="p-8">
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-white/20 p-3 rounded-xl">
-                        <Icon className="w-6 h-6 text-stragy-dark-text" />
-                      </div>
-                      <div className="space-y-3">
-                        <h3 className="font-semibold text-stragy-dark-text text-lg">
-                          {feature.title}
-                        </h3>
-                        <p className="text-stragy-dark-text/80 leading-relaxed">
-                          {feature.description}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Target Audience Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-stragy-dark-text text-center mb-12">
-            {t.audience.title}
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card className="border-0 shadow-lg rounded-2xl bg-white/20 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-semibold text-stragy-dark-text mb-4">
-                  {t.audience.marketers.title}
-                </h3>
-                <p className="text-stragy-dark-text/80 leading-relaxed">
-                  {t.audience.marketers.description}
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="border-0 shadow-lg rounded-2xl bg-white/20 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-semibold text-stragy-dark-text mb-4">
-                  {t.audience.owners.title}
-                </h3>
-                <p className="text-stragy-dark-text/80 leading-relaxed">
-                  {t.audience.owners.description}
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-transparent py-12 px-4">
-        <div className="max-w-7xl mx-auto text-center space-y-4">
-          <div className="flex justify-center space-x-8 text-sm text-stragy-dark-text">
-            <button 
-              onClick={() => setPrivacyDialogOpen(true)}
-              className="hover:text-white transition-colors"
-            >
-              {t.footer.privacy}
-            </button>
-            <a 
-              href="mailto:hello@stragy.com" 
-              className="hover:text-white transition-colors"
-            >
-              hello@stragy.com
-            </a>
-          </div>
-        </div>
-      </footer>
-
-      {/* Dialogs */}
-      <EmailDialog 
-        open={emailDialogOpen} 
-        onOpenChange={setEmailDialogOpen}
-        translations={t}
-      />
-      <PrivacyPolicy 
-        open={privacyDialogOpen} 
-        onOpenChange={setPrivacyDialogOpen} 
-      />
+        <EmailDialog
+          open={emailDialogOpen}
+          onOpenChange={setEmailDialogOpen}
+          translations={t}
+        />
+        <PrivacyPolicy
+          open={privacyDialogOpen}
+          onOpenChange={setPrivacyDialogOpen}
+        />
       </div>
     </div>
   );

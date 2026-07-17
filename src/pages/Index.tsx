@@ -23,12 +23,6 @@ const Index = () => {
     "как перераспределить бюджет, чтобы маркетинг приносил максимальную прибыль",
   ];
 
-  const solutionList = [
-    "Где теряются клиенты",
-    "Какие каналы теряют эффективность",
-    "Какие действия необходимо выполнить",
-    "Как перераспределить бюджет",
-  ];
 
   const flow = [
     {
@@ -154,7 +148,6 @@ const Index = () => {
             <div className="flex justify-between items-center h-[76px]">
               <div className="text-xl font-bold text-stragy-dark-text tracking-wide">STRAGY</div>
               <div className="hidden md:flex items-center gap-8 text-sm font-medium text-stragy-dark-text/75">
-                <a href="#product" className="hover:text-stragy-dark-text transition">Продукт</a>
                 <a href="#how" className="hover:text-stragy-dark-text transition">Как это работает</a>
                 <a href="#who" className="hover:text-stragy-dark-text transition">Кому подходит</a>
                 <a href="#pricing" className="hover:text-stragy-dark-text transition">Тарифы</a>
@@ -173,28 +166,40 @@ const Index = () => {
         </nav>
 
         {/* Hero */}
-        <header className="pt-20 pb-16 px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
+        <header className="min-h-[calc(100vh-76px)] flex items-center py-12 px-6">
+          <div className="max-w-6xl mx-auto w-full">
+            <div className="grid lg:grid-cols-[52%_48%] gap-10 items-center">
               <div>
                 <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold tracking-[0.12em] uppercase mb-4 font-mono">
                   <span className="w-2 h-2 rounded-full bg-primary" />
                   Marketing decision intelligence
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold text-stragy-dark-text leading-[1.15] tracking-tight">
-                  Мы не анализируем данные.
-                  <br />
-                  Мы поддерживаем{" "}
-                  <span className="text-primary">актуальность</span> вашего
-                  маркетинга.
+                <h1 className="text-[32px] md:text-[40px] font-bold text-stragy-dark-text leading-[1.15] tracking-tight">
+                  Платформа, которая помогает вашему маркетингу всегда быть{" "}
+                  <span className="text-primary">актуальным</span>
                 </h1>
-                <p className="mt-6 text-[17px] leading-[1.6] text-stragy-dark-text/70 max-w-xl">
-                  STRAGY объединяет внешнюю аналитику рынка и внутренние данные
-                  вашего бизнеса, чтобы стратегия, бюджет и действия всегда были
-                  синхронизированы с реальностью — а не с тем, что было верно
-                  месяц назад.
+                <p className="mt-5 text-[16px] leading-[1.6] text-stragy-dark-text/70 max-w-xl">
+                  STRAGY автоматически обнаруживает изменения на рынке, сопоставляет их
+                  с показателями бизнеса, оценивает влияние на маркетинговую
+                  эффективность и предлагает обновления стратегии с объяснением
+                  причин.
                 </p>
-                <div className="mt-8 flex flex-wrap gap-3">
+
+                <div className="mt-6 bg-white/70 backdrop-blur-sm rounded-2xl p-5 shadow-md border border-stragy-dark-text/[0.05]">
+                  <p className="text-xs font-semibold uppercase tracking-[0.08em] text-stragy-secondary-label mb-3">
+                    Платформа показывает
+                  </p>
+                  <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
+                    {platformShows.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-[14px] text-stragy-dark-text/85 leading-snug">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-none" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-3">
                   <Button
                     onClick={() => setEmailDialogOpen(true)}
                     className="rounded-full h-12 px-7 text-[15px] font-semibold shadow-lg shadow-primary/25"
@@ -210,71 +215,14 @@ const Index = () => {
                 </div>
               </div>
 
-              <SignalCard />
-            </div>
-
-            {/* Extra info on hero */}
-            <div className="mt-16 grid lg:grid-cols-2 gap-8 items-start">
-              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-md border border-stragy-dark-text/[0.05]">
-                <p className="text-[15.5px] leading-[1.7] text-stragy-dark-text/85">
-                  <span className="font-semibold text-stragy-dark-text">STRAGY</span>{" "}
-                  автоматически обнаруживает изменения на рынке, сопоставляет их
-                  с показателями бизнеса, оценивает влияние на маркетинговую
-                  эффективность и предлагает обновления стратегии с объяснением
-                  причин.
-                </p>
-              </div>
-              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-md border border-stragy-dark-text/[0.05]">
-                <p className="text-sm font-semibold uppercase tracking-[0.08em] text-stragy-secondary-label mb-4">
-                  Платформа показывает
-                </p>
-                <ul className="space-y-3">
-                  {platformShows.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-[15px] text-stragy-dark-text/85 leading-snug">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-none" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+              <div className="flex items-center justify-center lg:h-[65vh]">
+                <div className="w-[80%]">
+                  <SignalCard />
+                </div>
               </div>
             </div>
           </div>
         </header>
-
-        {/* Solution — light */}
-        <section id="product" className="py-20 px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="bg-white/80 backdrop-blur-sm rounded-[32px] p-10 md:p-14 shadow-xl border border-stragy-dark-text/[0.05]">
-              <div className="grid md:grid-cols-2 gap-12 items-start">
-                <div>
-                  <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold tracking-[0.12em] uppercase mb-4 font-mono">
-                    <span className="w-2 h-2 rounded-full bg-primary" />
-                    Решение
-                  </div>
-                  <h2 className="text-3xl md:text-[34px] font-bold text-stragy-dark-text leading-tight">
-                    Живая система, которая не даёт стратегии устареть
-                  </h2>
-                  <p className="mt-5 text-[15.5px] text-stragy-dark-text/70 leading-[1.65]">
-                    STRAGY автоматически обнаруживает изменения на рынке,
-                    сопоставляет их с показателями бизнеса, оценивает влияние на
-                    маркетинговую эффективность и предлагает обновления
-                    стратегии с объяснением причин.
-                  </p>
-                </div>
-                <ul className="space-y-4">
-                  {solutionList.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-[15.5px] text-stragy-dark-text font-medium">
-                      <span className="flex-none w-6 h-6 rounded-full bg-primary flex items-center justify-center">
-                        <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* How it works */}
         <section id="how" className="py-20 px-6">

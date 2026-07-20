@@ -1,30 +1,11 @@
 import { useEffect, useState } from "react";
-
-interface Signal {
-  sig: string;
-  imp: string;
-  act: string;
-}
-
-const signals: Signal[] = [
-  {
-    sig: "Появился новый конкурент в вашей категории",
-    imp: "Стоимость привлечения клиента выросла на <b>18%</b>",
-    act: "Перераспределить 12% бюджета на органические каналы",
-  },
-  {
-    sig: "Спрос сместился в сторону мобильного трафика",
-    imp: "Конверсия десктоп-кампаний упала на <b>9%</b>",
-    act: "Обновить креативы под мобильный формат",
-  },
-  {
-    sig: "Конкурент снизил цену на ключевую позицию",
-    imp: "CTR в поиске снизился на <b>14%</b>",
-    act: "Скорректировать оффер и ставки в течение 48 часов",
-  },
-];
+import { useLanguage } from "@/hooks/useLanguage";
+import { getTranslations } from "@/lib/translations";
 
 export const SignalCard = () => {
+  const { currentLang } = useLanguage();
+  const t = getTranslations(currentLang).signals;
+  const signals = t.items;
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -34,28 +15,28 @@ export const SignalCard = () => {
       setCurrent((c) => (c + 1) % signals.length);
     }, 4200);
     return () => clearInterval(timer);
-  }, []);
+  }, [signals.length]);
 
   const s = signals[current];
 
   const rows = [
-    { icon: "СИГ", bg: "bg-stragy-pink/30 text-[#C0538E]", label: "Сигнал рынка", value: s.sig },
-    { icon: "ВЛ", bg: "bg-primary/10 text-primary", label: "Влияние на бизнес", value: s.imp },
-    { icon: "✓", bg: "bg-primary text-white", label: "Действие STRAGY", value: s.act },
+    { icon: t.sigIcon, bg: "bg-stragy-pink/30 text-[#C0538E]", label: t.sigLabel, value: s.sig },
+    { icon: t.impIcon, bg: "bg-primary/10 text-primary", label: t.impLabel, value: s.imp },
+    { icon: "✓", bg: "bg-primary text-white", label: t.actLabel, value: s.act },
   ];
 
   return (
-    <div className="relative bg-white rounded-3xl shadow-xl p-7 overflow-hidden border border-stragy-dark-text/[0.05]">
+    <div className="relative bg-white rounded-3xl shadow-xl p-6 sm:p-7 overflow-hidden border border-stragy-dark-text/[0.05]">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{ background: "linear-gradient(135deg, hsl(var(--primary) / 0.05), transparent 50%)" }}
       />
       <div className="relative">
-        <div className="flex items-center justify-between mb-5">
-          <span className="text-[11.5px] font-mono uppercase tracking-[0.08em] text-stragy-dark-text/55">
-            Что изменилось на этой неделе
+        <div className="flex items-center justify-between mb-5 gap-3">
+          <span className="text-[11px] sm:text-[11.5px] font-mono uppercase tracking-[0.08em] text-stragy-dark-text/55">
+            {t.heading}
           </span>
-          <div className="flex gap-1.5">
+          <div className="flex gap-1.5 flex-none">
             {signals.map((_, i) => (
               <button
                 key={i}

@@ -9,7 +9,13 @@ export interface SignalItem {
 export interface FlowStep {
   title: string;
   desc?: string;
-  layers?: string[];
+  bullets?: string[];
+  layers?: { name: string; desc: string }[];
+}
+
+export interface PlatformCard {
+  title: string;
+  desc: string;
 }
 
 export interface WhoCard {

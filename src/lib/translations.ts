@@ -9,7 +9,13 @@ export interface SignalItem {
 export interface FlowStep {
   title: string;
   desc?: string;
-  layers?: string[];
+  bullets?: string[];
+  layers?: { name: string; desc: string }[];
+}
+
+export interface PlatformCard {
+  title: string;
+  desc: string;
 }
 
 export interface WhoCard {
@@ -48,7 +54,7 @@ export interface Translations {
     titleHighlight: string;
     description: string;
     platformShowsLabel: string;
-    platformShows: string[];
+    platformShows: PlatformCard[];
     ctaSecondary: string;
     // legacy — kept so unrelated components keep compiling
     title: string;
@@ -158,11 +164,11 @@ const translations: Record<Language, Translations> = {
         "STRAGY автоматически обнаруживает изменения на рынке, сопоставляет их с показателями бизнеса, оценивает влияние на маркетинговую эффективность и предлагает обновления стратегии с объяснением причин.",
       platformShowsLabel: "Что доступно на платформе:",
       platformShows: [
-        "Анализ вашего рынка, конкурентов на основе закрытой аналитики",
-        "Разработка стратегии продвижения с целью увеличения количества клиентов",
-        "Разработка стратегии с целью удержания клиентов",
-        "Распределение рекламного бюджета с обоснованием",
-        "Определение точек, где теряется клиент и корректировка стратегии",
+        { title: "Анализ рынка и конкурентов", desc: "Данные о спросе, конкурентах и возможностях рынка." },
+        { title: "Стратегия роста", desc: "План действий для привлечения новых клиентов." },
+        { title: "Стратегия удержания", desc: "Рекомендации по увеличению повторных продаж и лояльности." },
+        { title: "Рекламный бюджет", desc: "Распределение бюджета с обоснованием." },
+        { title: "Анализ потерь клиентов", desc: "Точки, где компания теряет клиентов и как это исправить." },
       ],
       ctaSecondary: "Как это работает",
       title: "STRAGY",
@@ -208,14 +214,25 @@ const translations: Record<Language, Translations> = {
       flow: [
         {
           title: "Входные данные",
-          desc: "Бизнес вводит данные о продукте, аудитории, каналах и текущих маркетинговых показателях.",
+          desc: "Введите информацию о своём продукте, целях и текущих действиях для продвижения на платформе.",
         },
         {
           title: "Ядро STRAGY — 4 слоя платформы",
-          layers: ["Market layer", "Business layer", "Decision layer", "Planning layer"],
+          layers: [
+            { name: "Market Layer", desc: "Анализирует рынок, конкурентов и целевую аудиторию на основе внешних аналитических данных." },
+            { name: "Business Layer", desc: "Объединяет рыночные данные с данными вашего бизнеса, целями и маркетинговыми задачами." },
+            { name: "Decision Layer", desc: "Определяет возможности роста и формирует персонализированную маркетинговую стратегию." },
+            { name: "Planning Layer", desc: "Создаёт пошаговый план реализации стратегии с конкретными действиями и приоритетами." },
+          ],
         },
-        { title: "Рекомендации", desc: "Приоритетные действия с объяснением причин." },
-        { title: "План действий", desc: "Медиаплан и коммуникационная карта по каждому каналу." },
+        {
+          title: "Результат",
+          bullets: [
+            "Карта пути клиента",
+            "Коммуникационная карта с платными и бесплатными рекламными каналами",
+            "Медиаплан с KPI и бюджетированием",
+          ],
+        },
       ],
       aiExplanation:
         "AI сопоставляет внутренние изменения (падение эффективности рекламы, снижение конверсии, рост стоимости привлечения) с внешними событиями (рост активности конкурентов, изменение спроса, новые игроки на рынке) и формирует список приоритетных действий с объяснением причин.",
@@ -368,11 +385,11 @@ const translations: Record<Language, Translations> = {
         "STRAGY automatically detects market changes, correlates them with your business metrics, quantifies the impact on marketing performance and recommends strategy updates — with a clear explanation of why.",
       platformShowsLabel: "What’s available on the platform:",
       platformShows: [
-        "Analysis of your market and competitors based on closed analytics",
-        "Development of a growth strategy to increase customer acquisition",
-        "Development of a strategy to retain customers",
-        "Allocation of advertising budget with justification",
-        "Identification of customer drop-off points and strategy adjustment",
+        { title: "Market & competitor analysis", desc: "Data on demand, competitors and market opportunities." },
+        { title: "Growth strategy", desc: "An action plan to acquire new customers." },
+        { title: "Retention strategy", desc: "Recommendations to boost repeat sales and loyalty." },
+        { title: "Advertising budget", desc: "Budget allocation with a clear rationale." },
+        { title: "Customer loss analysis", desc: "The points where you lose customers — and how to fix them." },
       ],
       ctaSecondary: "See how it works",
       title: "STRAGY",
@@ -422,14 +439,25 @@ const translations: Record<Language, Translations> = {
       flow: [
         {
           title: "Inputs",
-          desc: "You share product, audience, channel and current marketing performance data.",
+          desc: "You provide information about your product, goals and current promotion activities on the platform.",
         },
         {
           title: "The STRAGY core — 4 platform layers",
-          layers: ["Market layer", "Business layer", "Decision layer", "Planning layer"],
+          layers: [
+            { name: "Market Layer", desc: "Analyzes the market, competitors and target audience using external analytics data." },
+            { name: "Business Layer", desc: "Combines market data with your business data, goals and marketing objectives." },
+            { name: "Decision Layer", desc: "Identifies growth opportunities and builds a personalized marketing strategy." },
+            { name: "Planning Layer", desc: "Creates a step-by-step execution plan with concrete actions and priorities." },
+          ],
         },
-        { title: "Recommendations", desc: "Prioritized actions with the reasoning behind each one." },
-        { title: "Action plan", desc: "A media plan and communication map for every channel." },
+        {
+          title: "Result",
+          bullets: [
+            "Customer journey map",
+            "Communication map across paid and organic channels",
+            "Media plan with KPIs and budgeting",
+          ],
+        },
       ],
       aiExplanation:
         "AI correlates internal shifts (declining ad efficiency, lower conversion, rising acquisition cost) with external events (competitor activity, demand changes, new market entrants) and produces a prioritized list of actions — each one explained.",
@@ -579,11 +607,11 @@ const translations: Record<Language, Translations> = {
         "STRAGY detecta automáticamente los cambios del mercado, los correlaciona con los indicadores de tu negocio, mide su impacto en el rendimiento de marketing y propone actualizaciones de estrategia — con una explicación clara del porqué.",
       platformShowsLabel: "Qué está disponible en la plataforma:",
       platformShows: [
-        "Análisis de tu mercado y competidores basado en analítica cerrada",
-        "Desarrollo de estrategia de promoción para aumentar la captación de clientes",
-        "Desarrollo de estrategia para retener clientes",
-        "Distribución del presupuesto publicitario con justificación",
-        "Identificación de puntos de fuga de clientes y ajuste de la estrategia",
+        { title: "Análisis de mercado y competidores", desc: "Datos sobre demanda, competidores y oportunidades de mercado." },
+        { title: "Estrategia de crecimiento", desc: "Plan de acciones para captar nuevos clientes." },
+        { title: "Estrategia de retención", desc: "Recomendaciones para aumentar la recompra y la fidelidad." },
+        { title: "Presupuesto publicitario", desc: "Distribución del presupuesto con justificación." },
+        { title: "Análisis de pérdida de clientes", desc: "Puntos donde la empresa pierde clientes y cómo solucionarlo." },
       ],
       ctaSecondary: "Ver cómo funciona",
       title: "STRAGY",
@@ -633,14 +661,25 @@ const translations: Record<Language, Translations> = {
       flow: [
         {
           title: "Datos de entrada",
-          desc: "Compartes datos de producto, audiencia, canales y rendimiento actual de marketing.",
+          desc: "Introduces información sobre tu producto, objetivos y acciones actuales de promoción en la plataforma.",
         },
         {
           title: "Núcleo de STRAGY — 4 capas de la plataforma",
-          layers: ["Market layer", "Business layer", "Decision layer", "Planning layer"],
+          layers: [
+            { name: "Market Layer", desc: "Analiza el mercado, los competidores y la audiencia objetivo con datos analíticos externos." },
+            { name: "Business Layer", desc: "Combina los datos de mercado con los datos de tu negocio, tus objetivos y tus tareas de marketing." },
+            { name: "Decision Layer", desc: "Identifica oportunidades de crecimiento y construye una estrategia de marketing personalizada." },
+            { name: "Planning Layer", desc: "Crea un plan de ejecución paso a paso con acciones concretas y prioridades." },
+          ],
         },
-        { title: "Recomendaciones", desc: "Acciones priorizadas con la explicación de cada decisión." },
-        { title: "Plan de acción", desc: "Plan de medios y mapa de comunicación para cada canal." },
+        {
+          title: "Resultado",
+          bullets: [
+            "Mapa del recorrido del cliente",
+            "Mapa de comunicación con canales publicitarios de pago y gratuitos",
+            "Plan de medios con KPI y presupuesto",
+          ],
+        },
       ],
       aiExplanation:
         "La IA correlaciona los cambios internos (caída de eficacia publicitaria, menor conversión, mayor coste de adquisición) con los eventos externos (mayor actividad de competidores, cambios en la demanda, nuevos jugadores) y genera una lista priorizada de acciones — cada una explicada.",

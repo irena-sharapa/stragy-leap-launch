@@ -139,15 +139,23 @@ const Index = () => {
                     {t.hero.description}
                   </p>
 
-                  <div className="mt-6 bg-white/70 backdrop-blur-sm rounded-2xl p-5 shadow-md border border-stragy-dark-text/[0.05]">
+                  <div className="mt-6">
                     <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.08em] text-stragy-secondary-label mb-3">
                       {t.hero.platformShowsLabel}
                     </p>
-                    <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
+                    <ul className="grid sm:grid-cols-2 gap-2.5">
                       {t.hero.platformShows.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2.5 text-[13.5px] md:text-[14px] text-stragy-dark-text/85 leading-snug">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-none" />
-                          {item}
+                        <li
+                          key={i}
+                          className="bg-white/75 backdrop-blur-sm rounded-xl p-3.5 shadow-sm border border-stragy-dark-text/[0.05] hover:shadow-md hover:border-primary/20 transition"
+                        >
+                          <div className="flex items-start gap-2.5">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-none" />
+                            <div>
+                              <div className="text-[13px] font-semibold text-stragy-dark-text leading-snug">{item.title}</div>
+                              <div className="text-[12px] text-stragy-dark-text/65 leading-snug mt-0.5">{item.desc}</div>
+                            </div>
+                          </div>
                         </li>
                       ))}
                     </ul>
@@ -194,26 +202,40 @@ const Index = () => {
                 </p>
               </div>
 
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              <div className="grid gap-4 md:grid-cols-3">
                 {t.how.flow.map((step, i) => (
                   <div
                     key={i}
                     className={`rounded-2xl p-6 shadow-md border border-stragy-dark-text/[0.05] ${
-                      step.layers ? "bg-primary/10" : "bg-white/80"
+                      step.layers ? "bg-primary/10 md:col-span-3" : "bg-white/80"
                     } backdrop-blur-sm`}
                   >
-                    <h4 className="text-[15px] font-bold text-stragy-dark-text mb-2">{step.title}</h4>
+                    <div className="text-primary font-mono font-semibold text-[12px] mb-2">
+                      0{i + 1}
+                    </div>
+                    <h4 className="text-[16px] font-bold text-stragy-dark-text mb-2">{step.title}</h4>
                     {step.desc && (
-                      <p className="text-[13px] text-stragy-dark-text/60 leading-[1.5]">{step.desc}</p>
+                      <p className="text-[13px] text-stragy-dark-text/65 leading-[1.55]">{step.desc}</p>
+                    )}
+                    {step.bullets && (
+                      <ul className="mt-1 space-y-2">
+                        {step.bullets.map((b, j) => (
+                          <li key={j} className="flex items-start gap-2.5 text-[13px] text-stragy-dark-text/80 leading-snug">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-none" />
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
                     )}
                     {step.layers && (
-                      <div className="grid grid-cols-2 gap-2 mt-3">
+                      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 mt-4">
                         {step.layers.map((layer, j) => (
-                          <div key={j} className="bg-white rounded-lg px-3 py-2.5">
-                            <div className="text-[10.5px] font-mono font-semibold text-primary">
+                          <div key={j} className="bg-white rounded-xl p-4 shadow-sm border border-stragy-dark-text/[0.04]">
+                            <div className="text-[11px] font-mono font-semibold text-primary">
                               0{j + 1}
                             </div>
-                            <div className="text-[11.5px] font-bold text-stragy-dark-text mt-0.5">{layer}</div>
+                            <div className="text-[13.5px] font-bold text-stragy-dark-text mt-1">{layer.name}</div>
+                            <div className="text-[12px] text-stragy-dark-text/65 leading-snug mt-1.5">{layer.desc}</div>
                           </div>
                         ))}
                       </div>

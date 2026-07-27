@@ -125,10 +125,12 @@ const Index = () => {
             <div className="max-w-6xl mx-auto w-full">
               <div className="grid lg:grid-cols-[52%_48%] gap-8 lg:gap-10 items-center">
                 <div>
-                  <div className="inline-flex items-center gap-2 text-primary text-[11px] sm:text-xs font-semibold tracking-[0.12em] uppercase mb-4 font-mono">
-                    <span className="w-2 h-2 rounded-full bg-primary" />
-                    {t.hero.badge}
-                  </div>
+                  {t.hero.badge && (
+                    <div className="inline-flex items-center gap-2 text-primary text-[11px] sm:text-xs font-semibold tracking-[0.12em] uppercase mb-4 font-mono">
+                      <span className="w-2 h-2 rounded-full bg-primary" />
+                      {t.hero.badge}
+                    </div>
+                  )}
                   <h1 className="text-[28px] sm:text-[32px] md:text-[40px] font-bold text-stragy-dark-text leading-[1.15] tracking-tight">
                     {t.hero.titleStart}{" "}
                     <span className="text-primary">{t.hero.titleHighlight}</span>

@@ -151,12 +151,12 @@ const translations: Record<Language, Translations> = {
       product: "Продукт",
     },
     hero: {
-      badge: "Marketing decision intelligence",
+      badge: "",
       titleStart: "Платформа, которая помогает вашему маркетингу всегда быть",
       titleHighlight: "актуальным",
       description:
         "STRAGY автоматически обнаруживает изменения на рынке, сопоставляет их с показателями бизнеса, оценивает влияние на маркетинговую эффективность и предлагает обновления стратегии с объяснением причин.",
-      platformShowsLabel: "Платформа показывает",
+      platformShowsLabel: "Что доступно на платформе:",
       platformShows: [
         "где теряется клиент",
         "какие каналы работают, а какие нет",
@@ -242,7 +242,7 @@ const translations: Record<Language, Translations> = {
       cards: [
         {
           num: "01",
-          title: "SMB с digital-бюджетом от $500 в месяц",
+          title: "Малый и средний бизнес с любым рекламным бюджетом",
           desc: "Компании, которым нужна экспертная стратегия без найма дорогостоящих специалистов.",
         },
         {
@@ -259,7 +259,7 @@ const translations: Record<Language, Translations> = {
     },
     pricing: {
       badge: "Тарифы",
-      title: "SaaS-подписка с подписочной моделью роста",
+      title: "Тарифы STRAGY",
       discount: "💳 Годовая оплата — экономия 20%",
       recommended: "Рекомендуемый",
       plans: [
@@ -360,12 +360,12 @@ const translations: Record<Language, Translations> = {
       product: "Product",
     },
     hero: {
-      badge: "Marketing decision intelligence",
+      badge: "",
       titleStart: "The platform that keeps your marketing continuously",
       titleHighlight: "up to date",
       description:
         "STRAGY automatically detects market changes, correlates them with your business metrics, quantifies the impact on marketing performance and recommends strategy updates — with a clear explanation of why.",
-      platformShowsLabel: "The platform shows",
+      platformShowsLabel: "What’s available on the platform:",
       platformShows: [
         "where you are losing customers",
         "which channels are working and which are not",
@@ -455,7 +455,7 @@ const translations: Record<Language, Translations> = {
       cards: [
         {
           num: "01",
-          title: "SMBs with digital budgets from $500 / month",
+          title: "Small and medium businesses with any advertising budget",
           desc: "Companies that need expert strategy without hiring an in-house team of specialists.",
         },
         {
@@ -472,7 +472,7 @@ const translations: Record<Language, Translations> = {
     },
     pricing: {
       badge: "Pricing",
-      title: "SaaS subscription with a scalable growth model",
+      title: "STRAGY Pricing",
       discount: "💳 Annual billing — save 20%",
       recommended: "Recommended",
       plans: [
@@ -570,12 +570,12 @@ const translations: Record<Language, Translations> = {
       product: "Producto",
     },
     hero: {
-      badge: "Marketing decision intelligence",
+      badge: "",
       titleStart: "La plataforma que mantiene tu marketing siempre",
       titleHighlight: "actualizado",
       description:
         "STRAGY detecta automáticamente los cambios del mercado, los correlaciona con los indicadores de tu negocio, mide su impacto en el rendimiento de marketing y propone actualizaciones de estrategia — con una explicación clara del porqué.",
-      platformShowsLabel: "La plataforma muestra",
+      platformShowsLabel: "Qué está disponible en la plataforma:",
       platformShows: [
         "dónde estás perdiendo clientes",
         "qué canales funcionan y cuáles no",
@@ -665,7 +665,7 @@ const translations: Record<Language, Translations> = {
       cards: [
         {
           num: "01",
-          title: "PYMES con presupuesto digital desde $500 al mes",
+          title: "Pequeñas y medianas empresas con cualquier presupuesto publicitario",
           desc: "Empresas que necesitan una estrategia experta sin contratar un equipo interno de especialistas.",
         },
         {
@@ -682,7 +682,7 @@ const translations: Record<Language, Translations> = {
     },
     pricing: {
       badge: "Precios",
-      title: "Suscripción SaaS con un modelo de crecimiento escalable",
+      title: "Precios STRAGY",
       discount: "💳 Facturación anual — ahorra 20%",
       recommended: "Recomendado",
       plans: [

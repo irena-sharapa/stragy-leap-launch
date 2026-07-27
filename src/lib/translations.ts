@@ -54,7 +54,7 @@ export interface Translations {
     titleHighlight: string;
     description: string;
     platformShowsLabel: string;
-    platformShows: string[];
+    platformShows: PlatformCard[];
     ctaSecondary: string;
     // legacy — kept so unrelated components keep compiling
     title: string;

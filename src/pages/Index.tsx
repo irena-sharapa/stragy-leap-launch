@@ -139,15 +139,23 @@ const Index = () => {
                     {t.hero.description}
                   </p>
 
-                  <div className="mt-6 bg-white/70 backdrop-blur-sm rounded-2xl p-5 shadow-md border border-stragy-dark-text/[0.05]">
+                  <div className="mt-6">
                     <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.08em] text-stragy-secondary-label mb-3">
                       {t.hero.platformShowsLabel}
                     </p>
-                    <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
+                    <ul className="grid sm:grid-cols-2 gap-2.5">
                       {t.hero.platformShows.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2.5 text-[13.5px] md:text-[14px] text-stragy-dark-text/85 leading-snug">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-none" />
-                          {item}
+                        <li
+                          key={i}
+                          className="bg-white/75 backdrop-blur-sm rounded-xl p-3.5 shadow-sm border border-stragy-dark-text/[0.05] hover:shadow-md hover:border-primary/20 transition"
+                        >
+                          <div className="flex items-start gap-2.5">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-none" />
+                            <div>
+                              <div className="text-[13px] font-semibold text-stragy-dark-text leading-snug">{item.title}</div>
+                              <div className="text-[12px] text-stragy-dark-text/65 leading-snug mt-0.5">{item.desc}</div>
+                            </div>
+                          </div>
                         </li>
                       ))}
                     </ul>

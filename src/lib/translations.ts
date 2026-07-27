@@ -661,14 +661,25 @@ const translations: Record<Language, Translations> = {
       flow: [
         {
           title: "Datos de entrada",
-          desc: "Compartes datos de producto, audiencia, canales y rendimiento actual de marketing.",
+          desc: "Introduces información sobre tu producto, objetivos y acciones actuales de promoción en la plataforma.",
         },
         {
           title: "Núcleo de STRAGY — 4 capas de la plataforma",
-          layers: ["Market layer", "Business layer", "Decision layer", "Planning layer"],
+          layers: [
+            { name: "Market Layer", desc: "Analiza el mercado, los competidores y la audiencia objetivo con datos analíticos externos." },
+            { name: "Business Layer", desc: "Combina los datos de mercado con los datos de tu negocio, tus objetivos y tus tareas de marketing." },
+            { name: "Decision Layer", desc: "Identifica oportunidades de crecimiento y construye una estrategia de marketing personalizada." },
+            { name: "Planning Layer", desc: "Crea un plan de ejecución paso a paso con acciones concretas y prioridades." },
+          ],
         },
-        { title: "Recomendaciones", desc: "Acciones priorizadas con la explicación de cada decisión." },
-        { title: "Plan de acción", desc: "Plan de medios y mapa de comunicación para cada canal." },
+        {
+          title: "Resultado",
+          bullets: [
+            "Mapa del recorrido del cliente",
+            "Mapa de comunicación con canales publicitarios de pago y gratuitos",
+            "Plan de medios con KPI y presupuesto",
+          ],
+        },
       ],
       aiExplanation:
         "La IA correlaciona los cambios internos (caída de eficacia publicitaria, menor conversión, mayor coste de adquisición) con los eventos externos (mayor actividad de competidores, cambios en la demanda, nuevos jugadores) y genera una lista priorizada de acciones — cada una explicada.",

@@ -439,14 +439,25 @@ const translations: Record<Language, Translations> = {
       flow: [
         {
           title: "Inputs",
-          desc: "You share product, audience, channel and current marketing performance data.",
+          desc: "You provide information about your product, goals and current promotion activities on the platform.",
         },
         {
           title: "The STRAGY core — 4 platform layers",
-          layers: ["Market layer", "Business layer", "Decision layer", "Planning layer"],
+          layers: [
+            { name: "Market Layer", desc: "Analyzes the market, competitors and target audience using external analytics data." },
+            { name: "Business Layer", desc: "Combines market data with your business data, goals and marketing objectives." },
+            { name: "Decision Layer", desc: "Identifies growth opportunities and builds a personalized marketing strategy." },
+            { name: "Planning Layer", desc: "Creates a step-by-step execution plan with concrete actions and priorities." },
+          ],
         },
-        { title: "Recommendations", desc: "Prioritized actions with the reasoning behind each one." },
-        { title: "Action plan", desc: "A media plan and communication map for every channel." },
+        {
+          title: "Result",
+          bullets: [
+            "Customer journey map",
+            "Communication map across paid and organic channels",
+            "Media plan with KPIs and budgeting",
+          ],
+        },
       ],
       aiExplanation:
         "AI correlates internal shifts (declining ad efficiency, lower conversion, rising acquisition cost) with external events (competitor activity, demand changes, new market entrants) and produces a prioritized list of actions — each one explained.",

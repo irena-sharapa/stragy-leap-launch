@@ -334,22 +334,12 @@ const Index = () => {
 
           {/* Pricing */}
           <section id="pricing" className="py-16 md:py-20 px-5 sm:px-6">
-            <div className="max-w-6xl mx-auto">
-              <div className="max-w-2xl mx-auto text-center mb-8 md:mb-10">
-                <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold tracking-[0.12em] uppercase mb-4 font-mono">
-                  <span className="w-2 h-2 rounded-full bg-primary" />
-                  {t.pricing.badge}
-                </div>
-                <h2 className="text-[26px] sm:text-3xl md:text-[34px] font-bold text-stragy-dark-text leading-tight">
-                  {t.pricing.title}
-                </h2>
+          <div className="max-w-6xl mx-auto">
+            <div className="flex justify-center mb-8 md:mb-10">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-semibold text-[12.5px] px-4 py-2 rounded-full text-center">
+                {t.pricing.discount}
               </div>
-
-              <div className="flex justify-center mb-8 md:mb-10">
-                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-semibold text-[12.5px] px-4 py-2 rounded-full text-center">
-                  {t.pricing.discount}
-                </div>
-              </div>
+            </div>
 
               <div className="grid md:grid-cols-3 gap-5">
                 {t.pricing.plans.map((plan, i) => (

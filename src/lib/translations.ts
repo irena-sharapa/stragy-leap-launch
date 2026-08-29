@@ -102,12 +102,39 @@ export interface Translations {
   pricing: {
     badge: string;
     title: string;
+  pricing: {
+    badge: string;
+    title: string;
     discount: string;
     recommended: string;
+    monthly: string;
+    annual: string;
+    perYearNote: string;
     plans: PricingPlan[];
   };
-  finalCta: {
+  requestForm: {
     title: string;
+    planLabel: string;
+    changePlan: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    emailError: string;
+    phoneLabel: string;
+    phonePlaceholder: string;
+    phoneError: string;
+    consentPrefix: string;
+    offerLink: string;
+    consentMid: string;
+    privacyLink: string;
+    submit: string;
+    submitting: string;
+    successTitle: string;
+    successText: string;
+    errorTitle: string;
+    errorText: string;
+    retry: string;
+    close: string;
+  };
     subtitle: string;
   };
   features: {

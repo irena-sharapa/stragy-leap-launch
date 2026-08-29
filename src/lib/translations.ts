@@ -102,9 +102,6 @@ export interface Translations {
   pricing: {
     badge: string;
     title: string;
-  pricing: {
-    badge: string;
-    title: string;
     discount: string;
     recommended: string;
     monthly: string;
@@ -135,6 +132,8 @@ export interface Translations {
     retry: string;
     close: string;
   };
+  finalCta: {
+    title: string;
     subtitle: string;
   };
   features: {

@@ -32,6 +32,9 @@ export interface PricingPlan {
   items: string[];
   cta: string;
   popular: boolean;
+  /** Business-style plan: dashed border, own column, mini label above the tier name */
+  separate?: boolean;
+  altLabel?: string;
 }
 
 export interface Translations {

@@ -32,6 +32,9 @@ export interface PricingPlan {
   items: string[];
   cta: string;
   popular: boolean;
+  /** Business-style plan: dashed border, own column, mini label above the tier name */
+  separate?: boolean;
+  altLabel?: string;
 }
 
 export interface Translations {
@@ -101,7 +104,33 @@ export interface Translations {
     title: string;
     discount: string;
     recommended: string;
+    monthly: string;
+    annual: string;
+    perYearNote: string;
     plans: PricingPlan[];
+  };
+  requestForm: {
+    title: string;
+    planLabel: string;
+    changePlan: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    emailError: string;
+    phoneLabel: string;
+    phonePlaceholder: string;
+    phoneError: string;
+    consentPrefix: string;
+    offerLink: string;
+    consentMid: string;
+    privacyLink: string;
+    submit: string;
+    submitting: string;
+    successTitle: string;
+    successText: string;
+    errorTitle: string;
+    errorText: string;
+    retry: string;
+    close: string;
   };
   finalCta: {
     title: string;
@@ -280,6 +309,9 @@ const translations: Record<Language, Translations> = {
       title: "Тарифы STRAGY",
       discount: "💳 Годовая оплата — экономия 20%",
       recommended: "Рекомендуемый",
+      monthly: "Ежемесячно",
+      annual: "Годовая оплата −20%",
+      perYearNote: "цена при годовой оплате",
       plans: [
         {
           tier: "Starter",
@@ -291,6 +323,21 @@ const translations: Record<Language, Translations> = {
             "Доступ к премиальным данным о рынке",
             "AI Decision Engine",
             "Базовые рекомендации",
+          ],
+          cta: "Начать",
+          popular: false,
+        },
+        {
+          tier: "Growth",
+          price: "$129",
+          unit: "/мес",
+          sub: "Для тех, кто тестирует больше направлений",
+          items: [
+            "До 8 Strategy Workspaces",
+            "Доступ к премиальным данным о рынке",
+            "AI Decision Engine",
+            "Расширенная аналитика рынка и конкурентов",
+            "Подключение внутренних данных бизнеса",
           ],
           cta: "Начать",
           popular: false,
@@ -312,6 +359,8 @@ const translations: Record<Language, Translations> = {
         },
         {
           tier: "Business",
+          altLabel: "Другой формат сотрудничества",
+          separate: true,
           price: "$539",
           unit: "+/мес",
           sub: "Для multi-brand компаний",
@@ -325,6 +374,29 @@ const translations: Record<Language, Translations> = {
           popular: false,
         },
       ],
+    },
+    requestForm: {
+      title: "Заявка на тариф «{plan}»",
+      planLabel: "Тариф",
+      changePlan: "Изменить тариф",
+      emailLabel: "Email",
+      emailPlaceholder: "you@company.com",
+      emailError: "Введите корректный email",
+      phoneLabel: "Телефон",
+      phonePlaceholder: "+375 (__) ___-__-__",
+      phoneError: "Введите корректный номер телефона",
+      consentPrefix: "Я ознакомлен(а) и согласен(на) с условиями ",
+      offerLink: "Договора публичной оферты",
+      consentMid: " и даю согласие на обработку персональных данных в соответствии с ",
+      privacyLink: "Политикой обработки персональных данных",
+      submit: "Отправить заявку",
+      submitting: "Отправляем…",
+      successTitle: "Спасибо! Заявка принята.",
+      successText: "Наш менеджер свяжется с вами в ближайшее время по указанному телефону или email, уточнит реквизиты для выставления счёта. Доступ к платформе откроется сразу после поступления оплаты.",
+      errorTitle: "Не удалось отправить заявку",
+      errorText: "Проверьте соединение и попробуйте ещё раз — введённые данные сохранены.",
+      retry: "Повторить",
+      close: "Закрыть",
     },
     finalCta: {
       title: "Готовы избавиться от устаревших стратегий?",
@@ -505,6 +577,9 @@ const translations: Record<Language, Translations> = {
       title: "STRAGY Pricing",
       discount: "💳 Annual billing — save 20%",
       recommended: "Recommended",
+      monthly: "Monthly",
+      annual: "Annual billing −20%",
+      perYearNote: "price with annual billing",
       plans: [
         {
           tier: "Starter",
@@ -516,6 +591,21 @@ const translations: Record<Language, Translations> = {
             "Access to premium market data",
             "AI Decision Engine",
             "Baseline recommendations",
+          ],
+          cta: "Get started",
+          popular: false,
+        },
+        {
+          tier: "Growth",
+          price: "$129",
+          unit: "/mo",
+          sub: "For teams testing more directions",
+          items: [
+            "Up to 8 Strategy Workspaces",
+            "Access to premium market data",
+            "AI Decision Engine",
+            "Advanced market and competitor analytics",
+            "Business data integrations",
           ],
           cta: "Get started",
           popular: false,
@@ -537,6 +627,8 @@ const translations: Record<Language, Translations> = {
         },
         {
           tier: "Business",
+          altLabel: "A different way of working together",
+          separate: true,
           price: "$539",
           unit: "+/mo",
           sub: "For multi-brand companies",
@@ -550,6 +642,29 @@ const translations: Record<Language, Translations> = {
           popular: false,
         },
       ],
+    },
+    requestForm: {
+      title: "Request for the \u201C{plan}\u201D plan",
+      planLabel: "Plan",
+      changePlan: "Change plan",
+      emailLabel: "Email",
+      emailPlaceholder: "you@company.com",
+      emailError: "Enter a valid email address",
+      phoneLabel: "Phone",
+      phonePlaceholder: "+1 (___) ___-____",
+      phoneError: "Enter a valid phone number",
+      consentPrefix: "I have read and agree to the ",
+      offerLink: "Public Offer Agreement",
+      consentMid: " and consent to the processing of my personal data in accordance with the ",
+      privacyLink: "Personal Data Processing Policy",
+      submit: "Send request",
+      submitting: "Sending…",
+      successTitle: "Thank you! Your request has been received.",
+      successText: "Our manager will contact you shortly by the phone number or email you provided and will confirm the billing details for the invoice. Platform access opens as soon as the payment is received.",
+      errorTitle: "Could not send the request",
+      errorText: "Check your connection and try again — the data you entered has been kept.",
+      retry: "Try again",
+      close: "Close",
     },
     finalCta: {
       title: "Ready to move past outdated strategies?",
@@ -727,6 +842,9 @@ const translations: Record<Language, Translations> = {
       title: "Precios STRAGY",
       discount: "💳 Facturación anual — ahorra 20%",
       recommended: "Recomendado",
+      monthly: "Mensual",
+      annual: "Pago anual −20%",
+      perYearNote: "precio con pago anual",
       plans: [
         {
           tier: "Starter",
@@ -738,6 +856,21 @@ const translations: Record<Language, Translations> = {
             "Acceso a datos premium del mercado",
             "AI Decision Engine",
             "Recomendaciones básicas",
+          ],
+          cta: "Empezar",
+          popular: false,
+        },
+        {
+          tier: "Growth",
+          price: "$129",
+          unit: "/mes",
+          sub: "Para quienes prueban más direcciones",
+          items: [
+            "Hasta 8 Strategy Workspaces",
+            "Acceso a datos premium del mercado",
+            "AI Decision Engine",
+            "Analítica avanzada de mercado y competidores",
+            "Integración con los datos internos del negocio",
           ],
           cta: "Empezar",
           popular: false,
@@ -759,6 +892,8 @@ const translations: Record<Language, Translations> = {
         },
         {
           tier: "Business",
+          altLabel: "Otro formato de colaboración",
+          separate: true,
           price: "$539",
           unit: "+/mes",
           sub: "Para empresas multi-marca",
@@ -772,6 +907,29 @@ const translations: Record<Language, Translations> = {
           popular: false,
         },
       ],
+    },
+    requestForm: {
+      title: "Solicitud para el plan \u201C{plan}\u201D",
+      planLabel: "Plan",
+      changePlan: "Cambiar de plan",
+      emailLabel: "Email",
+      emailPlaceholder: "tu@empresa.com",
+      emailError: "Introduce un email válido",
+      phoneLabel: "Teléfono",
+      phonePlaceholder: "+34 ___ ___ ___",
+      phoneError: "Introduce un número de teléfono válido",
+      consentPrefix: "He leído y acepto las condiciones del ",
+      offerLink: "Contrato de oferta pública",
+      consentMid: " y doy mi consentimiento para el tratamiento de mis datos personales conforme a la ",
+      privacyLink: "Política de tratamiento de datos personales",
+      submit: "Enviar solicitud",
+      submitting: "Enviando…",
+      successTitle: "¡Gracias! Hemos recibido tu solicitud.",
+      successText: "Nuestro gestor se pondrá en contacto contigo en breve por el teléfono o email indicado y confirmará los datos para emitir la factura. El acceso a la plataforma se activa en cuanto se recibe el pago.",
+      errorTitle: "No se pudo enviar la solicitud",
+      errorText: "Comprueba tu conexión e inténtalo de nuevo: los datos introducidos se han conservado.",
+      retry: "Reintentar",
+      close: "Cerrar",
     },
     finalCta: {
       title: "¿Listo para dejar atrás las estrategias obsoletas?",

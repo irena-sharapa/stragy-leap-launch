@@ -359,7 +359,7 @@ const translations: Record<Language, Translations> = {
         },
         {
           tier: "Business",
-          altLabel: "Другой формат сотрудничества",
+          altLabel: "Для рекламных агентств",
           separate: true,
           price: "$539",
           unit: "+/мес",
@@ -627,7 +627,7 @@ const translations: Record<Language, Translations> = {
         },
         {
           tier: "Business",
-          altLabel: "A different way of working together",
+          altLabel: "For advertising agencies",
           separate: true,
           price: "$539",
           unit: "+/mo",
@@ -892,7 +892,7 @@ const translations: Record<Language, Translations> = {
         },
         {
           tier: "Business",
-          altLabel: "Otro formato de colaboración",
+          altLabel: "Para agencias de publicidad",
           separate: true,
           price: "$539",
           unit: "+/mes",

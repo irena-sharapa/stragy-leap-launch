@@ -8,7 +8,8 @@ import { SignalCard } from "@/components/SignalCard";
 import { Check, ArrowRight, Menu, X } from "lucide-react";
 import newBackground from "@/assets/new-background.jpg";
 import { useLanguage } from "@/hooks/useLanguage";
-import { getTranslations, getPathForLanguage } from "@/lib/translations";
+import { getTranslations, getPathForLanguage, PricingPlan } from "@/lib/translations";
+import { RequestDialog } from "@/components/RequestDialog";
 
 const SITE_URL = "https://stragy.lovable.app";
 
@@ -512,6 +513,13 @@ const Index = () => {
             open={emailDialogOpen}
             onOpenChange={setEmailDialogOpen}
             translations={t}
+          />
+          <RequestDialog
+            open={requestOpen}
+            onOpenChange={setRequestOpen}
+            translations={t}
+            plan={selectedPlan}
+            onPlanChange={setSelectedPlan}
           />
           <PrivacyPolicy
             open={privacyDialogOpen}

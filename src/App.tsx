@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import LanguageRedirect from "./pages/LanguageRedirect";
 import NotFound from "./pages/NotFound";
+import PrivacyPage from "./pages/PrivacyPage";
+import OfferPage from "./pages/OfferPage";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +22,8 @@ const App = () => (
           <Route path="/ru" element={<Index />} />
           <Route path="/eng" element={<Index />} />
           <Route path="/es" element={<Index />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/offer" element={<OfferPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

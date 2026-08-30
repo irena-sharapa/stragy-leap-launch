@@ -8,7 +8,8 @@ import { SignalCard } from "@/components/SignalCard";
 import { Check, ArrowRight, Menu, X } from "lucide-react";
 import newBackground from "@/assets/new-background.jpg";
 import { useLanguage } from "@/hooks/useLanguage";
-import { getTranslations, getPathForLanguage } from "@/lib/translations";
+import { getTranslations, getPathForLanguage, PricingPlan } from "@/lib/translations";
+import { RequestDialog } from "@/components/RequestDialog";
 
 const SITE_URL = "https://stragy.lovable.app";
 
@@ -16,11 +17,93 @@ const Index = () => {
   const [emailDialogOpen, setEmailDialogOpen] = useState(false);
   const [privacyDialogOpen, setPrivacyDialogOpen] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [annual, setAnnual] = useState(false);
+  const [requestOpen, setRequestOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState("Starter");
 
   const { currentLang } = useLanguage();
   const t = getTranslations(currentLang);
   const canonical = `${SITE_URL}${getPathForLanguage(currentLang)}`;
   const htmlLang = currentLang === "en" ? "en" : currentLang === "es" ? "es" : "ru";
+
+  const selfServePlans = t.pricing.plans.filter((p) => !p.separate);
+  const businessPlan = t.pricing.plans.find((p) => p.separate);
+
+  const displayPrice = (price: string) => {
+    if (!annual) return price;
+    const amount = Number(price.replace(/[^\d.]/g, ""));
+    if (!amount) return price;
+    return price.replace(/[\d.]+/, String(Math.round(amount * 0.8)));
+  };
+
+  const openRequest = (plan: string) => {
+    setSelectedPlan(plan);
+    setRequestOpen(true);
+  };
+
+  const renderPlanCard = (plan: PricingPlan, i: number) => (
+    <div
+      key={i}
+      className={`relative rounded-2xl p-7 md:p-8 shadow-lg flex flex-col w-full ${
+        plan.popular
+          ? "bg-primary text-white"
+          : plan.separate
+            ? "bg-white/55 backdrop-blur-sm border border-dashed border-stragy-dark-text/25 shadow-none"
+            : "bg-white/85 backdrop-blur-sm border border-stragy-dark-text/[0.05]"
+      }`}
+    >
+      {plan.popular && (
+        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-stragy-dark-text text-white text-[11px] font-bold px-4 py-1.5 rounded-full tracking-[0.03em]">
+          {t.pricing.recommended}
+        </div>
+      )}
+      {plan.separate && plan.altLabel && (
+        <div className="text-[10.5px] font-semibold uppercase tracking-[0.09em] text-stragy-dark-text/40 mb-2 leading-snug">
+          {plan.altLabel}
+        </div>
+      )}
+      <div
+        className={`font-mono font-bold text-[13px] tracking-[0.08em] uppercase ${
+          plan.popular ? "text-white/80" : "text-stragy-dark-text/50"
+        }`}
+      >
+        {plan.tier}
+      </div>
+      <div
+        className={`font-bold text-[32px] mt-3 mb-1 ${
+          plan.popular ? "text-white" : "text-stragy-dark-text"
+        }`}
+      >
+        {displayPrice(plan.price)}
+        <span className="text-[14px] font-medium">{plan.unit}</span>
+      </div>
+      <div className={`text-[12.5px] mb-5 ${plan.popular ? "text-white/70" : "text-stragy-dark-text/55"}`}>
+        {annual ? `${plan.sub} · ${t.pricing.perYearNote}` : plan.sub}
+      </div>
+      <ul className="flex-1 space-y-2.5 mb-6">
+        {plan.items.map((item, j) => (
+          <li key={j} className="text-[13px] flex items-start gap-2.5">
+            <Check
+              className={`w-4 h-4 flex-none mt-0.5 ${plan.popular ? "text-white" : "text-primary"}`}
+              strokeWidth={3}
+            />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+      <button
+        onClick={() => openRequest(plan.tier)}
+        className={`rounded-full h-11 font-semibold text-[14px] transition ${
+          plan.popular
+            ? "bg-white text-primary hover:bg-white/90"
+            : "border border-stragy-dark-text/15 text-stragy-dark-text hover:border-primary hover:text-primary"
+        }`}
+      >
+        {plan.cta}
+      </button>
+    </div>
+  );
+
 
   return (
     <>
@@ -334,72 +417,48 @@ const Index = () => {
 
           {/* Pricing */}
           <section id="pricing" className="py-16 md:py-20 px-5 sm:px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex justify-center mb-8 md:mb-10">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-semibold text-[12.5px] px-4 py-2 rounded-full text-center">
-                {t.pricing.discount}
-              </div>
-            </div>
-
-              <div className="grid md:grid-cols-3 gap-5">
-                {t.pricing.plans.map((plan, i) => (
-                  <div
-                    key={i}
-                    className={`relative rounded-2xl p-7 md:p-8 shadow-lg flex flex-col ${
-                      plan.popular
-                        ? "bg-primary text-white"
-                        : "bg-white/85 backdrop-blur-sm border border-stragy-dark-text/[0.05]"
+            <div className="max-w-6xl mx-auto">
+              <div className="flex justify-center mb-8 md:mb-10">
+                <div className="inline-flex items-center p-1 rounded-full bg-white/70 backdrop-blur-sm border border-stragy-dark-text/[0.07] shadow-sm">
+                  <button
+                    type="button"
+                    onClick={() => setAnnual(false)}
+                    className={`rounded-full px-4 py-2 text-[12.5px] font-semibold transition ${
+                      annual ? "text-stragy-dark-text/60" : "bg-primary text-white"
                     }`}
                   >
-                    {plan.popular && (
-                      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-stragy-dark-text text-white text-[11px] font-bold px-4 py-1.5 rounded-full tracking-[0.03em]">
-                        {t.pricing.recommended}
-                      </div>
-                    )}
-                    <div
-                      className={`font-mono font-bold text-[13px] tracking-[0.08em] uppercase ${
-                        plan.popular ? "text-white/80" : "text-stragy-dark-text/50"
-                      }`}
-                    >
-                      {plan.tier}
-                    </div>
-                    <div
-                      className={`font-bold text-[32px] mt-3 mb-1 ${
-                        plan.popular ? "text-white" : "text-stragy-dark-text"
-                      }`}
-                    >
-                      {plan.price}
-                      <span className="text-[14px] font-medium">{plan.unit}</span>
-                    </div>
-                    <div className={`text-[12.5px] mb-5 ${plan.popular ? "text-white/70" : "text-stragy-dark-text/55"}`}>
-                      {plan.sub}
-                    </div>
-                    <ul className="flex-1 space-y-2.5 mb-6">
-                      {plan.items.map((item, j) => (
-                        <li key={j} className="text-[13px] flex items-start gap-2.5">
-                          <Check
-                            className={`w-4 h-4 flex-none mt-0.5 ${plan.popular ? "text-white" : "text-primary"}`}
-                            strokeWidth={3}
-                          />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <button
-                      onClick={() => setEmailDialogOpen(true)}
-                      className={`rounded-full h-11 font-semibold text-[14px] transition ${
-                        plan.popular
-                          ? "bg-white text-primary hover:bg-white/90"
-                          : "border border-stragy-dark-text/15 text-stragy-dark-text hover:border-primary hover:text-primary"
-                      }`}
-                    >
-                      {plan.cta}
-                    </button>
-                  </div>
-                ))}
+                    {t.pricing.monthly}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setAnnual(true)}
+                    className={`rounded-full px-4 py-2 text-[12.5px] font-semibold transition ${
+                      annual ? "bg-primary text-white" : "text-stragy-dark-text/60"
+                    }`}
+                  >
+                    {t.pricing.annual}
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex flex-col lg:flex-row lg:items-stretch gap-5 lg:gap-6">
+                {/* Self-serve plans */}
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:basis-[72%]">
+                  {selfServePlans.map((plan, i) => renderPlanCard(plan, i))}
+                </div>
+
+                {/* Separator */}
+                <div className="hidden lg:block w-px self-stretch bg-stragy-dark-text/15" />
+                <div className="lg:hidden h-px w-full bg-stragy-dark-text/15 mt-6 mb-2" />
+
+                {/* Business */}
+                {businessPlan && (
+                  <div className="lg:basis-[20%] flex">{renderPlanCard(businessPlan, 99)}</div>
+                )}
               </div>
             </div>
           </section>
+
 
           {/* Final CTA */}
           <section id="cta" className="py-16 md:py-20 px-5 sm:px-6">
@@ -454,6 +513,13 @@ const Index = () => {
             open={emailDialogOpen}
             onOpenChange={setEmailDialogOpen}
             translations={t}
+          />
+          <RequestDialog
+            open={requestOpen}
+            onOpenChange={setRequestOpen}
+            translations={t}
+            plan={selectedPlan}
+            onPlanChange={setSelectedPlan}
           />
           <PrivacyPolicy
             open={privacyDialogOpen}

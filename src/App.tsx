@@ -20,8 +20,11 @@ const App = () => (
         <Routes>
           <Route path="/" element={<LanguageRedirect />} />
           <Route path="/ru" element={<Index />} />
+          <Route path="/ru/:section" element={<Index />} />
           <Route path="/eng" element={<Index />} />
+          <Route path="/eng/:section" element={<Index />} />
           <Route path="/es" element={<Index />} />
+          <Route path="/es/:section" element={<Index />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/offer" element={<OfferPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

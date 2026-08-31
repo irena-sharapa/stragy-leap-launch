@@ -10,6 +10,7 @@ import newBackground from "@/assets/new-background.jpg";
 import { useLanguage } from "@/hooks/useLanguage";
 import { getTranslations, getPathForLanguage, PricingPlan } from "@/lib/translations";
 import { RequestDialog } from "@/components/RequestDialog";
+import { useSectionUrl } from "@/hooks/useSectionUrl";
 
 const SITE_URL = "https://stragy.lovable.app";
 
@@ -22,6 +23,7 @@ const Index = () => {
   const [selectedPlan, setSelectedPlan] = useState("Starter");
 
   const { currentLang } = useLanguage();
+  useSectionUrl(currentLang);
   const t = getTranslations(currentLang);
   const canonical = `${SITE_URL}${getPathForLanguage(currentLang)}`;
   const htmlLang = currentLang === "en" ? "en" : currentLang === "es" ? "es" : "ru";

@@ -32,7 +32,7 @@ export const useSectionUrl = (lang: Language) => {
 
     const update = () => {
       frame = 0;
-      const marker = window.innerHeight * 0.35;
+      const marker = window.innerHeight * 0.25;
       let active: SectionId | null = null;
 
       for (const id of SECTION_IDS) {
@@ -45,8 +45,6 @@ export const useSectionUrl = (lang: Language) => {
         }
       }
 
-      const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 4;
-      if (atBottom) active = SECTION_IDS[SECTION_IDS.length - 1];
 
       const nextPath = active ? `${base}/${getSlug(lang, active)}` : base;
       if (window.location.pathname !== nextPath) {

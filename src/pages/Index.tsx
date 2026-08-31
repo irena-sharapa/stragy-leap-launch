@@ -420,7 +420,16 @@ const Index = () => {
           {/* Pricing */}
           <section id="pricing" className="py-16 md:py-20 px-5 sm:px-6">
             <div className="max-w-6xl mx-auto">
+              <div className="flex flex-col items-center text-center gap-2 mb-6">
+                <span className="inline-flex items-center rounded-full bg-primary/10 text-primary text-[12px] font-semibold px-4 py-1.5">
+                  {t.pricing.earlyBirdBadge}
+                </span>
+                <p className="text-[13px] text-stragy-dark-text/60 max-w-xl">
+                  {t.pricing.earlyBirdNote}
+                </p>
+              </div>
               <div className="flex justify-center mb-8 md:mb-10">
+
                 <div className="inline-flex items-center p-1 rounded-full bg-white/70 backdrop-blur-sm border border-stragy-dark-text/[0.07] shadow-sm">
                   <button
                     type="button"

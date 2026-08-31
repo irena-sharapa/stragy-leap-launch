@@ -10,6 +10,7 @@ import newBackground from "@/assets/new-background.jpg";
 import { useLanguage } from "@/hooks/useLanguage";
 import { getTranslations, getPathForLanguage, PricingPlan } from "@/lib/translations";
 import { RequestDialog } from "@/components/RequestDialog";
+import { useSectionUrl } from "@/hooks/useSectionUrl";
 
 const SITE_URL = "https://stragy.lovable.app";
 

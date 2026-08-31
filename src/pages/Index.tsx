@@ -72,13 +72,33 @@ const Index = () => {
         {plan.tier}
       </div>
       <div
-        className={`font-bold text-[32px] mt-3 mb-1 ${
+        className={`font-bold text-[32px] mt-3 mb-1 flex items-baseline flex-wrap gap-x-2 ${
           plan.popular ? "text-white" : "text-stragy-dark-text"
         }`}
       >
-        {displayPrice(plan.price)}
-        <span className="text-[14px] font-medium">{plan.unit}</span>
+        <span>
+          {displayPrice(plan.price)}
+          <span className="text-[14px] font-medium">{plan.unit}</span>
+        </span>
+        {plan.oldPrice && (
+          <span
+            className={`text-[15px] font-medium line-through ${
+              plan.popular ? "text-white/45" : "text-stragy-dark-text/30"
+            }`}
+          >
+            {displayPrice(plan.oldPrice)}
+            {plan.unit}
+          </span>
+        )}
       </div>
+      {plan.oldPrice && (
+        <div
+          className={`text-[11px] mb-1 ${plan.popular ? "text-white/60" : "text-stragy-dark-text/40"}`}
+        >
+          {t.pricing.regularPriceLabel}
+        </div>
+      )}
+
       <div className={`text-[12.5px] mb-5 ${plan.popular ? "text-white/70" : "text-stragy-dark-text/55"}`}>
         {annual ? `${plan.sub} · ${t.pricing.perYearNote}` : plan.sub}
       </div>

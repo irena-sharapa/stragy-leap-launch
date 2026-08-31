@@ -23,6 +23,7 @@ const Index = () => {
   const [selectedPlan, setSelectedPlan] = useState("Starter");
 
   const { currentLang } = useLanguage();
+  useSectionUrl(currentLang);
   const t = getTranslations(currentLang);
   const canonical = `${SITE_URL}${getPathForLanguage(currentLang)}`;
   const htmlLang = currentLang === "en" ? "en" : currentLang === "es" ? "es" : "ru";

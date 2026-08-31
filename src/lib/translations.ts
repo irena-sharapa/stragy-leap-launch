@@ -27,6 +27,8 @@ export interface WhoCard {
 export interface PricingPlan {
   tier: string;
   price: string;
+  /** Regular price shown struck through (early-bird positioning) */
+  oldPrice?: string;
   unit: string;
   sub: string;
   items: string[];
@@ -104,6 +106,9 @@ export interface Translations {
     title: string;
     discount: string;
     recommended: string;
+    earlyBirdBadge: string;
+    earlyBirdNote: string;
+    regularPriceLabel: string;
     monthly: string;
     annual: string;
     perYearNote: string;
@@ -309,6 +314,9 @@ const translations: Record<Language, Translations> = {
       title: "Тарифы STRAGY",
       discount: "💳 Годовая оплата — экономия 20%",
       recommended: "Рекомендуемый",
+      earlyBirdBadge: "🚀 Выходим в продакшн",
+      earlyBirdNote: "Специальные условия для первых клиентов — цена фиксируется навсегда",
+      regularPriceLabel: "Обычная цена",
       monthly: "Ежемесячно",
       annual: "Годовая оплата −20%",
       perYearNote: "цена при годовой оплате",
@@ -316,6 +324,7 @@ const translations: Record<Language, Translations> = {
         {
           tier: "Starter",
           price: "$49",
+          oldPrice: "$59",
           unit: "/мес",
           sub: "Для малого бизнеса",
           items: [
@@ -330,6 +339,7 @@ const translations: Record<Language, Translations> = {
         {
           tier: "Growth",
           price: "$129",
+          oldPrice: "$159",
           unit: "/мес",
           sub: "Для тех, кто тестирует больше направлений",
           items: [
@@ -345,6 +355,7 @@ const translations: Record<Language, Translations> = {
         {
           tier: "Pro",
           price: "$169",
+          oldPrice: "$199",
           unit: "/мес",
           sub: "Для растущего бизнеса",
           items: [
@@ -362,6 +373,7 @@ const translations: Record<Language, Translations> = {
           altLabel: "Для рекламных агентств",
           separate: true,
           price: "$539",
+          oldPrice: "$729+",
           unit: "+/мес",
           sub: "Для multi-brand компаний",
           items: [
@@ -577,6 +589,9 @@ const translations: Record<Language, Translations> = {
       title: "STRAGY Pricing",
       discount: "💳 Annual billing — save 20%",
       recommended: "Recommended",
+      earlyBirdBadge: "🚀 Going to production",
+      earlyBirdNote: "Special terms for our first customers — your price is locked in forever",
+      regularPriceLabel: "Regular price",
       monthly: "Monthly",
       annual: "Annual billing −20%",
       perYearNote: "price with annual billing",
@@ -584,6 +599,7 @@ const translations: Record<Language, Translations> = {
         {
           tier: "Starter",
           price: "$49",
+          oldPrice: "$59",
           unit: "/mo",
           sub: "For small businesses",
           items: [
@@ -598,6 +614,7 @@ const translations: Record<Language, Translations> = {
         {
           tier: "Growth",
           price: "$129",
+          oldPrice: "$159",
           unit: "/mo",
           sub: "For teams testing more directions",
           items: [
@@ -613,6 +630,7 @@ const translations: Record<Language, Translations> = {
         {
           tier: "Pro",
           price: "$169",
+          oldPrice: "$199",
           unit: "/mo",
           sub: "For growing businesses",
           items: [
@@ -630,6 +648,7 @@ const translations: Record<Language, Translations> = {
           altLabel: "For advertising agencies",
           separate: true,
           price: "$539",
+          oldPrice: "$729+",
           unit: "+/mo",
           sub: "For multi-brand companies",
           items: [
@@ -842,6 +861,9 @@ const translations: Record<Language, Translations> = {
       title: "Precios STRAGY",
       discount: "💳 Facturación anual — ahorra 20%",
       recommended: "Recomendado",
+      earlyBirdBadge: "🚀 Vamos a producción",
+      earlyBirdNote: "Condiciones especiales para los primeros clientes: tu precio queda fijado para siempre",
+      regularPriceLabel: "Precio habitual",
       monthly: "Mensual",
       annual: "Pago anual −20%",
       perYearNote: "precio con pago anual",
@@ -849,6 +871,7 @@ const translations: Record<Language, Translations> = {
         {
           tier: "Starter",
           price: "$49",
+          oldPrice: "$59",
           unit: "/mes",
           sub: "Para pequeñas empresas",
           items: [
@@ -863,6 +886,7 @@ const translations: Record<Language, Translations> = {
         {
           tier: "Growth",
           price: "$129",
+          oldPrice: "$159",
           unit: "/mes",
           sub: "Para quienes prueban más direcciones",
           items: [
@@ -878,6 +902,7 @@ const translations: Record<Language, Translations> = {
         {
           tier: "Pro",
           price: "$169",
+          oldPrice: "$199",
           unit: "/mes",
           sub: "Para negocios en crecimiento",
           items: [
@@ -895,6 +920,7 @@ const translations: Record<Language, Translations> = {
           altLabel: "Para agencias de publicidad",
           separate: true,
           price: "$539",
+          oldPrice: "$729+",
           unit: "+/mes",
           sub: "Para empresas multi-marca",
           items: [

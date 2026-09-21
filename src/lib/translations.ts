@@ -26,10 +26,13 @@ export interface WhoCard {
 
 export interface PricingPlan {
   tier: string;
-  price: string;
+  /** Optional — plans without a fixed price show `priceNote` instead */
+  price?: string;
   /** Regular price shown struck through (early-bird positioning) */
   oldPrice?: string;
-  unit: string;
+  unit?: string;
+  /** Shown instead of the price when the price depends on usage */
+  priceNote?: string;
   sub: string;
   items: string[];
   cta: string;

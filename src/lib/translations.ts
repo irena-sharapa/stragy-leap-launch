@@ -357,7 +357,7 @@ const translations: Record<Language, Translations> = {
         },
         {
           tier: "Pro",
-          price: "$169",
+          price: "$189",
           oldPrice: "$199",
           unit: "/мес",
           sub: "Для растущего бизнеса",
@@ -630,7 +630,7 @@ const translations: Record<Language, Translations> = {
         },
         {
           tier: "Pro",
-          price: "$169",
+          price: "$189",
           oldPrice: "$199",
           unit: "/mo",
           sub: "For growing businesses",
@@ -900,7 +900,7 @@ const translations: Record<Language, Translations> = {
         },
         {
           tier: "Pro",
-          price: "$169",
+          price: "$189",
           oldPrice: "$199",
           unit: "/mes",
           sub: "Para negocios en crecimiento",

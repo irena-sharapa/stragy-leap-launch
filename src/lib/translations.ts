@@ -648,9 +648,7 @@ const translations: Record<Language, Translations> = {
           tier: "Business",
           altLabel: "For advertising agencies",
           separate: true,
-          price: "$539",
-          oldPrice: "$729+",
-          unit: "+/mo",
+          priceNote: "Pricing depends on the number of strategies",
           sub: "For multi-brand companies",
           items: [
             "From 45 Strategy Workspaces",
@@ -920,9 +918,7 @@ const translations: Record<Language, Translations> = {
           tier: "Business",
           altLabel: "Para agencias de publicidad",
           separate: true,
-          price: "$539",
-          oldPrice: "$729+",
-          unit: "+/mes",
+          priceNote: "El precio depende del número de estrategias",
           sub: "Para empresas multi-marca",
           items: [
             "Desde 45 Strategy Workspaces",

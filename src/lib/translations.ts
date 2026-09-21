@@ -26,10 +26,13 @@ export interface WhoCard {
 
 export interface PricingPlan {
   tier: string;
-  price: string;
+  /** Optional — plans without a fixed price show `priceNote` instead */
+  price?: string;
   /** Regular price shown struck through (early-bird positioning) */
   oldPrice?: string;
-  unit: string;
+  unit?: string;
+  /** Shown instead of the price when the price depends on usage */
+  priceNote?: string;
   sub: string;
   items: string[];
   cta: string;
@@ -372,9 +375,7 @@ const translations: Record<Language, Translations> = {
           tier: "Business",
           altLabel: "Для рекламных агентств",
           separate: true,
-          price: "$539",
-          oldPrice: "$729+",
-          unit: "+/мес",
+          priceNote: "Цена зависит от количества стратегий",
           sub: "Для multi-brand компаний",
           items: [
             "От 45 Strategy Workspaces",
@@ -647,9 +648,7 @@ const translations: Record<Language, Translations> = {
           tier: "Business",
           altLabel: "For advertising agencies",
           separate: true,
-          price: "$539",
-          oldPrice: "$729+",
-          unit: "+/mo",
+          priceNote: "Pricing depends on the number of strategies",
           sub: "For multi-brand companies",
           items: [
             "From 45 Strategy Workspaces",
@@ -919,9 +918,7 @@ const translations: Record<Language, Translations> = {
           tier: "Business",
           altLabel: "Para agencias de publicidad",
           separate: true,
-          price: "$539",
-          oldPrice: "$729+",
-          unit: "+/mes",
+          priceNote: "El precio depende del número de estrategias",
           sub: "Para empresas multi-marca",
           items: [
             "Desde 45 Strategy Workspaces",

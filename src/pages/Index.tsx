@@ -501,6 +501,75 @@ const Index = () => {
                   <div className="lg:basis-[20%] flex">{renderPlanCard(businessPlan, 99)}</div>
                 )}
               </div>
+
+              {/* Feature comparison table */}
+              <div className="mt-14 md:mt-20">
+                <h3 className="text-center text-xl md:text-2xl font-extrabold text-stragy-dark-text mb-6 md:mb-8">
+                  {t.pricing.compare.title}
+                </h3>
+                <div className="rounded-2xl bg-white/85 backdrop-blur-sm border border-stragy-dark-text/[0.05] shadow-lg overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="w-full min-w-[760px] text-left text-[13px] md:text-sm">
+                      <thead>
+                        <tr className="border-b border-stragy-dark-text/10">
+                          <th className="px-4 md:px-6 py-4 font-semibold text-stragy-dark-text/60 w-[38%]">
+                            {t.pricing.compare.featureLabel}
+                          </th>
+                          {t.pricing.compare.tiers.map((tier, ti) => (
+                            <th
+                              key={tier}
+                              className={`px-3 md:px-4 py-4 font-bold text-center ${
+                                tier === "Pro" ? "text-primary" : "text-stragy-dark-text"
+                              }`}
+                            >
+                              {tier}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {t.pricing.compare.rows.map((row, ri) => (
+                          <tr
+                            key={ri}
+                            className={ri % 2 === 0 ? "bg-stragy-dark-text/[0.025]" : ""}
+                          >
+                            <td className="px-4 md:px-6 py-3.5 font-medium text-stragy-dark-text align-top">
+                              {row.label}
+                            </td>
+                            {row.values.map((v, vi) => {
+                              const yes = /^(Да|Yes|Sí)/.test(v);
+                              const no = v === "—";
+                              return (
+                                <td
+                                  key={vi}
+                                  className={`px-3 md:px-4 py-3.5 text-center align-top ${
+                                    no
+                                      ? "text-stragy-dark-text/30"
+                                      : vi === 2
+                                        ? "text-stragy-dark-text font-semibold"
+                                        : "text-stragy-dark-text/80"
+                                  }`}
+                                >
+                                  {yes ? (
+                                    <span className="inline-flex items-center justify-center gap-1.5">
+                                      <Check className="w-4 h-4 text-primary shrink-0" />
+                                      {v.replace(/^(Да|Yes|Sí)\s*/, "") && (
+                                        <span>{v.replace(/^(Да|Yes|Sí)\s*/, "")}</span>
+                                      )}
+                                    </span>
+                                  ) : (
+                                    v
+                                  )}
+                                </td>
+                              );
+                            })}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
 

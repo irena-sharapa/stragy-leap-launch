@@ -116,6 +116,12 @@ export interface Translations {
     annual: string;
     perYearNote: string;
     plans: PricingPlan[];
+    compare: {
+      title: string;
+      featureLabel: string;
+      tiers: string[];
+      rows: { label: string; values: string[] }[];
+    };
   };
   requestForm: {
     title: string;
@@ -387,6 +393,30 @@ const translations: Record<Language, Translations> = {
           popular: false,
         },
       ],
+      compare: {
+        title: "Сравнение функций тарифов",
+        featureLabel: "Функция",
+        tiers: ["Starter", "Growth", "Pro", "Business"],
+        rows: [
+          { label: "Цена в месяц", values: ["$49", "$129", "$189", "По запросу (сейчас $539)"] },
+          { label: "Workspace (стратегии)", values: ["3", "8", "12", "40+"] },
+          { label: "Закрытые аналитические данные", values: ["Да", "Да", "Да", "Да"] },
+          { label: "Анализ конкурентов", values: ["Да", "Да", "Да", "Да"] },
+          { label: "Анализ целевой аудитории", values: ["Да", "Да", "Да", "Да"] },
+          { label: "Анализ рынка", values: ["Да", "Да", "Да", "Да"] },
+          { label: "SWOT-анализ", values: ["Да", "Да", "Да", "Да"] },
+          { label: "Карта пути клиента", values: ["Да", "Да", "Да", "Да"] },
+          { label: "Коммуникационная карта", values: ["Да", "Да", "Да", "Да"] },
+          { label: "Медиаплан", values: ["Да", "Да", "Да", "Да"] },
+          { label: "Ежемесячное обновление стратегии (рынок, конкуренты, поведение аудитории)", values: ["Да", "Да", "Да", "Да"] },
+          { label: "Точки потерь клиентов на карте пути", values: ["—", "Да", "Да", "Да"] },
+          { label: "Подключение своих данных (файл = один источник)", values: ["—", "1 файл в каждый workspace", "До 5 файлов в каждый workspace", "До 5 файлов в каждый workspace (MVP, лимит пересмотрим позже)"] },
+          { label: "Учёт файла в ежемесячном обновлении и рекомендации: что идёт хорошо, что плохо, что изменить", values: ["—", "Да (по 1 файлу)", "Да (до 5 файлов)", "Да (до 5 файлов)"] },
+          { label: "Action Plan: сверка реализации с поставленными целями", values: ["—", "—", "Да", "Да"] },
+          { label: "Еженедельные и ежемесячные корректировки стратегии и рекламы", values: ["—", "—", "Да", "Да"] },
+          { label: "Кастомные доработки под клиента", values: ["—", "—", "—", "Да"] },
+        ],
+      },
     },
     requestForm: {
       title: "Заявка на тариф «{plan}»",
@@ -660,9 +690,33 @@ const translations: Record<Language, Translations> = {
           popular: false,
         },
       ],
+      compare: {
+        title: "Plan feature comparison",
+        featureLabel: "Feature",
+        tiers: ["Starter", "Growth", "Pro", "Business"],
+        rows: [
+          { label: "Price per month", values: ["$49", "$129", "$189", "On request (currently $539)"] },
+          { label: "Workspaces (strategies)", values: ["3", "8", "12", "40+"] },
+          { label: "Closed analytics data", values: ["Yes", "Yes", "Yes", "Yes"] },
+          { label: "Competitor analysis", values: ["Yes", "Yes", "Yes", "Yes"] },
+          { label: "Target audience analysis", values: ["Yes", "Yes", "Yes", "Yes"] },
+          { label: "Market analysis", values: ["Yes", "Yes", "Yes", "Yes"] },
+          { label: "SWOT analysis", values: ["Yes", "Yes", "Yes", "Yes"] },
+          { label: "Customer journey map", values: ["Yes", "Yes", "Yes", "Yes"] },
+          { label: "Communication map", values: ["Yes", "Yes", "Yes", "Yes"] },
+          { label: "Media plan", values: ["Yes", "Yes", "Yes", "Yes"] },
+          { label: "Monthly strategy update (market, competitors, audience behavior)", values: ["Yes", "Yes", "Yes", "Yes"] },
+          { label: "Customer loss points on the journey map", values: ["—", "Yes", "Yes", "Yes"] },
+          { label: "Connect your own data (file = one source)", values: ["—", "1 file per workspace", "Up to 5 files per workspace", "Up to 5 files per workspace (MVP, limit to be revisited later)"] },
+          { label: "File included in the monthly update with recommendations: what's going well, what's not, what to change", values: ["—", "Yes (1 file)", "Yes (up to 5 files)", "Yes (up to 5 files)"] },
+          { label: "Action Plan: checking delivery against the set goals", values: ["—", "—", "Yes", "Yes"] },
+          { label: "Weekly and monthly strategy and ad adjustments", values: ["—", "—", "Yes", "Yes"] },
+          { label: "Custom client-specific development", values: ["—", "—", "—", "Yes"] },
+        ],
+      },
     },
     requestForm: {
-      title: "Request for the \u201C{plan}\u201D plan",
+      title: "Request for the  \u201C{plan}\u201D plan",
       planLabel: "Plan",
       changePlan: "Change plan",
       emailLabel: "Email",
@@ -930,9 +984,33 @@ const translations: Record<Language, Translations> = {
           popular: false,
         },
       ],
+      compare: {
+        title: "Comparación de funciones de los planes",
+        featureLabel: "Función",
+        tiers: ["Starter", "Growth", "Pro", "Business"],
+        rows: [
+          { label: "Precio al mes", values: ["$49", "$129", "$189", "A consultar (actualmente $539)"] },
+          { label: "Workspaces (estrategias)", values: ["3", "8", "12", "40+"] },
+          { label: "Datos analíticos cerrados", values: ["Sí", "Sí", "Sí", "Sí"] },
+          { label: "Análisis de la competencia", values: ["Sí", "Sí", "Sí", "Sí"] },
+          { label: "Análisis del público objetivo", values: ["Sí", "Sí", "Sí", "Sí"] },
+          { label: "Análisis de mercado", values: ["Sí", "Sí", "Sí", "Sí"] },
+          { label: "Análisis FODA", values: ["Sí", "Sí", "Sí", "Sí"] },
+          { label: "Mapa del recorrido del cliente", values: ["Sí", "Sí", "Sí", "Sí"] },
+          { label: "Mapa de comunicación", values: ["Sí", "Sí", "Sí", "Sí"] },
+          { label: "Plan de medios", values: ["Sí", "Sí", "Sí", "Sí"] },
+          { label: "Actualización mensual de la estrategia (mercado, competencia, comportamiento del público)", values: ["Sí", "Sí", "Sí", "Sí"] },
+          { label: "Puntos de pérdida de clientes en el mapa del recorrido", values: ["—", "Sí", "Sí", "Sí"] },
+          { label: "Conexión de tus propios datos (archivo = una fuente)", values: ["—", "1 archivo por workspace", "Hasta 5 archivos por workspace", "Hasta 5 archivos por workspace (MVP, el límite se revisará más adelante)"] },
+          { label: "Archivo incluido en la actualización mensual con recomendaciones: qué va bien, qué va mal y qué cambiar", values: ["—", "Sí (1 archivo)", "Sí (hasta 5 archivos)", "Sí (hasta 5 archivos)"] },
+          { label: "Action Plan: comparación de la ejecución con los objetivos marcados", values: ["—", "—", "Sí", "Sí"] },
+          { label: "Ajustes semanales y mensuales de estrategia y publicidad", values: ["—", "—", "Sí", "Sí"] },
+          { label: "Desarrollos personalizados para el cliente", values: ["—", "—", "—", "Sí"] },
+        ],
+      },
     },
     requestForm: {
-      title: "Solicitud para el plan \u201C{plan}\u201D",
+      title: "Solicitud para el plan  \u201C{plan}\u201D",
       planLabel: "Plan",
       changePlan: "Cambiar de plan",
       emailLabel: "Email",

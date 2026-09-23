@@ -36,7 +36,7 @@ export const EmailDialog = ({ open, onOpenChange, translations }: EmailDialogPro
 
     try {
       // Отправка на API endpoint
-      const response = await fetch("https://stragy.work.gd/api/user/request-access", {
+      const response = await fetch("https://app.stragy.com/api/user/request-access", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

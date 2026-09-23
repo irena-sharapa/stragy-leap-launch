@@ -16,7 +16,7 @@ import { CheckCircle2 } from "lucide-react";
 /** Version of the legal documents the consent refers to (kept with each request). */
 export const LEGAL_DOCS_VERSION = "2026-08-29";
 
-const API_URL = "https://stragy.work.gd/api/user/request-access";
+const API_URL = "https://app.stragy.com/api/user/request-access";
 
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 

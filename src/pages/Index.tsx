@@ -100,6 +100,11 @@ const Index = () => {
               {t.pricing.regularPriceLabel}
             </div>
           )}
+          <div
+            className={`text-[11px] font-medium mb-1 ${plan.popular ? "text-white/70" : "text-stragy-dark-text/50"}`}
+          >
+            {t.pricing.testPriceNote}
+          </div>
         </>
       ) : (
         plan.priceNote && (

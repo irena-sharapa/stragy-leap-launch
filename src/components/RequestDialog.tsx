@@ -95,6 +95,7 @@ export const RequestDialog = ({
       setSuccess(true);
       setEmail("");
       setPhone("");
+      setGeo("");
       setConsent(false);
       setTouched({});
     } catch {

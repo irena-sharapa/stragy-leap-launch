@@ -195,6 +195,27 @@ export const RequestDialog = ({
                 )}
               </div>
 
+              <div className="space-y-1.5">
+                <label htmlFor="req-geo" className="text-[12.5px] font-medium text-stragy-gray-text">
+                  {t.geoLabel}
+                </label>
+                <Input
+                  id="req-geo"
+                  type="text"
+                  maxLength={80}
+                  autoComplete="address-level1"
+                  placeholder={t.geoPlaceholder}
+                  value={geo}
+                  onChange={(e) => setGeo(e.target.value)}
+                  onBlur={() => setTouched((s) => ({ ...s, geo: true }))}
+                  className="h-11"
+                  required
+                />
+                {touched.geo && !geoValid && (
+                  <p className="text-[12px] text-destructive">{t.geoError}</p>
+                )}
+              </div>
+
               {/* honeypot */}
               <input
                 type="text"

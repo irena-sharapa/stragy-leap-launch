@@ -63,11 +63,12 @@ export const RequestDialog = ({
 
   const emailValid = emailRe.test(email.trim());
   const phoneValid = isValidPhone(phone);
-  const canSubmit = emailValid && phoneValid && consent && !isLoading;
+  const geoValid = geo.trim().length >= 2;
+  const canSubmit = emailValid && phoneValid && geoValid && consent && !isLoading;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setTouched({ email: true, phone: true });
+    setTouched({ email: true, phone: true, geo: true });
     if (!canSubmit) return;
     if (company) return; // bot caught by honeypot
 

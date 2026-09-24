@@ -985,10 +985,9 @@ const translations: Record<Language, Translations> = {
           tier: "Business",
           altLabel: "Para agencias de publicidad",
           separate: true,
-          priceNote: "El precio depende del número de estrategias",
+          priceNote: "A consultar",
           sub: "Para agencias y empresas multi-marca",
           items: [
-            "Desde 40 Strategy Workspaces",
             "Todo lo de Pro",
             "Desarrollos personalizados para el cliente",
             "Descarga de la estrategia en PDF",

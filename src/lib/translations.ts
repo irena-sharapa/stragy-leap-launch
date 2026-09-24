@@ -685,10 +685,9 @@ const translations: Record<Language, Translations> = {
           tier: "Business",
           altLabel: "For advertising agencies",
           separate: true,
-          priceNote: "Pricing depends on the number of strategies",
+          priceNote: "On request",
           sub: "For agencies and multi-brand companies",
           items: [
-            "From 40 Strategy Workspaces",
             "Everything in Pro",
             "Custom client-specific development",
             "Strategy download as PDF",

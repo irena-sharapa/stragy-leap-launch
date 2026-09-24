@@ -382,10 +382,9 @@ const translations: Record<Language, Translations> = {
           tier: "Business",
           altLabel: "Для рекламных агентств",
           separate: true,
-          priceNote: "Цена зависит от количества стратегий",
+          priceNote: "По запросу",
           sub: "Для агентств и multi-brand компаний",
           items: [
-            "От 40 Strategy Workspaces",
             "Всё из Pro",
             "Кастомные доработки под клиента",
             "Скачивание стратегии в PDF",

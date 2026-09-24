@@ -82,29 +82,26 @@ const Index = () => {
               {displayPrice(plan.price)}
               <span className="text-[14px] font-medium">{plan.unit}</span>
             </span>
-            {plan.oldPrice && (
-              <span
-                className={`text-[15px] font-medium line-through ${
-                  plan.popular ? "text-white/45" : "text-stragy-dark-text/30"
-                }`}
-              >
-                {displayPrice(plan.oldPrice)}
-                {plan.unit}
-              </span>
-            )}
           </div>
           {plan.oldPrice && (
             <div
-              className={`text-[11px] mb-1 ${plan.popular ? "text-white/60" : "text-stragy-dark-text/40"}`}
+              className={`text-[11px] font-semibold mb-1.5 ${plan.popular ? "text-white/85" : "text-primary"}`}
             >
-              {t.pricing.regularPriceLabel}
+              {t.pricing.testPriceNote}
             </div>
           )}
-          <div
-            className={`text-[11px] font-medium mb-1 ${plan.popular ? "text-white/70" : "text-stragy-dark-text/50"}`}
-          >
-            {t.pricing.testPriceNote}
-          </div>
+          {plan.oldPrice && (
+            <div
+              className={`text-[11px] flex items-center gap-1.5 ${plan.popular ? "text-white/55" : "text-stragy-dark-text/40"}`}
+            >
+              <span className="line-through">
+                {displayPrice(plan.oldPrice)}
+                {plan.unit}
+              </span>
+              <span>·</span>
+              <span>{t.pricing.regularPriceLabel}</span>
+            </div>
+          )}
         </>
       ) : (
         plan.priceNote && (

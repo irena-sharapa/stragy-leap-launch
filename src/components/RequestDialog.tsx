@@ -45,9 +45,10 @@ export const RequestDialog = ({
 
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [geo, setGeo] = useState("");
   const [consent, setConsent] = useState(false);
   const [company, setCompany] = useState(""); // honeypot
-  const [touched, setTouched] = useState<{ email?: boolean; phone?: boolean }>({});
+  const [touched, setTouched] = useState<{ email?: boolean; phone?: boolean; geo?: boolean }>({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -62,11 +63,12 @@ export const RequestDialog = ({
 
   const emailValid = emailRe.test(email.trim());
   const phoneValid = isValidPhone(phone);
-  const canSubmit = emailValid && phoneValid && consent && !isLoading;
+  const geoValid = geo.trim().length >= 2;
+  const canSubmit = emailValid && phoneValid && geoValid && consent && !isLoading;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setTouched({ email: true, phone: true });
+    setTouched({ email: true, phone: true, geo: true });
     if (!canSubmit) return;
     if (company) return; // bot caught by honeypot
 
@@ -80,6 +82,7 @@ export const RequestDialog = ({
         body: JSON.stringify({
           email: email.trim(),
           phone: phone.trim(),
+          geo: geo.trim(),
           plan,
           requested_at: new Date().toISOString(),
           consent: true,
@@ -92,6 +95,7 @@ export const RequestDialog = ({
       setSuccess(true);
       setEmail("");
       setPhone("");
+      setGeo("");
       setConsent(false);
       setTouched({});
     } catch {
@@ -189,6 +193,27 @@ export const RequestDialog = ({
                 />
                 {touched.phone && !phoneValid && (
                   <p className="text-[12px] text-destructive">{t.phoneError}</p>
+                )}
+              </div>
+
+              <div className="space-y-1.5">
+                <label htmlFor="req-geo" className="text-[12.5px] font-medium text-stragy-gray-text">
+                  {t.geoLabel}
+                </label>
+                <Input
+                  id="req-geo"
+                  type="text"
+                  maxLength={80}
+                  autoComplete="address-level1"
+                  placeholder={t.geoPlaceholder}
+                  value={geo}
+                  onChange={(e) => setGeo(e.target.value)}
+                  onBlur={() => setTouched((s) => ({ ...s, geo: true }))}
+                  className="h-11"
+                  required
+                />
+                {touched.geo && !geoValid && (
+                  <p className="text-[12px] text-destructive">{t.geoError}</p>
                 )}
               </div>
 

@@ -82,6 +82,7 @@ export const RequestDialog = ({
         body: JSON.stringify({
           email: email.trim(),
           phone: phone.trim(),
+          geo: geo.trim(),
           plan,
           requested_at: new Date().toISOString(),
           consent: true,

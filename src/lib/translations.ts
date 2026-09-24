@@ -134,6 +134,9 @@ export interface Translations {
     phoneLabel: string;
     phonePlaceholder: string;
     phoneError: string;
+    geoLabel: string;
+    geoPlaceholder: string;
+    geoError: string;
     consentPrefix: string;
     offerLink: string;
     consentMid: string;

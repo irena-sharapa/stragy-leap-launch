@@ -45,9 +45,10 @@ export const RequestDialog = ({
 
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [geo, setGeo] = useState("");
   const [consent, setConsent] = useState(false);
   const [company, setCompany] = useState(""); // honeypot
-  const [touched, setTouched] = useState<{ email?: boolean; phone?: boolean }>({});
+  const [touched, setTouched] = useState<{ email?: boolean; phone?: boolean; geo?: boolean }>({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);

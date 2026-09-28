@@ -383,7 +383,9 @@ const translations: Record<Language, Translations> = {
           tier: "Business",
           altLabel: "Для рекламных агентств",
           separate: true,
-          priceNote: "По запросу",
+          price: "$539+",
+          oldPrice: "$699",
+          unit: "/мес",
           sub: "Для агентств и multi-brand компаний",
           items: [
             "Всё из Pro",
@@ -399,7 +401,7 @@ const translations: Record<Language, Translations> = {
         featureLabel: "Функция",
         tiers: ["Starter", "Growth", "Pro", "Business"],
         rows: [
-          { label: "Цена в месяц", values: ["$49", "$129", "$189", "По запросу"] },
+          { label: "Цена в месяц", values: ["$49", "$129", "$189", "$539+"] },
           { label: "Workspace (стратегии)", values: ["3", "8", "12", "По запросу"] },
           { label: "Закрытые аналитические данные", values: ["Да", "Да", "Да", "Да"] },
           { label: "Анализ конкурентов", values: ["Да", "Да", "Да", "Да"] },
@@ -684,7 +686,9 @@ const translations: Record<Language, Translations> = {
           tier: "Business",
           altLabel: "For advertising agencies",
           separate: true,
-          priceNote: "On request",
+          price: "$539+",
+          oldPrice: "$699",
+          unit: "/mo",
           sub: "For agencies and multi-brand companies",
           items: [
             "Everything in Pro",
@@ -700,7 +704,7 @@ const translations: Record<Language, Translations> = {
         featureLabel: "Feature",
         tiers: ["Starter", "Growth", "Pro", "Business"],
         rows: [
-          { label: "Price per month", values: ["$49", "$129", "$189", "On request"] },
+          { label: "Price per month", values: ["$49", "$129", "$189", "$539+"] },
           { label: "Workspaces (strategies)", values: ["3", "8", "12", "On request"] },
           { label: "Closed analytics data", values: ["Yes", "Yes", "Yes", "Yes"] },
           { label: "Competitor analysis", values: ["Yes", "Yes", "Yes", "Yes"] },
@@ -982,7 +986,9 @@ const translations: Record<Language, Translations> = {
           tier: "Business",
           altLabel: "Para agencias de publicidad",
           separate: true,
-          priceNote: "A consultar",
+          price: "$539+",
+          oldPrice: "$699",
+          unit: "/mes",
           sub: "Para agencias y empresas multi-marca",
           items: [
             "Todo lo de Pro",
@@ -998,7 +1004,7 @@ const translations: Record<Language, Translations> = {
         featureLabel: "Función",
         tiers: ["Starter", "Growth", "Pro", "Business"],
         rows: [
-          { label: "Precio al mes", values: ["$49", "$129", "$189", "A consultar"] },
+          { label: "Precio al mes", values: ["$49", "$129", "$189", "$539+"] },
           { label: "Workspaces (estrategias)", values: ["3", "8", "12", "A consultar"] },
           { label: "Datos analíticos cerrados", values: ["Sí", "Sí", "Sí", "Sí"] },
           { label: "Análisis de la competencia", values: ["Sí", "Sí", "Sí", "Sí"] },

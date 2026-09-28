@@ -131,12 +131,10 @@ export interface Translations {
     emailLabel: string;
     emailPlaceholder: string;
     emailError: string;
-    phoneLabel: string;
-    phonePlaceholder: string;
-    phoneError: string;
     geoLabel: string;
-    geoPlaceholder: string;
     geoError: string;
+    promoLabel: string;
+    promoPlaceholder: string;
     consentPrefix: string;
     offerLink: string;
     consentMid: string;
@@ -432,12 +430,10 @@ const translations: Record<Language, Translations> = {
       emailLabel: "Email",
       emailPlaceholder: "you@company.com",
       emailError: "Введите корректный email",
-      phoneLabel: "Телефон",
-      phonePlaceholder: "+375 (__) ___-__-__",
-      phoneError: "Введите корректный номер телефона",
       geoLabel: "Гео / регион",
-      geoPlaceholder: "Например: ОАЭ, Москва",
       geoError: "Укажите ваш регион",
+      promoLabel: "Реферальный промокод",
+      promoPlaceholder: "Промокод (если есть)",
       consentPrefix: "Я ознакомлен(а) и согласен(на) с условиями ",
       offerLink: "Договора публичной оферты",
       consentMid: " и даю согласие на обработку персональных данных в соответствии с ",
@@ -445,7 +441,7 @@ const translations: Record<Language, Translations> = {
       submit: "Отправить заявку",
       submitting: "Отправляем…",
       successTitle: "Спасибо! Заявка принята.",
-      successText: "Наш менеджер свяжется с вами в ближайшее время по указанному телефону или email, уточнит реквизиты для выставления счёта. Доступ к платформе откроется сразу после поступления оплаты.",
+      successText: "Наш менеджер свяжется с вами в ближайшее время по указанному email, уточнит реквизиты для выставления счёта. Доступ к платформе откроется сразу после поступления оплаты.",
       errorTitle: "Не удалось отправить заявку",
       errorText: "Проверьте соединение и попробуйте ещё раз — введённые данные сохранены.",
       retry: "Повторить",
@@ -735,12 +731,10 @@ const translations: Record<Language, Translations> = {
       emailLabel: "Email",
       emailPlaceholder: "you@company.com",
       emailError: "Enter a valid email address",
-      phoneLabel: "Phone",
-      phonePlaceholder: "+1 (___) ___-____",
-      phoneError: "Enter a valid phone number",
       geoLabel: "Geo / region",
-      geoPlaceholder: "e.g. UAE, London",
       geoError: "Please enter your region",
+      promoLabel: "Referral promo code",
+      promoPlaceholder: "Promo code (optional)",
       consentPrefix: "I have read and agree to the ",
       offerLink: "Public Offer Agreement",
       consentMid: " and consent to the processing of my personal data in accordance with the ",
@@ -748,7 +742,7 @@ const translations: Record<Language, Translations> = {
       submit: "Send request",
       submitting: "Sending…",
       successTitle: "Thank you! Your request has been received.",
-      successText: "Our manager will contact you shortly by the phone number or email you provided and will confirm the billing details for the invoice. Platform access opens as soon as the payment is received.",
+      successText: "Our manager will contact you shortly at the email you provided and will confirm the billing details for the invoice. Platform access opens as soon as the payment is received.",
       errorTitle: "Could not send the request",
       errorText: "Check your connection and try again — the data you entered has been kept.",
       retry: "Try again",
@@ -1035,12 +1029,10 @@ const translations: Record<Language, Translations> = {
       emailLabel: "Email",
       emailPlaceholder: "tu@empresa.com",
       emailError: "Introduce un email válido",
-      phoneLabel: "Teléfono",
-      phonePlaceholder: "+34 ___ ___ ___",
-      phoneError: "Introduce un número de teléfono válido",
       geoLabel: "Geografía / región",
-      geoPlaceholder: "Por ejemplo: EAU, Madrid",
       geoError: "Indica tu región",
+      promoLabel: "Código promocional de referencia",
+      promoPlaceholder: "Código (opcional)",
       consentPrefix: "He leído y acepto las condiciones del ",
       offerLink: "Contrato de oferta pública",
       consentMid: " y doy mi consentimiento para el tratamiento de mis datos personales conforme a la ",
@@ -1048,7 +1040,7 @@ const translations: Record<Language, Translations> = {
       submit: "Enviar solicitud",
       submitting: "Enviando…",
       successTitle: "¡Gracias! Hemos recibido tu solicitud.",
-      successText: "Nuestro gestor se pondrá en contacto contigo en breve por el teléfono o email indicado y confirmará los datos para emitir la factura. El acceso a la plataforma se activa en cuanto se recibe el pago.",
+      successText: "Nuestro gestor se pondrá en contacto contigo en breve por el email indicado y confirmará los datos para emitir la factura. El acceso a la plataforma se activa en cuanto se recibe el pago.",
       errorTitle: "No se pudo enviar la solicitud",
       errorText: "Comprueba tu conexión e inténtalo de nuevo: los datos introducidos se han conservado.",
       retry: "Reintentar",

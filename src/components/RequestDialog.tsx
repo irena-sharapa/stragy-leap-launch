@@ -20,10 +20,8 @@ const API_URL = "https://app.stragy.com/api/user/request-access";
 
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-const isValidPhone = (value: string) => {
-  const digits = value.replace(/\D/g, "");
-  return digits.length >= 9 && digits.length <= 15;
-};
+/** Red asterisk marking a required field. */
+const RequiredMark = () => <span className="text-destructive"> *</span>;
 
 interface RequestDialogProps {
   open: boolean;
@@ -44,11 +42,11 @@ export const RequestDialog = ({
   const plans = translations.pricing.plans.map((p) => p.tier);
 
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
   const [geo, setGeo] = useState("");
+  const [promo, setPromo] = useState("");
   const [consent, setConsent] = useState(false);
   const [company, setCompany] = useState(""); // honeypot
-  const [touched, setTouched] = useState<{ email?: boolean; phone?: boolean; geo?: boolean }>({});
+  const [touched, setTouched] = useState<{ email?: boolean; geo?: boolean }>({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -62,13 +60,12 @@ export const RequestDialog = ({
   }, [open]);
 
   const emailValid = emailRe.test(email.trim());
-  const phoneValid = isValidPhone(phone);
   const geoValid = geo.trim().length >= 2;
-  const canSubmit = emailValid && phoneValid && geoValid && consent && !isLoading;
+  const canSubmit = emailValid && geoValid && consent && !isLoading;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setTouched({ email: true, phone: true, geo: true });
+    setTouched({ email: true, geo: true });
     if (!canSubmit) return;
     if (company) return; // bot caught by honeypot
 
@@ -81,8 +78,8 @@ export const RequestDialog = ({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email: email.trim(),
-          phone: phone.trim(),
           geo: geo.trim(),
+          promo_code: promo.trim() || undefined,
           plan,
           requested_at: new Date().toISOString(),
           consent: true,
@@ -94,8 +91,8 @@ export const RequestDialog = ({
 
       setSuccess(true);
       setEmail("");
-      setPhone("");
       setGeo("");
+      setPromo("");
       setConsent(false);
       setTouched({});
     } catch {
@@ -137,6 +134,7 @@ export const RequestDialog = ({
               <div className="space-y-1.5">
                 <label className="text-[12.5px] font-medium text-stragy-gray-text">
                   {t.planLabel}
+                  <RequiredMark />
                 </label>
                 <Select value={plan} onValueChange={onPlanChange}>
                   <SelectTrigger className="h-11">
@@ -155,6 +153,7 @@ export const RequestDialog = ({
               <div className="space-y-1.5">
                 <label htmlFor="req-email" className="text-[12.5px] font-medium text-stragy-gray-text">
                   {t.emailLabel}
+                  <RequiredMark />
                 </label>
                 <Input
                   id="req-email"
@@ -175,37 +174,15 @@ export const RequestDialog = ({
               </div>
 
               <div className="space-y-1.5">
-                <label htmlFor="req-phone" className="text-[12.5px] font-medium text-stragy-gray-text">
-                  {t.phoneLabel}
-                </label>
-                <Input
-                  id="req-phone"
-                  type="tel"
-                  inputMode="tel"
-                  autoComplete="tel"
-                  maxLength={25}
-                  placeholder={t.phonePlaceholder}
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value.replace(/[^\d+()\-\s]/g, ""))}
-                  onBlur={() => setTouched((s) => ({ ...s, phone: true }))}
-                  className="h-11"
-                  required
-                />
-                {touched.phone && !phoneValid && (
-                  <p className="text-[12px] text-destructive">{t.phoneError}</p>
-                )}
-              </div>
-
-              <div className="space-y-1.5">
                 <label htmlFor="req-geo" className="text-[12.5px] font-medium text-stragy-gray-text">
                   {t.geoLabel}
+                  <RequiredMark />
                 </label>
                 <Input
                   id="req-geo"
                   type="text"
                   maxLength={80}
                   autoComplete="address-level1"
-                  placeholder={t.geoPlaceholder}
                   value={geo}
                   onChange={(e) => setGeo(e.target.value)}
                   onBlur={() => setTouched((s) => ({ ...s, geo: true }))}
@@ -215,6 +192,22 @@ export const RequestDialog = ({
                 {touched.geo && !geoValid && (
                   <p className="text-[12px] text-destructive">{t.geoError}</p>
                 )}
+              </div>
+
+              <div className="space-y-1.5">
+                <label htmlFor="req-promo" className="text-[12.5px] font-medium text-stragy-gray-text">
+                  {t.promoLabel}
+                </label>
+                <Input
+                  id="req-promo"
+                  type="text"
+                  maxLength={40}
+                  autoComplete="off"
+                  placeholder={t.promoPlaceholder}
+                  value={promo}
+                  onChange={(e) => setPromo(e.target.value)}
+                  className="h-11"
+                />
               </div>
 
               {/* honeypot */}
@@ -259,6 +252,7 @@ export const RequestDialog = ({
                   >
                     {t.privacyLink}
                   </a>
+                  <RequiredMark />
                 </label>
               </div>
 

@@ -242,9 +242,9 @@ const Index = () => {
           </nav>
 
           {/* Hero */}
-          <header className="min-h-[calc(100vh-76px)] flex items-center py-10 md:py-12 px-5 sm:px-6">
+          <header className="min-h-[calc(100vh-76px)] flex items-center py-8 md:py-10 px-5 sm:px-6">
             <div className="max-w-6xl mx-auto w-full">
-              <div className="grid lg:grid-cols-[52%_48%] gap-8 lg:gap-10 items-center">
+              <div className="grid lg:grid-cols-[58%_42%] gap-8 lg:gap-9 items-center">
                 <div>
                   {t.hero.badge && (
                     <div className="inline-flex items-center gap-2 text-primary text-[11px] sm:text-xs font-semibold tracking-[0.12em] uppercase mb-4 font-mono">
@@ -256,25 +256,22 @@ const Index = () => {
                     {t.hero.titleStart}{" "}
                     <span className="text-primary">{t.hero.titleHighlight}</span>
                   </h1>
-                  <p className="mt-5 text-[15px] md:text-[16px] leading-[1.6] text-stragy-dark-text/70 max-w-xl">
+                  <p className="mt-4 text-[14px] md:text-[15px] leading-[1.55] text-stragy-dark-text/70 max-w-2xl">
                     {t.hero.description}
                   </p>
 
-                  <div className="mt-6">
-                    <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.08em] text-stragy-secondary-label mb-3">
-                      {t.hero.platformShowsLabel}
-                    </p>
-                    <ul className="grid sm:grid-cols-2 gap-2.5">
+                  <div className="mt-5">
+                    <ul className="grid sm:grid-cols-2 gap-2">
                       {t.hero.platformShows.map((item, i) => (
                         <li
                           key={i}
-                          className="bg-white/75 backdrop-blur-sm rounded-xl p-3.5 shadow-sm border border-stragy-dark-text/[0.05] hover:shadow-md hover:border-primary/20 transition"
+                          className={`bg-white/75 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-stragy-dark-text/[0.05] hover:shadow-md hover:border-primary/20 transition ${i === t.hero.platformShows.length - 1 ? "sm:col-span-2" : ""}`}
                         >
                           <div className="flex items-start gap-2.5">
                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-none" />
                             <div>
                               <div className="text-[13px] font-semibold text-stragy-dark-text leading-snug">{item.title}</div>
-                              <div className="text-[12px] text-stragy-dark-text/65 leading-snug mt-0.5">{item.desc}</div>
+                              <div className="text-[11.5px] text-stragy-dark-text/65 leading-[1.4] mt-0.5">{item.desc}</div>
                             </div>
                           </div>
                         </li>
@@ -282,7 +279,7 @@ const Index = () => {
                     </ul>
                   </div>
 
-                  <div className="mt-6 flex flex-wrap gap-3">
+                  <div className="mt-5 flex flex-wrap gap-3">
                     <Button
                       onClick={() => setEmailDialogOpen(true)}
                       className="rounded-full h-12 px-6 md:px-7 text-[14px] md:text-[15px] font-semibold shadow-lg shadow-primary/25"
@@ -298,8 +295,8 @@ const Index = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-center lg:h-[65vh] mt-4 lg:mt-0">
-                  <div className="w-full sm:w-[85%] lg:w-[85%]">
+                <div className="flex items-center justify-center mt-4 lg:mt-0">
+                  <div className="w-full sm:w-[85%] lg:w-full">
                     <SignalCard />
                   </div>
                 </div>
@@ -310,7 +307,7 @@ const Index = () => {
           {/* How it works */}
           <section id="how" className="py-16 md:py-20 px-5 sm:px-6">
             <div className="max-w-6xl mx-auto">
-              <div className="max-w-2xl mb-10 md:mb-12">
+              <div className="max-w-3xl mb-8 md:mb-10">
                 <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold tracking-[0.12em] uppercase mb-4 font-mono">
                   <span className="w-2 h-2 rounded-full bg-primary" />
                   {t.how.badge}
@@ -323,13 +320,11 @@ const Index = () => {
                 </p>
               </div>
 
-              <div className="grid gap-4 md:grid-cols-3">
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {t.how.flow.map((step, i) => (
                   <div
                     key={i}
-                    className={`rounded-2xl p-6 shadow-md border border-stragy-dark-text/[0.05] ${
-                      step.layers ? "bg-primary/10 md:col-span-3" : "bg-white/80"
-                    } backdrop-blur-sm`}
+                    className="rounded-2xl p-6 shadow-md border border-stragy-dark-text/[0.05] bg-white/80 backdrop-blur-sm"
                   >
                     <div className="text-primary font-mono font-semibold text-[12px] mb-2">
                       0{i + 1}
@@ -338,35 +333,8 @@ const Index = () => {
                     {step.desc && (
                       <p className="text-[13px] text-stragy-dark-text/65 leading-[1.55]">{step.desc}</p>
                     )}
-                    {step.bullets && (
-                      <ul className="mt-1 space-y-2">
-                        {step.bullets.map((b, j) => (
-                          <li key={j} className="flex items-start gap-2.5 text-[13px] text-stragy-dark-text/80 leading-snug">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-none" />
-                            {b}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    {step.layers && (
-                      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 mt-4">
-                        {step.layers.map((layer, j) => (
-                          <div key={j} className="bg-white rounded-xl p-4 shadow-sm border border-stragy-dark-text/[0.04]">
-                            <div className="text-[11px] font-mono font-semibold text-primary">
-                              0{j + 1}
-                            </div>
-                            <div className="text-[13.5px] font-bold text-stragy-dark-text mt-1">{layer.name}</div>
-                            <div className="text-[12px] text-stragy-dark-text/65 leading-snug mt-1.5">{layer.desc}</div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-8 bg-primary text-white rounded-2xl p-6 md:p-7 text-[14px] md:text-[14.5px] font-medium leading-[1.6]">
-                {t.how.aiExplanation}
               </div>
             </div>
           </section>

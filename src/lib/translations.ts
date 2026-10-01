@@ -206,14 +206,14 @@ const translations: Record<Language, Translations> = {
       titleStart: "Платформа, которая помогает вашему маркетингу всегда быть",
       titleHighlight: "актуальным",
       description:
-        "STRAGY автоматически обнаруживает изменения на рынке, сопоставляет их с показателями бизнеса, оценивает влияние на маркетинговую эффективность и предлагает обновления стратегии с объяснением причин.",
-      platformShowsLabel: "Что доступно на платформе:",
+        "STRAGY показывает реальный спрос на ваш продукт и стоимость привлечения клиента, находит точки, где вы теряете клиентов на пути к покупке, — и переводит всё это в пошаговый план с распределением бюджета, до того как он потрачен.",
+      platformShowsLabel: "",
       platformShows: [
-        { title: "Анализ рынка и конкурентов", desc: "Данные о спросе, конкурентах и возможностях рынка." },
-        { title: "Стратегия роста", desc: "План действий для привлечения новых клиентов." },
-        { title: "Стратегия удержания", desc: "Рекомендации по увеличению повторных продаж и лояльности." },
-        { title: "Рекламный бюджет", desc: "Распределение бюджета с обоснованием." },
-        { title: "Анализ потерь клиентов", desc: "Точки, где компания теряет клиентов и как это исправить." },
+        { title: "Аналитика", desc: "Персонализированный анализ рынка и конкурентов на закрытых аналитических данных." },
+        { title: "Аудитория", desc: "Показываем, кто готов покупать прямо сейчас, сколько стоит его привлечь и с кого начинать в первую очередь." },
+        { title: "Путь клиента без потерь", desc: "Узнайте, на каком этапе клиенты уходят и что поменять, чтобы они дошли до покупки." },
+        { title: "Каналы и медиаплан", desc: "Готовый список бесплатных и платных рекламных каналов для вашего продукта с распределением бюджета и KPI." },
+        { title: "План", desc: "Конкретные шаги по стратегии для реализации, еженедельная проверка хода и готовые корректировки, если появляется отклонение от цели." },
       ],
       ctaSecondary: "Как это работает",
       title: "STRAGY",
@@ -254,33 +254,27 @@ const translations: Record<Language, Translations> = {
     },
     how: {
       badge: "Как это работает",
-      title: "От ваших данных — к готовому плану действий",
-      subtitle: "Одна система вместо десятка разрозненных инструментов и ручных отчётов.",
+      title: "Как работает STRAGY",
+      subtitle: "Вы предоставляете информацию о вашем продукте или услуге, далее STRAGY работает по четырём направлениям:",
       flow: [
         {
-          title: "Входные данные",
-          desc: "Введите информацию о своём продукте, целях и текущих действиях для продвижения на платформе.",
+          title: "Рынок",
+          desc: "Анализирует ваш рынок, конкурентов и целевую аудиторию на основе закрытых аналитических данных.",
         },
         {
-          title: "Ядро STRAGY — 4 слоя платформы",
-          layers: [
-            { name: "Market Layer", desc: "Анализирует рынок, конкурентов и целевую аудиторию на основе внешних аналитических данных." },
-            { name: "Business Layer", desc: "Объединяет рыночные данные с данными вашего бизнеса, целями и маркетинговыми задачами." },
-            { name: "Decision Layer", desc: "Определяет возможности роста и формирует персонализированную маркетинговую стратегию." },
-            { name: "Planning Layer", desc: "Создаёт пошаговый план реализации стратегии с конкретными действиями и приоритетами." },
-          ],
+          title: "Бизнес",
+          desc: "Объединяет рыночные данные с данными вашего бизнеса, целями и маркетинговыми задачами.",
         },
         {
-          title: "Результат",
-          bullets: [
-            "Карта пути клиента",
-            "Коммуникационная карта с платными и бесплатными рекламными каналами",
-            "Медиаплан с KPI и бюджетированием",
-          ],
+          title: "Решение",
+          desc: "Определяет возможности роста, формирует персонализированную маркетинговую стратегию.",
+        },
+        {
+          title: "План",
+          desc: "Создаёт пошаговый план реализации стратегии с конкретными действиями, еженедельно контролирует её ход и предлагает корректировки, если видит отклонения от целей.",
         },
       ],
-      aiExplanation:
-        "AI сопоставляет внутренние изменения (падение эффективности рекламы, снижение конверсии, рост стоимости привлечения) с внешними событиями (рост активности конкурентов, изменение спроса, новые игроки на рынке) и формирует список приоритетных действий с объяснением причин.",
+      aiExplanation: "",
     },
     diff: {
       badge: "Отличие",
@@ -505,14 +499,14 @@ const translations: Record<Language, Translations> = {
       titleStart: "The platform that keeps your marketing continuously",
       titleHighlight: "up to date",
       description:
-        "STRAGY automatically detects market changes, correlates them with your business metrics, quantifies the impact on marketing performance and recommends strategy updates — with a clear explanation of why.",
-      platformShowsLabel: "What’s available on the platform:",
+        "STRAGY reveals the real demand for your product and customer acquisition cost, identifies where customers drop off on the path to purchase, and turns it all into a step-by-step plan with budget allocation before the money is spent.",
+      platformShowsLabel: "",
       platformShows: [
-        { title: "Market & competitor analysis", desc: "Data on demand, competitors and market opportunities." },
-        { title: "Growth strategy", desc: "An action plan to acquire new customers." },
-        { title: "Retention strategy", desc: "Recommendations to boost repeat sales and loyalty." },
-        { title: "Advertising budget", desc: "Budget allocation with a clear rationale." },
-        { title: "Customer loss analysis", desc: "The points where you lose customers — and how to fix them." },
+        { title: "Analytics", desc: "Personalized market and competitor analysis based on proprietary analytics data." },
+        { title: "Audience", desc: "See who is ready to buy now, what it costs to acquire them, and which segments to prioritize." },
+        { title: "A customer journey without losses", desc: "Discover where customers drop off and what to change so they complete their purchase." },
+        { title: "Channels and media plan", desc: "A ready-to-use list of organic and paid channels for your product, with budget allocation and KPIs." },
+        { title: "Plan", desc: "Concrete strategy execution steps, weekly progress checks, and ready adjustments whenever performance moves off target." },
       ],
       ctaSecondary: "See how it works",
       title: "STRAGY",
@@ -557,33 +551,27 @@ const translations: Record<Language, Translations> = {
     },
     how: {
       badge: "How it works",
-      title: "From your data to a ready-to-execute action plan",
-      subtitle: "One system instead of a dozen disconnected tools and manual reports.",
+      title: "How STRAGY works",
+      subtitle: "You provide information about your product or service, then STRAGY works across four areas:",
       flow: [
         {
-          title: "Inputs",
-          desc: "You provide information about your product, goals and current promotion activities on the platform.",
+          title: "Market",
+          desc: "Analyzes your market, competitors, and target audience using proprietary analytics data.",
         },
         {
-          title: "The STRAGY core — 4 platform layers",
-          layers: [
-            { name: "Market Layer", desc: "Analyzes the market, competitors and target audience using external analytics data." },
-            { name: "Business Layer", desc: "Combines market data with your business data, goals and marketing objectives." },
-            { name: "Decision Layer", desc: "Identifies growth opportunities and builds a personalized marketing strategy." },
-            { name: "Planning Layer", desc: "Creates a step-by-step execution plan with concrete actions and priorities." },
-          ],
+          title: "Business",
+          desc: "Combines market intelligence with your business data, goals, and marketing objectives.",
         },
         {
-          title: "Result",
-          bullets: [
-            "Customer journey map",
-            "Communication map across paid and organic channels",
-            "Media plan with KPIs and budgeting",
-          ],
+          title: "Decision",
+          desc: "Identifies growth opportunities and builds a personalized marketing strategy.",
+        },
+        {
+          title: "Plan",
+          desc: "Creates a step-by-step execution plan with concrete actions, monitors progress weekly, and recommends adjustments when results move off target.",
         },
       ],
-      aiExplanation:
-        "AI correlates internal shifts (declining ad efficiency, lower conversion, rising acquisition cost) with external events (competitor activity, demand changes, new market entrants) and produces a prioritized list of actions — each one explained.",
+      aiExplanation: "",
     },
     diff: {
       badge: "What sets us apart",
@@ -805,14 +793,14 @@ const translations: Record<Language, Translations> = {
       titleStart: "La plataforma que mantiene tu marketing siempre",
       titleHighlight: "actualizado",
       description:
-        "STRAGY detecta automáticamente los cambios del mercado, los correlaciona con los indicadores de tu negocio, mide su impacto en el rendimiento de marketing y propone actualizaciones de estrategia — con una explicación clara del porqué.",
-      platformShowsLabel: "Qué está disponible en la plataforma:",
+        "STRAGY muestra la demanda real de tu producto y el coste de adquisición de clientes, detecta dónde los pierdes durante el proceso de compra y convierte todo ello en un plan paso a paso con distribución del presupuesto antes de gastarlo.",
+      platformShowsLabel: "",
       platformShows: [
-        { title: "Análisis de mercado y competidores", desc: "Datos sobre demanda, competidores y oportunidades de mercado." },
-        { title: "Estrategia de crecimiento", desc: "Plan de acciones para captar nuevos clientes." },
-        { title: "Estrategia de retención", desc: "Recomendaciones para aumentar la recompra y la fidelidad." },
-        { title: "Presupuesto publicitario", desc: "Distribución del presupuesto con justificación." },
-        { title: "Análisis de pérdida de clientes", desc: "Puntos donde la empresa pierde clientes y cómo solucionarlo." },
+        { title: "Analítica", desc: "Análisis personalizado del mercado y la competencia basado en datos analíticos exclusivos." },
+        { title: "Audiencia", desc: "Mostramos quién está listo para comprar ahora, cuánto cuesta captarlo y por qué segmentos empezar." },
+        { title: "Recorrido del cliente sin pérdidas", desc: "Descubre en qué etapa abandonan los clientes y qué cambiar para que completen la compra." },
+        { title: "Canales y plan de medios", desc: "Una lista lista para usar de canales orgánicos y de pago para tu producto, con presupuesto y KPI." },
+        { title: "Plan", desc: "Pasos concretos para ejecutar la estrategia, revisión semanal del progreso y ajustes listos cuando aparece una desviación del objetivo." },
       ],
       ctaSecondary: "Ver cómo funciona",
       title: "STRAGY",
@@ -857,33 +845,27 @@ const translations: Record<Language, Translations> = {
     },
     how: {
       badge: "Cómo funciona",
-      title: "De tus datos a un plan de acción listo para ejecutar",
-      subtitle: "Un solo sistema en lugar de decenas de herramientas dispersas e informes manuales.",
+      title: "Cómo funciona STRAGY",
+      subtitle: "Proporcionas información sobre tu producto o servicio y, a continuación, STRAGY trabaja en cuatro áreas:",
       flow: [
         {
-          title: "Datos de entrada",
-          desc: "Introduces información sobre tu producto, objetivos y acciones actuales de promoción en la plataforma.",
+          title: "Mercado",
+          desc: "Analiza tu mercado, la competencia y el público objetivo a partir de datos analíticos exclusivos.",
         },
         {
-          title: "Núcleo de STRAGY — 4 capas de la plataforma",
-          layers: [
-            { name: "Market Layer", desc: "Analiza el mercado, los competidores y la audiencia objetivo con datos analíticos externos." },
-            { name: "Business Layer", desc: "Combina los datos de mercado con los datos de tu negocio, tus objetivos y tus tareas de marketing." },
-            { name: "Decision Layer", desc: "Identifica oportunidades de crecimiento y construye una estrategia de marketing personalizada." },
-            { name: "Planning Layer", desc: "Crea un plan de ejecución paso a paso con acciones concretas y prioridades." },
-          ],
+          title: "Negocio",
+          desc: "Combina los datos de mercado con los datos de tu negocio, tus objetivos y tus tareas de marketing.",
         },
         {
-          title: "Resultado",
-          bullets: [
-            "Mapa del recorrido del cliente",
-            "Mapa de comunicación con canales publicitarios de pago y gratuitos",
-            "Plan de medios con KPI y presupuesto",
-          ],
+          title: "Decisión",
+          desc: "Identifica oportunidades de crecimiento y crea una estrategia de marketing personalizada.",
+        },
+        {
+          title: "Plan",
+          desc: "Crea un plan de ejecución paso a paso con acciones concretas, controla semanalmente su progreso y propone ajustes cuando detecta desviaciones de los objetivos.",
         },
       ],
-      aiExplanation:
-        "La IA correlaciona los cambios internos (caída de eficacia publicitaria, menor conversión, mayor coste de adquisición) con los eventos externos (mayor actividad de competidores, cambios en la demanda, nuevos jugadores) y genera una lista priorizada de acciones — cada una explicada.",
+      aiExplanation: "",
     },
     diff: {
       badge: "Lo que nos diferencia",

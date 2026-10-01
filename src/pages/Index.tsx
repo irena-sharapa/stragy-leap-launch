@@ -244,7 +244,7 @@ const Index = () => {
           {/* Hero */}
           <header className="min-h-[calc(100vh-76px)] flex items-center py-8 md:py-10 px-5 sm:px-6">
             <div className="max-w-6xl mx-auto w-full">
-              <div className="grid lg:grid-cols-[58%_42%] gap-8 lg:gap-9 items-center">
+              <div className="grid lg:grid-cols-[58%_42%] gap-8 lg:gap-9 items-start">
                 <div>
                   {t.hero.badge && (
                     <div className="inline-flex items-center gap-2 text-primary text-[11px] sm:text-xs font-semibold tracking-[0.12em] uppercase mb-4 font-mono">
@@ -274,32 +274,32 @@ const Index = () => {
                       {t.hero.ctaSecondary} <ArrowRight className="ml-2 w-4 h-4" />
                     </a>
                   </div>
-
-                  <div className="mt-5">
-                    <ul className="grid sm:grid-cols-2 gap-2">
-                      {t.hero.platformShows.map((item, i) => (
-                        <li
-                          key={i}
-                          className={`bg-white/75 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-stragy-dark-text/[0.05] hover:shadow-md hover:border-primary/20 transition ${i === t.hero.platformShows.length - 1 ? "sm:col-span-2" : ""}`}
-                        >
-                          <div className="flex items-start gap-2.5">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-none" />
-                            <div>
-                              <div className="text-[13px] font-semibold text-stragy-dark-text leading-snug">{item.title}</div>
-                              <div className="text-[11.5px] text-stragy-dark-text/65 leading-[1.4] mt-0.5">{item.desc}</div>
-                            </div>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
                 </div>
 
-                <div className="flex items-center justify-center mt-4 lg:mt-0">
-                  <div className="w-full sm:w-[85%] lg:w-full">
+                <div className="flex items-start justify-center lg:justify-end lg:pt-1">
+                  <div className="w-full sm:w-[65%] lg:w-[68%]">
                     <SignalCard />
                   </div>
                 </div>
+              </div>
+
+              <div className="mt-6">
+                <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+                  {t.hero.platformShows.map((item, i) => (
+                    <li
+                      key={i}
+                      className="bg-white/75 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-stragy-dark-text/[0.05] hover:shadow-md hover:border-primary/20 transition"
+                    >
+                      <div className="flex items-start gap-2.5">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-none" />
+                        <div>
+                          <div className="text-[13px] font-semibold text-stragy-dark-text leading-snug">{item.title}</div>
+                          <div className="text-[11.5px] text-stragy-dark-text/65 leading-[1.4] mt-0.5">{item.desc}</div>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </header>

@@ -260,6 +260,21 @@ const Index = () => {
                     {t.hero.description}
                   </p>
 
+                  <div className="mt-5 flex flex-wrap gap-3">
+                    <Button
+                      onClick={() => setEmailDialogOpen(true)}
+                      className="rounded-full h-12 px-6 md:px-7 text-[14px] md:text-[15px] font-semibold shadow-lg shadow-primary/25"
+                    >
+                      {t.header.tryFree}
+                    </Button>
+                    <a
+                      href="#how"
+                      className="inline-flex items-center justify-center h-12 px-6 md:px-7 rounded-full text-[14px] md:text-[15px] font-semibold text-stragy-dark-text border border-stragy-dark-text/15 hover:border-primary hover:text-primary transition"
+                    >
+                      {t.hero.ctaSecondary} <ArrowRight className="ml-2 w-4 h-4" />
+                    </a>
+                  </div>
+
                   <div className="mt-5">
                     <ul className="grid sm:grid-cols-2 gap-2">
                       {t.hero.platformShows.map((item, i) => (
@@ -277,21 +292,6 @@ const Index = () => {
                         </li>
                       ))}
                     </ul>
-                  </div>
-
-                  <div className="mt-5 flex flex-wrap gap-3">
-                    <Button
-                      onClick={() => setEmailDialogOpen(true)}
-                      className="rounded-full h-12 px-6 md:px-7 text-[14px] md:text-[15px] font-semibold shadow-lg shadow-primary/25"
-                    >
-                      {t.header.tryFree}
-                    </Button>
-                    <a
-                      href="#how"
-                      className="inline-flex items-center justify-center h-12 px-6 md:px-7 rounded-full text-[14px] md:text-[15px] font-semibold text-stragy-dark-text border border-stragy-dark-text/15 hover:border-primary hover:text-primary transition"
-                    >
-                      {t.hero.ctaSecondary} <ArrowRight className="ml-2 w-4 h-4" />
-                    </a>
                   </div>
                 </div>
 

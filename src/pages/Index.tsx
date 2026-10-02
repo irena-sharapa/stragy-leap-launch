@@ -312,9 +312,6 @@ const Index = () => {
                   <span className="w-2 h-2 rounded-full bg-primary" />
                   {t.how.badge}
                 </div>
-                <h2 className="text-[26px] sm:text-3xl md:text-[34px] font-bold text-stragy-dark-text leading-tight">
-                  {t.how.title}
-                </h2>
                 <p className="mt-4 text-[15px] md:text-[15.5px] text-stragy-dark-text/70">
                   {t.how.subtitle}
                 </p>

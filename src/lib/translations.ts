@@ -109,8 +109,6 @@ export interface Translations {
     title: string;
     discount: string;
     recommended: string;
-    earlyBirdBadge: string;
-    earlyBirdNote: string;
     regularPriceLabel: string;
     testPriceNote: string;
     monthly: string;
@@ -203,10 +201,10 @@ const translations: Record<Language, Translations> = {
     },
     hero: {
       badge: "",
-      titleStart: "Платформа, которая помогает вашему маркетингу всегда быть",
-      titleHighlight: "актуальным",
+      titleStart: "Сервис маркетинговых",
+      titleHighlight: "решений",
       description:
-        "STRAGY показывает реальный спрос на ваш продукт и стоимость привлечения клиента, находит точки, где вы теряете клиентов на пути к покупке, — и переводит всё это в пошаговый план с распределением бюджета, до того как он потрачен.",
+        "STRAGY показывает реальный спрос, стоимость привлечения, находит точки потери клиентов и превращает их в пошаговый план, распределяя бюджет еще до запуска. После запуска еженедельно сравнивает результат с целью и подсказывает, что изменить.",
       platformShowsLabel: "",
       platformShows: [
         { title: "Аналитика", desc: "Персонализированный анализ рынка и конкурентов на закрытых аналитических данных." },
@@ -319,8 +317,6 @@ const translations: Record<Language, Translations> = {
       title: "Тарифы STRAGY",
       discount: "💳 Годовая оплата — экономия 20%",
       recommended: "Рекомендуемый",
-      earlyBirdBadge: "🚀 Выходим в продакшн",
-      earlyBirdNote: "Специальные условия для первых клиентов — цена фиксируется навсегда",
       regularPriceLabel: "Обычная цена",
       testPriceNote: "Цена тестового периода",
       monthly: "Ежемесячно",
@@ -496,10 +492,10 @@ const translations: Record<Language, Translations> = {
     },
     hero: {
       badge: "",
-      titleStart: "The platform that keeps your marketing continuously",
-      titleHighlight: "up to date",
+      titleStart: "Marketing solutions",
+      titleHighlight: "service",
       description:
-        "STRAGY reveals the real demand for your product and customer acquisition cost, identifies where customers drop off on the path to purchase, and turns it all into a step-by-step plan with budget allocation before the money is spent.",
+        "STRAGY shows real demand and acquisition cost, finds where you lose customers, and turns them into a step-by-step plan that allocates the budget before launch. After launch, it compares results against the goal weekly and tells you what to change.",
       platformShowsLabel: "",
       platformShows: [
         { title: "Analytics", desc: "Personalized market and competitor analysis based on proprietary analytics data." },
@@ -616,8 +612,6 @@ const translations: Record<Language, Translations> = {
       title: "STRAGY Pricing",
       discount: "💳 Annual billing — save 20%",
       recommended: "Recommended",
-      earlyBirdBadge: "🚀 Going to production",
-      earlyBirdNote: "Special terms for our first customers — your price is locked in forever",
       regularPriceLabel: "Regular price",
       testPriceNote: "Test period price",
       monthly: "Monthly",
@@ -790,10 +784,10 @@ const translations: Record<Language, Translations> = {
     },
     hero: {
       badge: "",
-      titleStart: "La plataforma que mantiene tu marketing siempre",
-      titleHighlight: "actualizado",
+      titleStart: "Servicio de soluciones de",
+      titleHighlight: "marketing",
       description:
-        "STRAGY muestra la demanda real de tu producto y el coste de adquisición de clientes, detecta dónde los pierdes durante el proceso de compra y convierte todo ello en un plan paso a paso con distribución del presupuesto antes de gastarlo.",
+        "STRAGY muestra la demanda real y el coste de adquisición, detecta dónde pierdes clientes y los convierte en un plan paso a paso que distribuye el presupuesto antes del lanzamiento. Tras el lanzamiento compara semanalmente el resultado con el objetivo y te indica qué cambiar.",
       platformShowsLabel: "",
       platformShows: [
         { title: "Analítica", desc: "Análisis personalizado del mercado y la competencia basado en datos analíticos exclusivos." },
@@ -910,8 +904,6 @@ const translations: Record<Language, Translations> = {
       title: "Precios STRAGY",
       discount: "💳 Facturación anual — ahorra 20%",
       recommended: "Recomendado",
-      earlyBirdBadge: "🚀 Vamos a producción",
-      earlyBirdNote: "Condiciones especiales para los primeros clientes: tu precio queda fijado para siempre",
       regularPriceLabel: "Precio habitual",
       testPriceNote: "Precio del periodo de prueba",
       monthly: "Mensual",

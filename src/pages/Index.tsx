@@ -11,6 +11,7 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { getTranslations, getPathForLanguage, PricingPlan } from "@/lib/translations";
 import { RequestDialog } from "@/components/RequestDialog";
 import { useSectionUrl } from "@/hooks/useSectionUrl";
+import { PlanCalculator, PricingFaq, SegmentLine, recommendPlan } from "@/components/PricingExtras";
 
 const SITE_URL = "https://stragy.lovable.app";
 
@@ -21,6 +22,9 @@ const Index = () => {
   const [annual, setAnnual] = useState(false);
   const [requestOpen, setRequestOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState("Starter");
+  const [segments, setSegments] = useState(1);
+  const [growth, setGrowth] = useState(false);
+  const recommendedTier = recommendPlan(segments, growth);
 
   const { currentLang } = useLanguage();
   useSectionUrl(currentLang);
@@ -46,7 +50,9 @@ const Index = () => {
   const renderPlanCard = (plan: PricingPlan, i: number) => (
     <div
       key={i}
-      className={`relative rounded-2xl p-7 md:p-8 shadow-lg flex flex-col w-full ${
+      className={`relative rounded-2xl p-7 md:p-8 shadow-lg flex flex-col w-full transition ${
+        plan.tier === recommendedTier ? "ring-4 ring-primary ring-offset-2 ring-offset-transparent " : ""
+      }${
         plan.popular
           ? "bg-primary text-white"
           : plan.separate
@@ -120,12 +126,15 @@ const Index = () => {
       </div>
       <ul className="flex-1 space-y-2.5 mb-6">
         {plan.items.map((item, j) => (
-          <li key={j} className="text-[13px] flex items-start gap-2.5">
-            <Check
-              className={`w-4 h-4 flex-none mt-0.5 ${plan.popular ? "text-white" : "text-primary"}`}
-              strokeWidth={3}
-            />
-            <span>{item}</span>
+          <li key={j}>
+            <div className="text-[13px] flex items-start gap-2.5">
+              <Check
+                className={`w-4 h-4 flex-none mt-0.5 ${plan.popular ? "text-white" : "text-primary"}`}
+                strokeWidth={3}
+              />
+              <span>{item}</span>
+            </div>
+            {j === 0 && <div className="mt-2"><SegmentLine lang={currentLang} tier={plan.tier} inverted={plan.popular} /></div>}
           </li>
         ))}
       </ul>
@@ -451,6 +460,9 @@ const Index = () => {
                 </div>
               </div>
 
+              <PlanCalculator lang={currentLang} segments={segments} setSegments={setSegments} growth={growth} setGrowth={setGrowth} />
+
+
               <div className="flex flex-col lg:flex-row lg:items-stretch gap-5 lg:gap-6">
                 {/* Self-serve plans */}
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:basis-[72%]">
@@ -535,6 +547,7 @@ const Index = () => {
                   </div>
                 </div>
               </div>
+              <PricingFaq lang={currentLang} />
             </div>
           </section>
 

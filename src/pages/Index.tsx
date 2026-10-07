@@ -47,19 +47,20 @@ const Index = () => {
     setRequestOpen(true);
   };
 
-  const renderPlanCard = (plan: PricingPlan, i: number) => (
-    <div
-      key={i}
-      className={`relative rounded-2xl p-7 md:p-8 shadow-lg flex flex-col w-full transition ${
-        plan.tier === recommendedTier ? "ring-4 ring-primary ring-offset-2 ring-offset-transparent " : ""
-      }${
-        plan.popular
-          ? "bg-primary text-white"
-          : plan.separate
-            ? "bg-white/55 backdrop-blur-sm border border-dashed border-stragy-dark-text/25 shadow-none"
-            : "bg-white/85 backdrop-blur-sm border border-stragy-dark-text/[0.05]"
-      }`}
-    >
+  const renderPlanCard = (plan: PricingPlan, i: number) => {
+    const isRecommended = plan.tier === recommendedTier;
+    const card = (
+      <div
+        className={`relative rounded-2xl p-7 md:p-8 flex flex-col w-full h-full transition ${
+          isRecommended ? "shadow-none" : "shadow-lg"
+        }${
+          plan.popular
+            ? "bg-primary text-white"
+            : plan.separate
+              ? "bg-white/55 backdrop-blur-sm border border-dashed border-stragy-dark-text/25 shadow-none"
+              : "bg-white/85 backdrop-blur-sm border border-stragy-dark-text/[0.05]"
+        }`}
+      >
       {plan.popular && (
         <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-stragy-dark-text text-white text-[11px] font-bold px-4 py-1.5 rounded-full tracking-[0.03em]">
           {t.pricing.recommended}
@@ -148,8 +149,21 @@ const Index = () => {
       >
         {plan.cta}
       </button>
-    </div>
-  );
+      </div>
+    );
+    return isRecommended ? (
+      <div
+        key={i}
+        className="h-full w-full rounded-[calc(1rem+4px)] bg-gradient-to-br from-stragy-purple-deep via-stragy-pink-deep to-stragy-purple-deep p-[4px] shadow-xl"
+      >
+        {card}
+      </div>
+    ) : (
+      <div key={i} className="h-full w-full">
+        {card}
+      </div>
+    );
+  };
 
 
   return (

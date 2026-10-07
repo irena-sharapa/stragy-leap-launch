@@ -67,7 +67,9 @@ export default {
 				},
 			'stragy': {
 					'purple': 'hsl(var(--stragy-purple))',
+					'purple-deep': 'hsl(var(--stragy-purple-deep))',
 					'pink': 'hsl(var(--stragy-pink))',
+					'pink-deep': 'hsl(var(--stragy-pink-deep))',
 					'light-pink': 'hsl(var(--stragy-light-pink))',
 					'dark-text': 'hsl(var(--stragy-dark-text))',
 					'gray-text': 'hsl(var(--stragy-gray-text))',

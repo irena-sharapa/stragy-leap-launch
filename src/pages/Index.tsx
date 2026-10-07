@@ -52,7 +52,7 @@ const Index = () => {
     const card = (
       <div
         className={`relative rounded-2xl p-7 md:p-8 flex flex-col w-full h-full transition ${
-          isRecommended ? "shadow-none" : "shadow-lg"
+          isRecommended ? "shadow-none " : "shadow-lg "
         }${
           plan.popular
             ? "bg-primary text-white"

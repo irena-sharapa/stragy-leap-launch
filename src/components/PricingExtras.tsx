@@ -106,9 +106,9 @@ export const PlanCalculator = ({
   const t = tx(lang);
   const rec = recommendPlan(segments, growth);
   return (
-    <div className="max-w-2xl mx-auto mb-10 rounded-2xl bg-white/80 backdrop-blur-sm border border-stragy-dark-text/[0.06] shadow-lg p-5 md:p-6 text-stragy-dark-text">
-      <div className="grid sm:grid-cols-2 gap-5">
-        <div>
+    <div className="w-full mb-10 rounded-2xl bg-white/80 backdrop-blur-sm border border-stragy-dark-text/[0.06] shadow-lg p-5 md:p-6 text-stragy-dark-text">
+      <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <div className="md:flex-1">
           <label className="text-[13.5px] font-semibold block mb-2">{t.q1}</label>
           <input
             type="number"
@@ -120,7 +120,7 @@ export const PlanCalculator = ({
           <p className="text-[11.5px] text-stragy-dark-text/45 mt-1.5">{t.q1hint}</p>
         </div>
         {segments < 6 && (
-          <div>
+          <div className="md:flex-1">
             <div className="text-[13.5px] font-semibold mb-2">{t.q2}</div>
             <div className="inline-flex p-1 rounded-full bg-stragy-dark-text/[0.05]">
               {[true, false].map((v) => (
@@ -138,9 +138,10 @@ export const PlanCalculator = ({
             </div>
           </div>
         )}
-      </div>
-      <div className="mt-5 pt-4 border-t border-stragy-dark-text/10 text-[14px]">
-        {t.rec} <span className="font-bold text-primary">{rec}</span>
+        <div className="md:ml-auto inline-flex items-center gap-2 self-start md:self-auto rounded-full px-4 py-2.5 bg-stragy-dark-text/[0.04] text-[14px]">
+          <span className="text-stragy-dark-text/60">{t.rec}</span>
+          <span className="font-bold text-stragy-purple-deep">{rec}</span>
+        </div>
       </div>
     </div>
   );

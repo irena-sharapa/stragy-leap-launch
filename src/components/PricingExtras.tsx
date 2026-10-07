@@ -107,7 +107,7 @@ export const PlanCalculator = ({
   const rec = recommendPlan(segments, growth);
   return (
     <div className="w-full mb-10 rounded-2xl bg-white/80 backdrop-blur-sm border border-stragy-dark-text/[0.06] shadow-lg p-5 md:p-6 text-stragy-dark-text">
-      <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+      <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
         <div className="md:flex-1">
           <label className="text-[13.5px] font-semibold block mb-2">{t.q1}</label>
           <input

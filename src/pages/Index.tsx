@@ -253,7 +253,7 @@ const Index = () => {
           {/* Hero */}
           <header className="min-h-[calc(100vh-76px)] flex items-center py-8 md:py-10 px-5 sm:px-6">
             <div className="max-w-6xl mx-auto w-full">
-              <div className="grid lg:grid-cols-[58%_42%] gap-8 lg:gap-9 items-start">
+              <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-9 items-start">
                 <div>
                   {t.hero.badge && (
                     <div className="inline-flex items-center gap-2 text-primary text-[11px] sm:text-xs font-semibold tracking-[0.12em] uppercase mb-4 font-mono">
@@ -286,7 +286,7 @@ const Index = () => {
                 </div>
 
                 <div className="flex items-start justify-center lg:justify-end lg:pt-1">
-                  <div className="w-full sm:w-[65%] lg:w-[68%]">
+                  <div className="w-full sm:w-[85%] lg:w-[85%]">
                     <SignalCard />
                   </div>
                 </div>

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { Language, getPathForLanguage } from "@/lib/translations";
 import { SECTION_IDS, SectionId, getSlug, getSectionIdFromSlug } from "@/lib/sections";
 
@@ -9,7 +9,9 @@ import { SECTION_IDS, SectionId, getSlug, getSectionIdFromSlug } from "@/lib/sec
  * with a section URL directly.
  */
 export const useSectionUrl = (lang: Language) => {
-  const { section } = useParams<{ section?: string }>();
+  const params = useParams<{ section?: string }>();
+  const location = useLocation();
+  const section = params.section ?? (lang === "en" ? location.pathname.split("/")[1] : undefined);
 
   // Scroll to the section from the initial URL.
   useEffect(() => {

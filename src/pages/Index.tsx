@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { EmailDialog } from "@/components/EmailDialog";
-import { PrivacyPolicy } from "@/components/PrivacyPolicy";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { SignalCard } from "@/components/SignalCard";
 import { Check, ArrowRight, Menu, X } from "lucide-react";
@@ -13,11 +12,10 @@ import { RequestDialog } from "@/components/RequestDialog";
 import { useSectionUrl } from "@/hooks/useSectionUrl";
 import { PlanCalculator, PricingFaq, SegmentLine, recommendPlan } from "@/components/PricingExtras";
 
-const SITE_URL = "https://stragy.lovable.app";
+import { SITE_URL } from "@/lib/seo";
 
 const Index = () => {
   const [emailDialogOpen, setEmailDialogOpen] = useState(false);
-  const [privacyDialogOpen, setPrivacyDialogOpen] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [annual, setAnnual] = useState(false);
   const [requestOpen, setRequestOpen] = useState(false);
@@ -182,7 +180,7 @@ const Index = () => {
         <meta name="twitter:title" content={t.seo.title} />
         <meta name="twitter:description" content={t.seo.description} />
         <link rel="alternate" hrefLang="ru" href={`${SITE_URL}/ru`} />
-        <link rel="alternate" hrefLang="en" href={`${SITE_URL}/eng`} />
+        <link rel="alternate" hrefLang="en" href={`${SITE_URL}/`} />
         <link rel="alternate" hrefLang="es" href={`${SITE_URL}/es`} />
         <link rel="alternate" hrefLang="x-default" href={`${SITE_URL}/`} />
         <script type="application/ld+json">
@@ -600,12 +598,12 @@ const Index = () => {
                 <div className="flex flex-wrap gap-4 md:gap-6 text-[13.5px] text-stragy-dark-text/60">
                   <a href="#how" className="hover:text-stragy-dark-text transition">{t.nav.how}</a>
                   <a href="#pricing" className="hover:text-stragy-dark-text transition">{t.footer.pricing}</a>
-                  <button
-                    onClick={() => setPrivacyDialogOpen(true)}
+                  <a
+                    href="/privacy"
                     className="hover:text-stragy-dark-text transition"
                   >
                     {t.footer.privacy}
-                  </button>
+                  </a>
                   <a href="mailto:hello@stragy.com" className="hover:text-stragy-dark-text transition">
                     hello@stragy.com
                   </a>
@@ -626,10 +624,6 @@ const Index = () => {
             translations={t}
             plan={selectedPlan}
             onPlanChange={setSelectedPlan}
-          />
-          <PrivacyPolicy
-            open={privacyDialogOpen}
-            onOpenChange={setPrivacyDialogOpen}
           />
         </div>
       </div>

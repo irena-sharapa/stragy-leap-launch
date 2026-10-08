@@ -46,7 +46,7 @@ export const useSectionUrl = (lang: Language) => {
       }
 
 
-      const nextPath = active ? `${base}/${getSlug(lang, active)}` : base;
+      const nextPath = active ? `${base === "/" ? "" : base}/${getSlug(lang, active)}` : base;
       if (window.location.pathname !== nextPath) {
         window.history.replaceState(null, "", nextPath + window.location.search);
       }

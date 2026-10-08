@@ -1,4 +1,4 @@
-import { Language } from "@/lib/translations";
+import { Language, getPathForLanguage } from "@/lib/translations";
 import { useLanguage } from "@/hooks/useLanguage";
 import {
   DropdownMenu,
@@ -15,7 +15,7 @@ const languages: { code: Language; flag: string; name: string }[] = [
 ];
 
 export const LanguageSwitcher = () => {
-  const { currentLang, setLanguage } = useLanguage();
+  const { currentLang } = useLanguage();
   
   const currentLanguage = languages.find(l => l.code === currentLang) || languages[2];
   
@@ -31,11 +31,13 @@ export const LanguageSwitcher = () => {
         {languages.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
-            onClick={() => setLanguage(lang.code)}
+            asChild
             className={`cursor-pointer ${lang.code === currentLang ? 'bg-primary/10' : ''}`}
           >
-            <span className="text-xl mr-3">{lang.flag}</span>
-            {lang.name}
+            <a href={getPathForLanguage(lang.code)} hrefLang={lang.code} lang={lang.code}>
+              <span className="text-xl mr-3">{lang.flag}</span>
+              {lang.name}
+            </a>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

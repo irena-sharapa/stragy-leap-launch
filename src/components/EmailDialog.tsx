@@ -105,9 +105,10 @@ export const EmailDialog = ({ open, onOpenChange, translations }: EmailDialogPro
               <label htmlFor="consent" className="text-sm text-stragy-gray-text leading-relaxed">
                 {t.consent}{" "}
                 <a 
-                  href="#privacy" 
+                  href="/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-primary hover:underline"
-                  onClick={(e) => e.preventDefault()}
                 >
                   {t.privacyLink}
                 </a>

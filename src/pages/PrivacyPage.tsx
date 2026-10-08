@@ -3,12 +3,13 @@ import { Helmet } from "react-helmet-async";
 const PrivacyPage = () => (
   <>
     <Helmet>
+      <html lang="ru" />
       <title>Политика обработки персональных данных — STRAGY</title>
       <meta
         name="description"
         content="Как STRAGY собирает, использует и защищает персональные данные пользователей платформы."
       />
-      <link rel="canonical" href="https://stragy.lovable.app/privacy" />
+      <link rel="canonical" href="https://www.stragy.com/privacy" />
     </Helmet>
 
     <main className="min-h-screen bg-background font-inter px-5 py-14">

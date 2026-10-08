@@ -1,3 +1,5 @@
+import { LANDING_SEO } from "./seo";
+
 export type Language = 'ru' | 'en' | 'es';
 
 export interface SignalItem {
@@ -362,7 +364,7 @@ const translations: Record<Language, Translations> = {
           items: [
             "12 Strategy Workspaces",
             "Всё из Growth",
-            "Свои данные: до 5 файлов в каждый workspace",
+            "Свои данные: до 5 рекламных источников в каждый workspace",
             "Action Plan и еженедельные корректировки",
             "Скачивание стратегии в PDF",
           ],
@@ -392,7 +394,7 @@ const translations: Record<Language, Translations> = {
         tiers: ["Starter", "Growth", "Pro", "Business"],
         rows: [
           { label: "Цена в месяц", values: ["$49", "$129", "$189", "$539+"] },
-          { label: "Workspace (стратегии)", values: ["3", "8", "12", "По запросу"] },
+          { label: "Workspace (стратегии)", values: ["3", "8", "12", "30+"] },
           { label: "Закрытые аналитические данные", values: ["Да", "Да", "Да", "Да"] },
           { label: "Анализ конкурентов", values: ["Да", "Да", "Да", "Да"] },
           { label: "Анализ целевой аудитории", values: ["Да", "Да", "Да", "Да"] },
@@ -405,8 +407,7 @@ const translations: Record<Language, Translations> = {
           { label: "Бесплатные каналы размещения", values: ["—", "Да", "Да", "Да"] },
           { label: "Ежемесячное обновление стратегии (рынок, конкуренты, поведение аудитории)", values: ["Да", "Да", "Да", "Да"] },
           { label: "Точки потерь клиентов на карте пути", values: ["—", "Да", "Да", "Да"] },
-          { label: "Подключение своих данных", values: ["—", "1 источник в каждый workspace", "До 5 источников в каждый workspace", "До 5 файлов в каждый workspace"] },
-          { label: "Учёт файла в ежемесячном обновлении и рекомендации: что идёт хорошо, что плохо, что изменить", values: ["—", "Да (по 1 файлу)", "Да (до 5 файлов)", "Да (до 5 файлов)"] },
+          { label: "Подключение своих данных (рекламные источники для каждого workspace)", values: ["—", "1", "До 5", "До 5"] },
           { label: "Action Plan: сверка реализации с поставленными целями", values: ["—", "—", "Да", "Да"] },
           { label: "Ежемесячные корректировки стратегии и рекламы", values: ["Да", "Да", "Да", "Да"] },
           { label: "Еженедельные корректировки стратегии и рекламы", values: ["—", "—", "Да", "Да"] },
@@ -657,7 +658,7 @@ const translations: Record<Language, Translations> = {
           items: [
             "12 Strategy Workspaces",
             "Everything in Growth",
-            "Own data: up to 5 files per workspace",
+            "Own data: up to 5 advertising sources per workspace",
             "Action plans and weekly adjustments",
             "Strategy download as PDF",
           ],
@@ -687,7 +688,7 @@ const translations: Record<Language, Translations> = {
         tiers: ["Starter", "Growth", "Pro", "Business"],
         rows: [
           { label: "Price per month", values: ["$49", "$129", "$189", "$539+"] },
-          { label: "Workspaces (strategies)", values: ["3", "8", "12", "On request"] },
+          { label: "Workspaces (strategies)", values: ["3", "8", "12", "30+"] },
           { label: "Closed analytics data", values: ["Yes", "Yes", "Yes", "Yes"] },
           { label: "Competitor analysis", values: ["Yes", "Yes", "Yes", "Yes"] },
           { label: "Target audience analysis", values: ["Yes", "Yes", "Yes", "Yes"] },
@@ -700,8 +701,7 @@ const translations: Record<Language, Translations> = {
           { label: "Free placement channels", values: ["—", "Yes", "Yes", "Yes"] },
           { label: "Monthly strategy update (market, competitors, audience behavior)", values: ["Yes", "Yes", "Yes", "Yes"] },
           { label: "Customer loss points on the journey map", values: ["—", "Yes", "Yes", "Yes"] },
-          { label: "Connect your own data", values: ["—", "1 source per workspace", "Up to 5 sources per workspace", "Up to 5 files per workspace"] },
-          { label: "File included in the monthly update with recommendations: what's going well, what's not, what to change", values: ["—", "Yes (1 file)", "Yes (up to 5 files)", "Yes (up to 5 files)"] },
+          { label: "Connect your own data (advertising sources per workspace)", values: ["—", "1", "Up to 5", "Up to 5"] },
           { label: "Action Plan: checking delivery against the set goals", values: ["—", "—", "Yes", "Yes"] },
           { label: "Monthly strategy and ad adjustments", values: ["Yes", "Yes", "Yes", "Yes"] },
           { label: "Weekly strategy and ad adjustments", values: ["—", "—", "Yes", "Yes"] },
@@ -949,7 +949,7 @@ const translations: Record<Language, Translations> = {
           items: [
             "12 Strategy Workspaces",
             "Todo lo de Growth",
-            "Datos propios: hasta 5 archivos por workspace",
+            "Datos propios: hasta 5 fuentes publicitarias por workspace",
             "Planes de acción y ajustes semanales",
             "Descarga de la estrategia en PDF",
           ],
@@ -979,7 +979,7 @@ const translations: Record<Language, Translations> = {
         tiers: ["Starter", "Growth", "Pro", "Business"],
         rows: [
           { label: "Precio al mes", values: ["$49", "$129", "$189", "$539+"] },
-          { label: "Workspaces (estrategias)", values: ["3", "8", "12", "A consultar"] },
+          { label: "Workspaces (estrategias)", values: ["3", "8", "12", "30+"] },
           { label: "Datos analíticos cerrados", values: ["Sí", "Sí", "Sí", "Sí"] },
           { label: "Análisis de la competencia", values: ["Sí", "Sí", "Sí", "Sí"] },
           { label: "Análisis del público objetivo", values: ["Sí", "Sí", "Sí", "Sí"] },
@@ -992,8 +992,7 @@ const translations: Record<Language, Translations> = {
           { label: "Canales gratuitos", values: ["—", "Sí", "Sí", "Sí"] },
           { label: "Actualización mensual de la estrategia (mercado, competencia, comportamiento del público)", values: ["Sí", "Sí", "Sí", "Sí"] },
           { label: "Puntos de pérdida de clientes en el mapa del recorrido", values: ["—", "Sí", "Sí", "Sí"] },
-          { label: "Conexión de tus propios datos", values: ["—", "1 fuente por workspace", "Hasta 5 fuentes por workspace", "Hasta 5 archivos por workspace"] },
-          { label: "Archivo incluido en la actualización mensual con recomendaciones: qué va bien, qué va mal y qué cambiar", values: ["—", "Sí (1 archivo)", "Sí (hasta 5 archivos)", "Sí (hasta 5 archivos)"] },
+          { label: "Conexión de tus propios datos (fuentes publicitarias por workspace)", values: ["—", "1", "Hasta 5", "Hasta 5"] },
           { label: "Action Plan: comparación de la ejecución con los objetivos marcados", values: ["—", "—", "Sí", "Sí"] },
           { label: "Ajustes mensuales de estrategia y publicidad", values: ["Sí", "Sí", "Sí", "Sí"] },
           { label: "Ajustes semanales de estrategia y publicidad", values: ["—", "—", "Sí", "Sí"] },
@@ -1063,19 +1062,19 @@ const translations: Record<Language, Translations> = {
 };
 
 export const getTranslations = (lang: Language): Translations => {
-  return translations[lang] || translations.ru;
+  return { ...translations[lang], seo: LANDING_SEO[lang] };
 };
 
 export const getLanguageFromPath = (pathname: string): Language | null => {
-  if (pathname.startsWith('/eng')) return 'en';
-  if (pathname.startsWith('/es')) return 'es';
-  if (pathname.startsWith('/ru')) return 'ru';
-  return null;
+  const prefix = pathname.split('/')[1];
+  if (prefix === 'es') return 'es';
+  if (prefix === 'ru') return 'ru';
+  return 'en';
 };
 
 export const getPathForLanguage = (lang: Language): string => {
   switch (lang) {
-    case 'en': return '/eng';
+    case 'en': return '/';
     case 'es': return '/es';
     case 'ru': return '/ru';
   }

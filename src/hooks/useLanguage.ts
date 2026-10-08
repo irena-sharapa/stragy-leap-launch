@@ -5,7 +5,7 @@ export const useLanguage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   
-  const currentLang = getLanguageFromPath(location.pathname) || 'ru';
+  const currentLang = getLanguageFromPath(location.pathname) || 'en';
   
   const setLanguage = (lang: Language) => {
     localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);

@@ -2,9 +2,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
-import LanguageRedirect from "./pages/LanguageRedirect";
+import { SECTION_SLUGS } from "./lib/sections";
 import NotFound from "./pages/NotFound";
 import PrivacyPage from "./pages/PrivacyPage";
 import OfferPage from "./pages/OfferPage";
@@ -18,11 +18,14 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LanguageRedirect />} />
+          <Route path="/" element={<Index />} />
+          {Object.values(SECTION_SLUGS.en).map((section) => (
+            <Route key={section} path={`/${section}`} element={<Index />} />
+          ))}
           <Route path="/ru" element={<Index />} />
           <Route path="/ru/:section" element={<Index />} />
-          <Route path="/eng" element={<Index />} />
-          <Route path="/eng/:section" element={<Index />} />
+          <Route path="/eng" element={<Navigate to="/" replace />} />
+          <Route path="/eng/:section" element={<Navigate to="/" replace />} />
           <Route path="/es" element={<Index />} />
           <Route path="/es/:section" element={<Index />} />
           <Route path="/privacy" element={<PrivacyPage />} />

@@ -3,12 +3,13 @@ import { Helmet } from "react-helmet-async";
 const OfferPage = () => (
   <>
     <Helmet>
+      <html lang="ru" />
       <title>Договор публичной оферты — STRAGY</title>
       <meta
         name="description"
         content="Условия предоставления доступа к платформе STRAGY: предмет договора, порядок оплаты по счёту и права сторон."
       />
-      <link rel="canonical" href="https://stragy.lovable.app/offer" />
+      <link rel="canonical" href="https://www.stragy.com/offer" />
     </Helmet>
 
     <main className="min-h-screen bg-background font-inter px-5 py-14">

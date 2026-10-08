@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://stragy.lovable.app/sitemap.xml
+Sitemap: https://www.stragy.com/sitemap.xml

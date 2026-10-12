@@ -181,7 +181,6 @@
 .report-icon-1 { color: var(--report-purple); background: var(--report-purple-soft); }
 .report-icon-2 { color: var(--report-surface); background: var(--report-blue); }
 @media (min-width: 1024px) {
-  .report-slides { height: 404px; }
   .report-slide { min-height: 0; padding: 20px; }
   .report-title { margin-bottom: 10px; }
 }

@@ -265,7 +265,7 @@ const Index = () => {
           {/* Hero */}
           <header className="min-h-[calc(100vh-76px)] flex items-center py-8 md:py-10 px-5 sm:px-6">
             <div className="max-w-6xl mx-auto w-full">
-              <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-9 items-start">
+              <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-16 items-start">
                 <div>
                   {t.hero.badge && (
                     <div className="inline-flex items-center gap-2 text-primary text-[11px] sm:text-xs font-semibold tracking-[0.12em] uppercase mb-4 font-mono">

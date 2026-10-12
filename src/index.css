@@ -167,10 +167,10 @@
 .report-channel-column { border-left: 3px solid var(--report-pink); padding-left: 9px; min-width: 0; }
 .report-channel-column-1 { border-color: var(--report-purple); }
 .report-channel-column > h4 { margin-bottom: 8px; }
-.report-channel { margin-top: 6px; }
+.report-channel { margin-top: 3px; }
 .report-channel .report-main { line-height: 1.1; overflow-wrap: anywhere; }
 .report-channel .report-explanation { margin-top: 3px; font-size: 15px; line-height: 1.1; }
-.report-placeholder { font-size: 12px; line-height: 1.2; color: var(--report-muted); filter: blur(4.5px); user-select: none; margin-top: 4px; }
+.report-placeholder { font-size: 12px; line-height: 1; color: var(--report-muted); filter: blur(4.5px); user-select: none; margin-top: 2px; }
 .report-budget { display: inline-block; font-size: 9px; color: var(--report-muted); background: var(--report-neutral); border-radius: 4px; padding: 2px 3px; }
 .report-signals { display: flex; flex-direction: column; gap: 16px; }
 .report-signal-row { display: flex; align-items: flex-start; gap: 12px; }

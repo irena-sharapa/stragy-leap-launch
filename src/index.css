@@ -167,7 +167,7 @@
 .report-channel-column { border-left: 3px solid var(--report-pink); padding-left: 9px; min-width: 0; }
 .report-channel-column-1 { border-color: var(--report-purple); }
 .report-channel-column > h4 { margin-bottom: 8px; }
-.report-channel { margin-top: 9px; }
+.report-channel { margin-top: 6px; }
 .report-channel .report-main { line-height: 1.1; overflow-wrap: anywhere; }
 .report-channel .report-explanation { margin-top: 3px; font-size: 15px; line-height: 1.1; }
 .report-placeholder { font-size: 12px; line-height: 1.2; color: var(--report-muted); filter: blur(4.5px); user-select: none; margin-top: 4px; }
@@ -182,7 +182,8 @@
 .report-icon-2 { color: var(--report-surface); background: var(--report-blue); }
 @media (min-width: 1024px) {
   .report-slides { height: 404px; }
-  .report-slide { min-height: 0; }
+  .report-slide { min-height: 0; padding: 20px; }
+  .report-title { margin-bottom: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .report-slide, .report-dot { transition: none; }

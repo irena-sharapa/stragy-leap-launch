@@ -298,7 +298,7 @@ const Index = () => {
                 </div>
 
                 <div className="flex items-start justify-center lg:justify-end lg:pt-1">
-                  <div className="w-full sm:w-[85%] lg:w-[85%]">
+                  <div className="w-full sm:w-[110.5%] sm:max-lg:mx-auto lg:w-[110.5%] lg:shrink-0">
                     <SignalCard />
                   </div>
                 </div>

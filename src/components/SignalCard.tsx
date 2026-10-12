@@ -101,6 +101,5 @@ export const SignalCard = () => {
     <div className="report-slides">{t.titles.map((title, i) => <article key={i} className={`report-slide ${i === current ? "report-slide-active" : ""}`} aria-hidden={i !== current} aria-roledescription="slide" aria-label={`${i + 1} / 5`}>
       <h3 className="report-label report-title">{title}</h3><div className="report-body">{body(i)}</div>{i !== 2 && <p className="report-footer">{t.example}</p>}
     </article>)}</div>
-    <div className="report-dots">{t.titles.map((title, i) => <Button key={i} type="button" variant="ghost" className="report-dot-button" aria-label={`${t.slide} ${i + 1}: ${title}`} aria-pressed={current === i} onClick={() => setCurrent(i)}><span className={`report-dot ${current === i ? "report-dot-active" : ""}`} /></Button>)}</div>
   </section>;
 };
